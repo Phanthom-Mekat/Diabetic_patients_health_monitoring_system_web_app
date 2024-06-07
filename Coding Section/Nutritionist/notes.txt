@@ -1,0 +1,23 @@
+nutritionist_dashboard.html
+Navigation menu for nutritionists
+Links to profile, patient list, appointments, diet plans, and feedback
+Overview of assigned patients, upcoming appointments, etc.
+
+nutritionist_profile.html
+Display and edit nutritionist information (Name, Contact Info, Dietary Assessments, etc.)
+
+nutritionist_appointments.html
+List of upcoming and past appointments
+Appointment details and instructions
+
+nutritionist_patient_list.html
+View and manage assigned patients
+Link to patient health data and diet plans
+
+nutritionist_diet_plans.html
+Manage and update diet plans for patients
+Link diet plans to patient IDs
+
+nutritionist_feedback.html
+Provide feedback for patients
+View past feedback

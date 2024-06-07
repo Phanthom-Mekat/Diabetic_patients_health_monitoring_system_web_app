@@ -1,0 +1,26 @@
+Doctor_dashboard.html
+Navigation menu for doctors
+Links to profile, patient list, appointments, prescriptions, instructions, and feedback
+Overview of assigned patients, upcoming appointments, etc.
+
+doctor_profile.html
+Display and edit doctor information (Name, Specialty, Contact Info, Hospital Affiliation, etc.)
+doctor_appointments.html
+List of upcoming and past appointments
+Appointment details and instructions
+
+doctor_patient_list.html
+View and manage assigned patients
+Link to patient health data and diagnosis
+
+doctor_prescriptions.html
+Manage and update prescriptions for patients
+Dosage and schedule details
+
+doctor_instructions.html
+Provide personalized instructions for patients
+Link instructions to patient IDs
+
+doctor_feedback.html
+Provide feedback for patients
+View past feedback

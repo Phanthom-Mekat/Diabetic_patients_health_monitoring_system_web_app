@@ -1,0 +1,27 @@
+patient_dashboard.html
+Navigation menu for patients
+Links to profile, health data, appointments, diagnosis, diet plan, feedback, and instructions
+Overview of recent health data, upcoming appointments, etc.
+patient_profile.html
+Display and edit patient demographic data (approval required for changes)
+Link to health history
+patient_health_data.html
+Form to input or update health metrics (Blood Pressure, Glucose Level, Daily Caloric Consumption, Calorie Burned)
+Display historical health data in charts or tables
+patient_appointments.html
+List of upcoming and past appointments
+Form to schedule new appointments with doctors or nutritionists
+Appointment details and instructions
+patient_diagnosis.html
+View diagnosis data filtered by patient ID
+Diagnosis data managed by the system admin
+patient_diet_plan.html
+View personalized diet plans prescribed by nutritionists (Caloric Intake, Macronutrient Distribution, Food Choices)
+Diet plans linked to patient ID
+patient_feedback.html
+Form to submit feedback
+Display past feedback
+patient_instructions.html
+View personalized instructions from doctors
+Instructions linked to patient ID
+SendSystemFeedback.html (contains a form with feed descripon text area and a like dislike button in bool form)

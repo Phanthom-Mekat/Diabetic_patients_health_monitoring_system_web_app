@@ -1,0 +1,13 @@
+index.html
+Welcome message
+Overview of the system, download option for educational pdf ( limited ) , imp videos related to diabetes hyper link from yt or download and show those ,etc
+Links to login, sign up, and other important sections
+
+login.html
+Login form (Username, Password)
+Link to the sign-up page
+Link to reset password
+
+signup.html
+Registration form (Name, Email, Password, Confirm Password, User Type: Patient)
+Link to login page
