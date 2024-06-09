@@ -3,16 +3,41 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    
 }
 
 body {
     display: flex;
     height: 100vh;
 }
+.welcome-title {
+    text-align: left;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    
+}
+
+.logo {
+    height: 70px;
+    width:70px;
+    margin-left: 100px;
+}
 
 .container {
     display: flex;
     width: 100%;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .sidebar {
@@ -20,6 +45,7 @@ body {
     background-color: #00060d;
     color: white;
     padding: 20px;
+    flex-shrink: 0;
 }
 
 .sidebar h2 {
@@ -48,27 +74,34 @@ body {
     background-color: #34495e;
 }
 
+.main-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.pDetails{
+    padding-left: 20px;
+    font-size: 2rem;
+    }
 .main-content {
     flex: 1;
     padding: 20px;
-    background-color: #fcfcfc;
-    overflow-y: auto;
+    background-color: #ffffff;
     
 }
 
 .card1 {
-    display:flex;
+    display: flex;
     flex-direction: row;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
-    padding: 20px;
+    padding-left: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-    margin-top: 100px;
-   justify-content: space-between;
-    
-    
+    padding-bottom: 20px;
+    justify-content: space-between;
 }
 
 .card h3 {
@@ -76,80 +109,120 @@ body {
 }
 
 .personalD {
-    margin-top:20px;
+    margin-top: 20px;
     height: 200px;
     background-color: #e7ecf1;
     border-radius: 8px;
     color: #2c3e50;
     font-size: 20px;
-    width:30%;
+    width: 55%;
     margin-right: 20px;
-    
-
-    
 }
 
-.personalDtable{
-    width:100%;
+.personalDtable {
+    width: 100%;
     text-align: left; 
-    padding-left:20px;
+    padding-left: 20px;
     border-spacing: 0 15px; 
-    
 }
 
-.diagnosticAnalysis{
-    margin-top:20px;
+.diagnosticAnalysis {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
     height: 200px;
     background-color: #000000;
     border-radius: 8px;
     color: #ffffff;
     font-size: 20px;
-    width:70%;
-    padding-left:220px;
-    padding-top:20px;
-
-    
+    width: 50%;
+    padding-left: 2px;
 }
 
 .card2 {
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
-    padding: 20px;
+    padding-left: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display:flex;
+    display: flex;
     flex-direction: row;
-    margin-top:20px;
     
-    
+    padding-bottom: 20px;
+
 }
 
-.pHead{
+.pHead {
     padding-left: 60px;
-    
-    
 }
 
-.appointmentTable{
-    width:100%;
+.appointmentTable {
+    width: 100%;
     text-align: left; 
-    padding-left:20px;
+    padding-left: 20px;
     border-spacing: 0 15px; 
-    
 }
 
-.appointmens{
-    margin-top:20px;   
+.appointmens {
+    margin-top: 20px;   
     background-color: #e7ecf1;
     border-radius: 8px;
     color: #2c3e50;
     font-size: 20px;
-    width:100%;
+    width: 100%;
     margin-right: 20px;
 }
 
-.appnHead{
-    
+.appnHead {
     padding-left: 20px;
     font-size: 2rem;
 }
+
+.top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+}
+
+.top-card {
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px 20px; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;  
+}
+
+.top-card .card-title {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.top-card .card-value {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    font-weight: bold;
+    margin: 5px 0;  
+}
+
+.top-card .card-date {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.settingsGif:hover{
+    cursor:pointer;
+   
+}
+
+tr:hover {cursor: pointer;}
+

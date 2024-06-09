@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
     <link rel="stylesheet" href="patientDashboardStyle.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -20,86 +45,93 @@
                 <li><a href="#"> Prescriptions</a></li>
             </ul>
         </div>
-
-        <div class="main-content">
-            <div class="card1">
-                
-                <div class="personalD" >
-                    
-                    <table class="personalDtable" >
-                        <tr>
-                            <th>Age</th>
-                            <th> 20 </th>
-                            
-                          </tr>
-                          <tr>
-                          <th>Blood Group</th>
-                          <th> AB+ </th>
-
-                          </tr>
-                          <tr>
-                            <th>Height(m)</th>
-                            <th> 1.78 </th>
-                              
+        <div class="main-content-wrapper">
+            <header class="header">
+            <h1 class="welcome-title">Welcome To Dashboard</h1>
+            <img class="settingsGif" src="settings.gif" alt="Logo" class="logo" height="60" width="60">  </header>
+            <div class="top-container">
+                <div class="card top-card">
+                    <div class="card-title">BP Reading</div>
+                    <div class="card-value">167</div>
+                    <div class="card-date">Today</div>
+                </div>
+                <div class="card top-card">
+                    <div class="card-title">Glucose Reading</div>
+                    <div class="card-value">185</div>
+                    <div class="card-date">Today</div>
+                </div>
+                <div class="card top-card">
+                    <div class="card-title">Weight Reading</div>
+                    <div class="card-value">101</div>
+                    <div class="card-date">Today</div>
+                </div>
+                <div class="card top-card">
+                    <div class="card-title">Calorie Burned</div>
+                    <div class="card-value">31</div>
+                    <div class="card-date">Today</div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <h2 class="pDetails">Personal Details</h2>
+                <div class="card1">
+                    <div class="personalD">
+                        <table class="personalDtable">
+                            <tr>
+                                <th>Age</th>
+                                <th> 20 </th>
+                            </tr>
+                            <tr>
+                                <th>Blood Group</th>
+                                <th> AB+ </th>
+                            </tr>
+                            <tr>
+                                <th>Height(m)</th>
+                                <th> 1.78 </th>
                             </tr>
                             <tr>
                                 <th>Weight(kg)</th>
                                 <th> 70 </th>
-                                  
-                                </tr>
-
-                    </table>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="diagnosticAnalysis">
+                        <div id="piechart" class="chart"></div>
+                    </div>
                 </div>
-                <div class="diagnosticAnalysis">
-                    <h2>Diagnostic Analytics</h2>
+                <h3><span class="appnHead">Appointments</span></h3>
+                <div class="card2">
+                    <div class="appointmens">
+                        <table class="appointmentTable">
+                            <tr>
+                                <th>Doctor Name</th>
+                                <th> Time </th>
+                                <th>Location</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>Rust Cohle</td>
+                                <td>Wednesday</td>
+                                <td>Mirpur</td>
+                                <td>Paid</td>
+                            </tr>
+                            <tr>
+                                <td>Walter White</td>
+                                <td>Monday</td>
+                                <td>New Mexico</td>
+                                <td>UnPaid</td>
+                            </tr>
+                            <tr>
+                                <td>Leon Kennedy</td>
+                                <td>Friday</td>
+                                <td>Racoon city</td>
+                                <td>Paid</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                
-            </div>
-            <h3><span class="appnHead">Appointments</span></h3>
-            <div class="card2">
-                
-                <div class="appointmens" >
-                    <table class="appointmentTable" >
-                        <tr>
-                            <th>Doctor Name</th>
-                            <th> Time </th>
-                            <th>Location</th>
-                            <th>Status</th>
-                            
-                          </tr>
-                          <tr>
-                          <td>Rust Cohle</td>
-                          <td>Wednesday</td>
-                          <td>Mirpur</td>
-                          <td>Paid</td>
-                          </tr>
-
-
-                </div>
-            </div>
-
-            <!--
-            <div class="card2">
-                <h3>Diagnosis Data</h3>
-                <div class="diagnosisData" >
-                    
-                </div>
-            </div>
-            
-            
-            
-            <div class="card2">
-                <h3>Diet Plan</h3>
-                <div class="dietPlan" >
-                    
-                </div>
-            </div>
-           
-           
-           
             </div>
         </div>
-    -->
     </div>
 </body>
 </html>
