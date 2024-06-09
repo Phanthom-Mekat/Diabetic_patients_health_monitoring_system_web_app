@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Health Data</title>
+    <link rel="stylesheet" href="inputHealthDataStyle.css">
+<body>
+    
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="patientDashboard.html">Dashboard</a><br><br>
+            <ul>
+                <li><a href="inputHealthData.html"> Input Health Data</a></li>
+                <li><a href="#"> Book Appointments</a></li>
+                <li><a href="#"> Diagnosis Data</a></li>
+                <li><a href="#"> Diet Plan</a></li>
+                <li><a href="#"> Presciptions</a></li>
+                <li><a href="#"> Recommendations</a></li>
+                <li><a href="#"> Feedback</a></li>
+            </ul>
+        </div>
+    <div class="health-data-container">
+        <div class="health-data-header">
+            <h2>Patient Health Data</h2>
+        </div>
+        <div class="health-data-content">
+            <div class="health-data-row">
+                <div class="health-data-field">
+                    <label for="glucose">Glucose</label>
+                    <input type="text" id="glucose" placeholder="Enter glucose level">
+                </div>
+                <div class="health-data-field">
+                    <label for="systolic">Blood Pressure</label>
+                    <input type="text" id="systolic" placeholder="Systolic">
+                    <input type="text" id="diastolic" placeholder="Diastolic">
+                </div>
+            </div>
+            <div class="health-data-row">
+                <div class="health-data-field">
+                    <label for="weight">Weight</label>
+                    <input type="text" id="weight" placeholder="Enter weight in lbs">
+                </div>
+                <div class="health-data-field">
+                    <label for="calories">Calories</label>
+                    <input type="text" id="calories" placeholder="Enter daily calorie intake">
+                </div>
+            </div>
+        </div>
+        <div class="health-data-footer">
+            <button class="save-button">Save</button>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

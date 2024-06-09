@@ -1,0 +1,136 @@
+
+.health-data-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  
+    margin: 20px auto;
+    width: calc(100% - 250px); 
+    margin: 20px 0 20px 20px
+}
+
+.health-data-header {
+    background-color: #00060d;
+    padding: 15px;
+    color: #fff;
+}
+
+.health-data-header h2 {
+    margin: 0;
+}
+
+.health-data-content {
+    padding: 20px;
+}
+
+.health-data-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.health-data-field {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.health-data-field:last-child {
+    margin-right: 0;
+}
+
+.health-data-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.health-data-field input {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.health-data-field input + input {
+    margin-top: 10px;
+}
+
+.health-data-footer {
+    background-color: #f5f5f5;
+    padding: 15px;
+    text-align: right;
+}
+
+.save-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.save-button:hover {
+    background-color: #555;
+}
+
+.dashboardLink{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding:20px;
+    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+}
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #00060d;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+}
