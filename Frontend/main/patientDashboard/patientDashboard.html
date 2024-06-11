@@ -21,8 +21,24 @@
           ['Sleep',    7]
         ]);
 
+        var isDarkMode = document.body.classList.contains('dark-mode');
+
+    // Set background color based on mode
+    var backgroundColor = isDarkMode ? '#1e1e1e' : '#f0f0f0';
+    var textColor = isDarkMode ? '#ffffff' : '#000000';
+
+
         var options = {
-          title: 'My Daily Activities'
+          title: 'My Daily Activities',
+          backgroundColor: backgroundColor,
+          titleTextStyle: {
+            color: textColor // Set title text color
+        },
+        legend: {
+            textStyle: {
+                color: textColor // Set legend text color
+            }
+        }
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -32,6 +48,7 @@
     </script>
 </head>
 <body>
+    
     <div class="container">
         <div class="sidebar">
             <h2>Dashboard</h2><br><br>
@@ -45,10 +62,13 @@
                 <li><a href="#"> Feedback</a></li>
             </ul>
         </div>
+        
         <div class="main-content-wrapper">
             <header class="header">
             <h1 class="welcome-title">Welcome To Dashboard</h1>
-            <img class="settingsGif" src="settings.gif" alt="Logo" class="logo" height="60" width="60">  </header>
+            <img src="nightMode.png" height="35" width="90" id="darkModeToggle" class="darkicon" onclick="toggleDarkMode()">
+            <script src="script.js"></script>
+            <img class="settingsGif" src="profileIcon.png" alt="Logo" class="logo" height="60" width="60">  </header>
             <div class="top-container">
                 <div class="card top-card">
                     <div class="card-title">BP Reading</div>
@@ -133,5 +153,13 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleDarkMode() {
+          document.body.classList.toggle('dark-mode');
+          drawChart();
+        }
+        
+      </script>
+  
 </body>
 </html>

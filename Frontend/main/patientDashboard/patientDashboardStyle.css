@@ -226,3 +226,62 @@ body {
 
 tr:hover {cursor: pointer;}
 
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .header {
+    background-color: #17181a;
+}
+
+
+
+body.dark-mode .main-content {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .card1, body.dark-mode .card2 {
+    background-color: #17181a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .personalD {
+    background-color: #17181a;
+    color: #ffffff;
+}
+
+body.dark-mode .appointmens {
+    background-color: #17181a;
+    color: #ffffff;
+}
+
+body.dark-mode .top-container {
+    background-color: #121212;
+}
+
+body.dark-mode .top-card {
+    background-color: #17181a;
+    color: #ffffff;
+}
+
+body.dark-mode .welcome-title{
+    
+    color: #ffffff;
+}
+
+body.dark-mode .card-title{
+    background-color: #17181a;
+    color: #ffffff;
+}
+
+body.dark-mode .card-value{
+    background-color: #17181a;
+    color:white;
+}
+
+.darkicon{
+    margin-left: 600px;
+}
