@@ -1,145 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IUBDMS</title>
-    <link rel="stylesheet" href="style.css" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <title>Diabetic Patients Health Monitoring System</title>
+    <link rel="stylesheet" href="Home.css"> <!-- link to external stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
 <body>
-    <video autoplay muted loop id="bg-video">
-        <source src="background-video.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
-    <!-- Logo and Company Name -->
-    <div class="logo-container">
-        <img src="logo.png" alt="Company Logo" class="company-logo">
-        <h1 class="company-name">IUBDMS</h1>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <h1>Diabetic Patients Health Monitoring System</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#login">Login/SignUp</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Navbar -->
-    <nav class="navbar">
+
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Features</h2>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#objectives">Objectives</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#study-diabetes">Study Diabetes</a></li>
-            <li><a href="#signup-login">Signup/Login</a></li>
+            <li>
+                <i class="fas fa-chart-line"></i>
+                <h3>Blood Glucose Tracking</h3>
+                <p>Track your blood glucose levels and view trends over time.</p>
+            </li>
+            <li>
+                <i class="fas fa-medkit"></i>
+                <h3>Medication Reminders</h3>
+                <p>Never miss a dose with our medication reminder system.</p>
+            </li>
+            <li>
+                <i class="fas fa-comment"></i>
+                <h3>Secure Messaging</h3>
+                <p>Communicate securely with your healthcare team and receive personalized advice.</p>
+            </li>
         </ul>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="blue-bg">
-        <div class="container">
-            <div class="home-content">
-                <div class="image-container">
-                    <img src="home-image.jpg" alt="Home Image" class="section-img">
-                </div>
-                <div class="text-container">
-                    <h1>Welcome to IUBDMS</h1>
-                    <p>To address the limitations of current diabetes monitoring systems regarding real-time data and personalized care,
-                        our study proposes a novel database-driven Integrated Health
-                        Monitoring System to address limitations in real-time data access
-                        and personalized care for diabetes management. Our solution
-                        offers a central database for patient demographics, diagnoses,
-                        physician information and medical records. This facilitates a
-                        comprehensive patient view, enabling real-time data analysis
-                        for personalized dietary and medication recommendations. User-
-                        friendly interfaces for both patients and healthcare providers
-                        are supported by a secure backend with a scalable database
-                        and secure APIs. The focus on usability, scalability, and security
-                        ensures efficient data management for an expanding user base.
-                        By integrating advanced database techniques, our study seeks to
-                        improve diabetes care through real-time, personalized healthcare
-                        solutions, ultimately elevating the standards of diabetes manage-
-                        ment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Objectives Section -->
-    <section id="objectives" class="white-bg">
-        <div class="container">
-            <h2>Objectives</h2>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <img src="objective.png" alt="Objective 1" class="section-img">
-                    <p>Manage patient demographic data.</p>
-                </div>
-                <div class="objective-item">
-                    <img src="objective.png" alt="Objective 2" class="section-img">
-                    <p>Manage patient diagnosis data.</p>
-                </div>
-                <div class="objective-item">
-                    <img src="objective.png" alt="Objective 3" class="section-img">
-                    <p>Manage relevant physicians’ information.</p>
-                </div>
-                <div class="objective-item">
-                    <img src="objective.png" alt="Objective 4" class="section-img">
-                    <p>Manage hospitals, diagnosis centers and other related facilities information.</p>
-                </div>
-                <div class="objective-item">
-                    <img src="objective.png" alt="Objective 5" class="section-img">
-                    <p>Recommend appropriate diet and facilities as per the patient’s health condition.</p>
-                </div>
-                <div class="objective-item">
-                    <img src="objective.png" alt="Objective 6" class="section-img">
-                    <p>Keep track of medicine prescribed to the patient which physicians can suggest to update based on recent visits.</p>
-                </div>
-            </div>
-        </div>
     </section>
 
-
-    <!-- About Us Section -->
-    <section id="about" class="blue-bg">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <img src="about-image.jpg" alt="About Image" class="section-img">
-                <p>By offering a completely integrated solution with real-time tracking, nutritional management, and individualized suggestions, our To-Be rich picture approach seeks to overcome the drawbacks of existing solutions. The existing solution has a very organized data management system where the data are maintained in different ways but in our proposed system we are trying to solve this problem by collecting data of the users through a single system that maintains the whole data process. To do this, our system makes use of MySQL databases for the centralized storing of patient demographics, diagnosis data, physician details, hospital information, and other vital data, guaranteeing data confidentiality, integrity, and convenient access for authorized users. Our system solves the problem of scheduling and taking appointments through the reception it has become fully automated which gives a perfect end-to-end system to book appointments with the physician as per their schedule and the time given by the physicians will be noted to acknowledge the effort of the physicians. To provide useful advice for properly treating diabetes, core features include appointment scheduling, health data management, and individualized suggestions based on patient health data. Physicians offer comments, offer diet management, and prescribe treatments directly through the system thanks to real-time data syncing and a feedback loop that guarantees ongoing patient data synchronization with the database. The process is maintained through one system that provides the users with efficient security of their respectable pieces of information. System administrators manage administration and maintenance duties and put strong security measures in place to preserve sensitive data from compromises and illegal access.
-                    </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <!-- Contact Us Section -->
-    <section id="contact" class="white-bg">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-flex-container">
-                <div class="contact-info">
-                    <p>Email: example@example.com</p>
-                    <p>Phone: +1234567890</p>
-                    <p>Address: Dhaka, Bangladesh</p>
-                </div>
-                <div id="map" class="map-container"></div>
-            </div>
-        </div>
-    </section>
-        
-
-    <!-- Study Diabetes Section -->
-    <section id="study-diabetes" class="blue-bg">
-        <div class="container">
-            <h2>Study Diabetes</h2>
-            <div class="study-diabetes-content">
-                <img src="study-diabetes-image.jpg" alt= "aa" class="section-img">
-                <p>Download our PDF to learn more about diabetes.</p>
-                <a href="guide.pdf" download><button>Download PDF</button></a>
-            </div>
-        </div>
+    <!-- Call to Action Section -->
+    <section id="cta" class="cta">
+        <h2>Join Our Community Today!</h2>
+        <p>Sign up for a free account and start taking control of your diabetes.</p>
+        <button>SignUp</button>
     </section>
 
     <!-- Footer Section -->
-    <footer class="blue-bg">
-        <div class="container">
-            <p>&copy; 2024 IUBDMS. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; 2023 Diabetic Patients Health Monitoring System</p>
     </footer>
 </body>
 </html>
