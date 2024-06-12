@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Database</title>
+    <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
+                <li><a href="doctor_profile.html">View Profile</a></li>
+                <li><a href="doctor_appointments.html">Manage Appointments</a></li>
+                <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
+                <li><a href="doctor_instructions.html">Consult Patients</a></li>
+                <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
+                <li><a href="doctor_medicine.html">Medicine Database</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="headerM">
+                <h1 class="welcome-title">Medicine Database</h1>
+            </header>
+            <div class="main-content">
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search Medicine">
+                    <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
+                </div>
+                <table id="medicine-table">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Prescription ID</th>
+                            <th>Patient Name</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table content will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="medicineDatabaseScript.js"></script>
+</body>
+</html>

@@ -312,3 +312,150 @@ body {
 .prescriptions-table button:hover {
     background-color: #575757;
 }
+/* Consultation of doc feature*/
+/* Flexbox container for form and laws sections */
+.form-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px; /* Limit width for responsiveness */
+}
+
+/* Form section styles */
+.form-section, .laws-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000000; /* Black border */
+}
+
+/* Add hover effect */
+.form-section:hover, .laws-section:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+/* Form and laws logo styles */
+.form-logo img, .laws-logo img {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    border-radius: 50%; /* Make the logo round */
+    margin-bottom: 20px; /* Space between logo and content */
+}
+
+/* Form container styles */
+.form-containerC, .consultation-laws {
+    max-width: 300px; /* Limit width for content */
+}
+
+/* Form and laws title styles */
+.form-containerC h2, .consultation-laws h2 {
+    margin-bottom: 20px; /* Space below title */
+}
+
+/* Form input and label styles */
+.form-containerC label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333333; /* Dark grey text */
+}
+
+.form-containerC input[type="text"],
+.form-containerC textarea,
+.form-containerC input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #999999; /* Darker grey border */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Submit button styles */
+.form-containerC button[type="submit"] {
+    background-color: #4c90af; /* Blue button */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.form-containerC button[type="submit"]:hover {
+    background-color: #4583a0; /* Darker blue on hover */
+}
+
+/* Consultation laws list styles */
+.consultation-laws ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.consultation-laws ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Med db list styles */
+
+.headerM {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
