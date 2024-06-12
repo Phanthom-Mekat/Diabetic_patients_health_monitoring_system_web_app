@@ -196,3 +196,119 @@ body {
     margin-right: 5px;
 }
 
+
+
+/* CSS for the pres table */
+
+.form-container, .table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form-container {
+    border: 1px solid #333;
+}
+
+#prescription-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#prescription-form label {
+    flex-basis: 100%;
+}
+
+#prescription-form input, #prescription-form select {
+    flex-basis: calc(50% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+#prescription-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-basis: 100%;
+}
+
+#prescription-form button:hover {
+    background-color: #575757;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#search-appointment-id {
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+}
+
+#search-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#search-btn i {
+    font-size: 16px;
+}
+
+#search-btn:hover {
+    background-color: #575757;
+}
+
+.prescriptions-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.prescriptions-table th,
+.prescriptions-table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+}
+
+.prescriptions-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.prescriptions-table td {
+    background-color: #fff;
+}
+
+.prescriptions-table button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.prescriptions-table button:hover {
+    background-color: #575757;
+}

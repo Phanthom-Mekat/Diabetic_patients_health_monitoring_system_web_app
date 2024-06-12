@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescribe Medicine</title>
+    <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
+                <li><a href="doctor_profile.html">View Profile</a></li>
+                <li><a href="doctor_appointments.html">Manage Appointments</a></li>
+                <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
+                <li><a href="doctor_instructions.html">Consult Patients</a></li>
+                <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
+                <li><a href="doctor_medicine.html">Medicine Database</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Prescribe Medicine</h1>
+            </header>
+            <div class="main-content">
+                <div class="form-container">
+                    <h2>Prescription Form</h2>
+                    <form id="prescription-form">
+                        <label for="appointment-id">Appointment ID:</label>
+                        <input type="text" id="appointment-id" name="appointment-id" required>
+                        
+                        <label for="prescription-id">Prescription ID:</label>
+                        <input type="text" id="prescription-id" name="prescription-id" required>
+                        
+                        <label for="drug-name">Drug Name:</label>
+                        <input type="text" id="drug-name" name="drug-name" required>
+                        
+                        <label for="dose">Dose:</label>
+                        <input type="text" id="dose" name="dose" required>
+                        
+                        <label for="dosage">Dosage:</label>
+                        <select id="dosage" name="dosage" onchange="checkOther(this);" required>
+                            <option value="Once a day">Once a day</option>
+                            <option value="Twice a day">Twice a day</option>
+                            <option value="Thrice a day">Thrice a day</option>
+                            <option value="Four times a day">Four times a day</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" id="customDosage" name="customDosage" style="display: none;">
+                        <script>
+                            function checkOther(select) {
+                                var customDosageInput = document.getElementById("customDosage");
+                                if (select.value === "Other") {
+                                    customDosageInput.style.display = "inline-block";
+                                    customDosageInput.required = true;
+                                } else {
+                                    customDosageInput.style.display = "none";
+                                    customDosageInput.required = false;
+                                }
+                            }
+                        </script>
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" required min="0" max="10">
+                        
+                        <button type="submit">Add Prescription</button>
+                    </form>
+                </div>
+                <div class="table-container">
+                    <h2>Search Prescription by Appointment ID</h2>
+                    <div class="search-container">
+                        <input type="text" id="search-appointment-id" placeholder="Enter Appointment ID">
+                        <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
+                    </div>
+                    <h2>Previous Prescriptions</h2>
+                    <table id="prescriptions-table" class="prescriptions-table">
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Prescription ID</th>
+                                <th>Drug Name</th>
+                                <th>Dose</th>
+                                <th>Dosage</th>
+                                <th>Quantity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Prescription data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="doctorPrescriptionsScript.js"></script>
+</body>
+</html>
