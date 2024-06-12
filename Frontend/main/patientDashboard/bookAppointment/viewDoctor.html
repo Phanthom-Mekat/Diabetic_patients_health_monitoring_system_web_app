@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="viewDoctor.css">
+    <script src="viewDoctor.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="\Frontend\main\patientDashboard\patientDashboard.html">Dashboard</a><br><br><br><br>
+            <ul>
+                <li><a href="\Frontend\main\patientDashboard\inputHealthData\inputHealthData.html">Input Health Data</a></li>
+                <li><a href="viewDoctor.html">Book Appointments</a></li>
+                <li><a href="#">Diagnosis Data</a></li>
+                <li><a href="#">Diet Plan</a></li>
+                <li><a href="#">Presciptions</a></li>
+                <li><a href="#">Recommendations</a></li>
+                <li><a href="#">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Find a Doctor</h1>
+            <div class="filters">
+                <select>
+                    <option>All Locations</option>
+                </select>
+                <select>
+                    <option>All Specialties</option>
+                </select>
+                <input type="text" placeholder="Available Time">
+                <input type="number" value="0">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Specialty</th>
+                        <th>Location</th>
+                        <th>Fee</th>
+                        <th>Available Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dr. David Lee</td>
+                        <td>Neurology</td>
+                        <td>Miami</td>
+                        <td>$190</td>
+                        <td>9:30 AM - 5:30 PM</td>
+                        <td><button class="book-button" onclick="bookAppointment('bookAppointment.html')">Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Emily Davis</td>
+                        <td>Orthopedics</td>
+                        <td>Houston</td>
+                        <td>$220</td>
+                        <td>11:00 AM - 7:00 PM</td>
+                        <td><button class="book-button" onclick="bookAppointment('bookAppointment.html')">Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Jane Smith</td>
+                        <td>Dermatology</td>
+                        <td>Los Angeles</td>
+                        <td>$150</td>
+                        <td>10:00 AM - 6:00 PM</td>
+                        <td><button class="book-button" onclick="bookAppointment('bookAppointment.html')">Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. John Doe</td>
+                        <td>Cardiology</td>
+                        <td>New York</td>
+                        <td>$200</td>
+                        <td>9:00 AM - 5:00 PM</td>
+                        <td><button class="book-button" onclick="bookAppointment('bookAppointment.html')">Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Michael Johnson</td>
+                        <td>Pediatrics</td>
+                        <td>Chicago</td>
+                        <td>$180</td>
+                        <td>8:00 AM - 4:00 PM</td>
+                        <td><button class="book-button" onclick="bookAppointment('bookAppointment.html')">Book</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="bookScript.js"> </script>
+</body>
+</html>

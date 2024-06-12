@@ -124,6 +124,7 @@ body {
     text-align: left; 
     padding-left: 20px;
     border-spacing: 0 15px; 
+
 }
 
 .diagnosticAnalysis {
@@ -161,6 +162,7 @@ body {
     text-align: left; 
     padding-left: 20px;
     border-spacing: 0 15px; 
+   
 }
 
 .appointmens {
@@ -171,6 +173,7 @@ body {
     font-size: 20px;
     width: 100%;
     margin-right: 20px;
+    border-bottom: 1px solid #000000;
 }
 
 .appnHead {
