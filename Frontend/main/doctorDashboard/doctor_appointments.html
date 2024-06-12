@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Appointments</title>
+    <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
+                <li><a href="doctor_profile.html">View Profile</a></li>
+                <li><a href="doctor_appointments.html">Manage Appointments</a></li>
+                <li><a href="doctor_patient_list.html">View Patient Demographics</a></li>
+                <li><a href="doctor_prescriptions.html">Track Medication</a></li>
+                <li><a href="doctor_instructions.html">Consult Patients</a></li>
+                <li><a href="doctor_medicine.html">Medicine Database</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Manage Appointments</h1>
+            </header>
+            <div class="main-content">
+                <div id="filter-container">
+                    <label for="appointment-type">Filter by Appointment Type:</label>
+                    <select id="appointment-type">
+                        <option value="all">All</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                    </select>
+                    
+                    <label for="appointment-date">Filter by Appointment Date:</label>
+                    <input type="text" id="appointment-date">
+
+                    <label for="action-filter">Filter by Action:</label>
+                    <select id="action-filter">
+                        <option value="all">All</option>
+                        <option value="approve">Approve</option>
+                        <option value="reject">Reject</option>
+                    </select>
+                    
+                    <label>Status:</label>
+                    <label><input type="radio" name="status-filter" value="all" checked> All</label>
+                    <label><input type="radio" name="status-filter" value="approved"> Approved</label>
+                    <label><input type="radio" name="status-filter" value="pending"> Pending</label>
+                </div>
+                <table id="appointments-table" class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>Appointment ID</th>
+                            <th>Appointment Date</th>
+                            <th>Appointment Type</th>
+                            <th>Time</th>
+                            <th>Action</th>
+                            <th>Approval Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Appointments data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="doctorAppointmentsScript.js"></script>
+</body>
+</html>
