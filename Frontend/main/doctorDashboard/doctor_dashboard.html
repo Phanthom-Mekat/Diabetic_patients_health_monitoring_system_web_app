@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Dashboard Overview</title>
     <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link href='https://unpkg.com/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://unpkg.com/fullcalendar@5.10.1/main.min.js'></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/39df84b900.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
@@ -20,16 +27,79 @@
                 <li><a href="doctor_medicine.html">Medicine Database</a></li>
             </ul>
         </div>
-        
-        <div class="main-content-wrapper">
-            <header class="header">
-                <h1 class="welcome-title">Doctor Dashboard Overview</h1>
-            </header>
-            <div class="main-content">
-                <h2>Dashboard Overview</h2>
-                <!-- Add your dashboard overview content here -->
+      
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="profile">
+                <img src="Doctor_img1.jpeg" alt="Doctor">
             </div>
-        </div>
+        </header> 
+        <section class="overview">
+            <div class="welcome-card">
+                <h1>👋 Welcome back,</h1>
+                <h1>Dr. Tashfiq Islam</h1>
+                <p>You have total <span class="highlight">12 appointments</span> today!</p>
+
+            </div>
+            <div class="statistics">
+                <div class="stat">
+                    <i class="fa-regular fa-hospital-user"></i>
+                    <h3>Total Patients</h3>
+                    <p>473</p>
+                </div>
+                <div class="stat">
+                    <i class="fa-regular fa-stethoscope"></i>
+                    <h3>Consultation</h3>
+                    <p>236</p>
+                </div>
+                <div class="stat">
+                    <i class="fa-regular fa-syringe"></i>
+                    <h3>Treated</h3>
+                    <p>105</p>
+                </div>
+                <div class="stat">
+                    <i class="fa-regular fa-truck-medical"></i>
+                    <h3>Surgery</h3>
+                    <p>132</p>
+                </div>
+            </div>
+        </section> 
+        <section class="charts">
+            <div id="curve_chart" style="width: 48%; height: 300px;"></div>
+            <div class="calendar">
+                <h3>Your Appointments</h3>
+                <div id="calendar"></div>
+            </div>
+        
+        </section>
+        <section class="appointments">
+            <div id="piechart" style="width: 800px; height: 400px;"></div>
+            <div class="appointment-list">
+                <h3>Today's Appointments</h3>
+                <ul>
+                    <li>
+                        <span>10:00 am - 11:00 am</span>
+                        <span>Brain Mathew</span>
+                    </li>
+                    <li>
+                        <span>11:00 am - 12:00 pm</span>
+                        <span>Sika Chirag</span>
+                    </li>
+                    <li>
+                        <span>2:00 pm - 2:30 pm</span>
+                        <span>Peter Parker Joel</span>
+                    </li>
+                    <li>
+                        <span>3:00 pm - 3:45 pm</span>
+                        <span>Rebecca Lynn Stone</span>
+                    </li>
+                </ul>
+                <a href="doctor_appointments.html" class="view-appointments">View All Appointments</a>
+            </div>
+        </section>
+    
     </div>
+    <script src="doctor_dashboardscript.js"></script>
 </body>
 </html>
