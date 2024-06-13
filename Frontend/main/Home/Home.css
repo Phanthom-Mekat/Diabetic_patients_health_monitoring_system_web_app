@@ -7,10 +7,12 @@
 }
 
 body {
-  background-image: url('Hospital.jpg');
+  image-rendering: pixelated;
+  background-image: url(Hospital.jpg);
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center;
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,17 +80,23 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 24px; 
+  font-size: 38px; 
 }
 
 nav ul {
   display: flex;
+  touch-action: pinch-zoom;
   justify-content: center;
 }
 
 nav li {
   margin-right: 20px;
+  
 }
+nav ul li {
+  font-size: 20px; /* Change to your desired font size */
+}
+
 
 nav a {
   color: #fff;
