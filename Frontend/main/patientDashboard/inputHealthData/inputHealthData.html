@@ -5,52 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Health Data</title>
     <link rel="stylesheet" href="inputHealthDataStyle.css">
+    
+</head>
 <body>
     
     <div class="container">
         <div class="sidebar">
             <a class="dashboardLink" href="\Frontend\main\patientDashboard\patientDashboard.html">Dashboard</a><br><br><br><br>
             <ul>
-                <li><a href="inputHealthData.html"> Input Health Data</a></li>
+                <li><a href="inputHealthData.html"> Daily Health Data</a></li>
                 <li><a href="\Frontend\main\patientDashboard\bookAppointment\viewDoctor.html"> Book Appointments</a></li>
-                <li><a href="#"> Diagnosis Data</a></li>
+                <li><a href="\Frontend\main\patientDashboard\diagnosisData\diagnosis.html"> Diagnosis Data</a></li>
                 <li><a href="#"> Diet Plan</a></li>
-                <li><a href="#"> Presciptions</a></li>
+                <li><a href="#"> Prescriptions</a></li>
                 <li><a href="#"> Recommendations</a></li>
                 <li><a href="#"> Feedback</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
             </ul>
         </div>
-    <div class="health-data-container">
-        <div class="health-data-header">
-            <h2>Patient Health Data</h2>
-        </div>
-        <div class="health-data-content">
-            <div class="health-data-row">
-                <div class="health-data-field">
-                    <label for="glucose">Glucose</label>
-                    <input type="text" id="glucose" placeholder="Enter glucose level">
+        <div class="health-data-container">
+            <div class="health-data-header">
+                <h2>Patient Health Data</h2>
+            </div>
+            <div class="health-data-content">
+                <div class="health-data-row">
+                    <div class="health-data-field">
+                        <label for="glucose">Glucose</label>
+                        <input type="text" id="glucose" placeholder="Enter glucose level">
+                    </div>
+                    <div class="health-data-field">
+                        <label for="systolic">Blood Pressure</label>
+                        <input type="text" id="systolic" placeholder="Systolic">
+                        <input type="text" id="diastolic" placeholder="Diastolic">
+                    </div>
                 </div>
-                <div class="health-data-field">
-                    <label for="systolic">Blood Pressure</label>
-                    <input type="text" id="systolic" placeholder="Systolic">
-                    <input type="text" id="diastolic" placeholder="Diastolic">
+                <div class="health-data-row">
+                    <div class="health-data-field">
+                        <label for="weight">Weight</label>
+                        <input type="text" id="weight" placeholder="Enter weight in lbs">
+                    </div>
+                    <div class="health-data-field">
+                        <label for="calories">Calories</label>
+                        <input type="text" id="calories" placeholder="Enter daily calorie intake">
+                    </div>
+                    <div class="health-data-field">
+                        <label for="medical-conditions">Medical Conditions</label>
+                        <input type="text" id="medical-conditions" placeholder="List any known medical conditions">
+                    </div>
                 </div>
             </div>
-            <div class="health-data-row">
-                <div class="health-data-field">
-                    <label for="weight">Weight</label>
-                    <input type="text" id="weight" placeholder="Enter weight in lbs">
-                </div>
-                <div class="health-data-field">
-                    <label for="calories">Calories</label>
-                    <input type="text" id="calories" placeholder="Enter daily calorie intake">
-                </div>
+            <div class="health-data-footer">
+                <button class="save-button">Save</button>
             </div>
-        </div>
-        <div class="health-data-footer">
-            <button class="save-button">Save</button>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <div id="chart_div"></div>
         </div>
     </div>
-    </div>
+    
 </body>
 </html>

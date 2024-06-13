@@ -7,68 +7,76 @@
     <link rel="stylesheet" href="patientDashboardStyle.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work', 11],
+                ['Eat', 2],
+                ['Commute', 2],
+                ['Watch TV', 2],
+                ['Sleep', 7]
+            ]);
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+            var isDarkMode = document.body.classList.contains('dark-mode');
+            var backgroundColor = isDarkMode ? '#1e1e1e' : '#f0f0f0';
+            var textColor = isDarkMode ? '#ffffff' : '#000000';
 
-        var isDarkMode = document.body.classList.contains('dark-mode');
+            var options = {
+                title: 'My Daily Activities',
+                backgroundColor: backgroundColor,
+                titleTextStyle: {
+                    color: textColor
+                },
+                legend: {
+                    textStyle: {
+                        color: textColor
+                    }
+                }
+            };
 
-    // Set background color based on mode
-    var backgroundColor = isDarkMode ? '#1e1e1e' : '#f0f0f0';
-    var textColor = isDarkMode ? '#ffffff' : '#000000';
-
-
-        var options = {
-          title: 'My Daily Activities',
-          backgroundColor: backgroundColor,
-          titleTextStyle: {
-            color: textColor // Set title text color
-        },
-        legend: {
-            textStyle: {
-                color: textColor // Set legend text color
-            }
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
         }
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
     </script>
 </head>
 <body>
-    
     <div class="container">
         <div class="sidebar">
             <h2>Dashboard</h2><br><br>
             <ul>
-                <li><a href="inputHealthData/inputHealthData.html"> Input Health Data</a></li>
+                <li><a href="inputHealthData/inputHealthData.html"> Daily Health Data</a></li>
                 <li><a href="\Frontend\main\patientDashboard\bookAppointment\viewDoctor.html"> Book Appointments</a></li>
-                <li><a href="#"> Diagnosis Data</a></li>
+                <li><a href="\Frontend\main\patientDashboard\diagnosisData\diagnosis.html"> Diagnosis Data</a></li>
                 <li><a href="#"> Diet Plan</a></li>
-                <li><a href="#"> Presciptions</a></li>
+                <li><a href="#"> Prescriptions</a></li>
                 <li><a href="#"> Recommendations</a></li>
                 <li><a href="#"> Feedback</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
             </ul>
         </div>
         
         <div class="main-content-wrapper">
             <header class="header">
-            <h1 class="welcome-title">Welcome To Dashboard</h1>
-            <img src="nightMode.png" height="35" width="90" id="darkModeToggle" class="darkicon" onclick="toggleDarkMode()">
-            <script src="script.js"></script>
-            <img class="settingsGif" src="profileIcon.png" alt="Logo" class="logo" height="40" width="40">  </header>
+                <h1 class="welcome-title">Welcome To Dashboard</h1>
+                <img src="nightMode.png" height="35" width="90" id="darkModeToggle" class="darkicon" onclick="toggleDarkMode()">
+                <script src="script.js"></script>
+                
+                
+                <div class="dropdown">
+                    <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+                    <label for="dropdown-toggle" class="dropbtn">
+                        <img src="profileIcon.png" alt="Profile Icon" class="profile-icon" height="40" width="40">
+                    </label>
+                    <div class="dropdown-content">
+                        <a href="#profile">Profile</a>
+                        <a href="#settings">Settings</a>
+                        <a href="\Frontend\main\Home\index.html">Logout</a>
+                    </div>
+                </div>
+            </header>
             <div class="top-container">
                 <div class="card top-card">
                     <div class="card-title">BP Reading</div>
@@ -86,7 +94,7 @@
                     <div class="card-date">Today</div>
                 </div>
                 <div class="card top-card">
-                    <div class="card-title">Calorie Burned</div>
+                    <div class="card-title">Calorie Intake</div>
                     <div class="card-value">31</div>
                     <div class="card-date">Today</div>
                 </div>
@@ -155,11 +163,9 @@
     </div>
     <script>
         function toggleDarkMode() {
-          document.body.classList.toggle('dark-mode');
-          drawChart();
+            document.body.classList.toggle('dark-mode');
+            drawChart();
         }
-        
-      </script>
-  
+    </script>
 </body>
 </html>

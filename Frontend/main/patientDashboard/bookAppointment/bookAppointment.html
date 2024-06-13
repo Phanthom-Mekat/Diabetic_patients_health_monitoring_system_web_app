@@ -5,54 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Appointment</title>
     <link rel="stylesheet" href="bookAppointment.css">
+</head>
 <body>
-    
     <div class="container1">
         <div class="sidebar">
-            <a class="dashboardLink" href="\Frontend\main\patientDashboard\patientDashboard.html">Dashboard</a><br><br><br><br>
+            <a class="dashboardLink" href="/Frontend/main/patientDashboard/patientDashboard.html">Dashboard</a><br><br><br><br>
             <ul>
-                <li><a href="\Frontend\main\patientDashboard\inputHealthData\inputHealthData.html"> Input Health Data</a></li>
-                <li><a href="bookAppointment.html"> Book Appointments</a></li>
-                <li><a href="#"> Diagnosis Data</a></li>
-                <li><a href="#"> Diet Plan</a></li>
-                <li><a href="#"> Presciptions</a></li>
-                <li><a href="#"> Recommendations</a></li>
-                <li><a href="#"> Feedback</a></li>
+                <li><a href="/Frontend/main/patientDashboard/inputHealthData/inputHealthData.html">Daily Health Data</a></li>
+                <li><a href="viewDoctor.html">Book Appointments</a></li>
+                <li><a href="/Frontend/main/patientDashboard/diagnosisData/diagnosis.html">Diagnosis Data</a></li>
+                <li><a href="#">Diet Plan</a></li>
+                <li><a href="#">Prescriptions</a></li>
+                <li><a href="#">Recommendations</a></li>
+                <li><a href="#">Feedback</a></li>
             </ul>
         </div>
-
-
-        <section>
-            <div class="container">
-        <div class="contactForm">
-            <h2>Book Appointment</h2>
-            <div class="formBox">
-                <div class="inputBox w50">
-                    <input type="text" name="" id="" required>
-                    <span>First Name</span>
+        <div class="content">
+            <div class="booking-details">
+                
+                    <h2>Confirm Booking</h2><br><br>
+               
+                <div class="booking-section">
+                    <div class="booking-item">
+                        <strong>Patient Name</strong>
+                        <span>John Doe</span>
+                        <span>Age: 35, Gender: Male</span>
+                    </div><br>
+                    <div class="booking-item">
+                        <strong>Appointment</strong>
+                        <span>June 15, 2023 at 3:00 PM</span>
+                        <span>Duration: 30 minutes</span>
+                    </div><br>
                 </div>
-                <div class="inputBox w50">
-                    <input type="text" name="" id="" required>
-                    <span>Last Name</span>
+                <div class="booking-section">
+                    <div class="booking-item">
+                        <strong>Doctor</strong>
+                        <span>Dr. Jane Smith</span>
+                        <span>Cardiologist, 15 years of experience</span>
+                    </div><br>
+                    <div class="booking-item">
+                        <strong>Total Cost:</strong>
+                        <span>$150</span>
+                    </div>
                 </div>
-                <div class="inputBox w50">
-                    <input type="email" name="" id="" required>
-                    <span>Email</span>
+                <div class="booking-section-reason">
+                    <div class="booking-item">
+                        <strong>Reason for Visit</strong>
+                        <span>Chest pain and shortness of breath</span>
+                        <span>Patient has been experiencing these symptoms for the past week.</span>
+                    </div>
+                    <div class="booking-item-history">
+                        <strong>Medical History</strong>
+                        <span>High blood pressure, Diabetes</span>
+                        <span>Patient has been managing these conditions for 5 years.</span>
+                    </div>
                 </div>
-                <div class="inputBox w50">
-                    <input type="text" name="" id="" required>
-                    <span>Mobile Number</span>
-                </div>
-                <div class="inputBox w100">
-                    <textarea name="" id="" required></textarea>
-                    <span>Write Your Message Here.</span>
-                </div>
-                <div class="inputBox w100">
-                    <input type="submit" value="Submit">
-                </div>
+                <button class="confirm-button">Confirm Booking</button>
             </div>
         </div>
     </div>
-    </section>
 </body>
 </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation</title>
+    <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
+                <li><a href="doctor_profile.html">View Profile</a></li>
+                <li><a href="doctor_appointments.html">Manage Appointments</a></li>
+                <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
+                <li><a href="doctor_instructions.html">Consult Patients</a></li>
+                <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
+                <li><a href="doctor_medicine.html">Medicine Database</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Consultation</h1>
+            </header>
+            <div class="main-content">
+                <div class="form-grid">
+                    <div class="form-section">
+                        <div class="form-logo">
+                            <img src="consult.png" alt="Logo">
+                        </div>
+                        <div class="form-containerC">
+                            <h2>Consultation Form</h2>
+                            <form id="consultation-form">
+                                <label for="appointment-id">Appointment ID:</label>
+                                <input type="text" id="appointment-id" name="appointment-id" required>
+                                
+                                <label for="instructions">Instructions:</label>
+                                <textarea id="instructions" name="instructions" rows="4" required></textarea>
+                                
+                                <label for="suggested-action">Suggested Action:</label>
+                                <input type="text" id="suggested-action" name="suggested-action">
+                                
+                                <label for="follow-up-date">Follow-Up Date:</label>
+                                <input type="text" id="follow-up-date" name="follow-up-date" class="datepicker" required>
+                                
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="laws-section">
+                        <div class="laws-logo">
+                            <img src="Crules.png" alt="Logo">
+                        </div>
+                        <div class="consultation-laws">
+                            <h2>Consultation Laws</h2>
+                            <ul>
+                                <li>Ensure patient confidentiality at all times.</li>
+                                <li>Provide clear and understandable instructions to patients.</li>
+                                <li>Obtain informed consent before any treatment or procedure.</li>
+                                <li>Keep accurate records of patient consultations and treatments.</li>
+                                <!-- Add more consultation laws as needed -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="doctorConsultationScript.js"></script>
+    <script>
+        $(function() {
+            $(".datepicker").datepicker();
+        });
+    </script>
+</body>
+</html>

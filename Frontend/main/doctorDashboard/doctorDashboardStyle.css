@@ -196,241 +196,266 @@ body {
     margin-right: 5px;
 }
 
-/* CSS for the doctor dashboard overview */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
 
-body {
-    display: flex;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-}
+/* CSS for the pres table */
 
-.container {
-    display: flex;
-    width: 100%;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #1E293B;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
+.form-container, .table-container {
+    background-color: #fff;
     padding: 20px;
-}
-
-.sidebar h2 {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.form-container {
+    border: 1px solid #333;
 }
 
-.sidebar ul li {
+#prescription-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#prescription-form label {
+    flex-basis: 100%;
+}
+
+#prescription-form input, #prescription-form select {
+    flex-basis: calc(50% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+#prescription-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-basis: 100%;
+}
+
+#prescription-form button:hover {
+    background-color: #575757;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.sidebar ul li a {
+#search-appointment-id {
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+}
+
+#search-btn {
+    background-color: #333;
     color: #fff;
-    text-decoration: none;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#search-btn i {
     font-size: 16px;
 }
 
-.sidebar ul li a:hover {
-    text-decoration: underline;
-}
-.main-content {
-    flex: 1;
-    background-color: #f0f4f8;
-    padding: 20px;
-    overflow-y: auto;
+#search-btn:hover {
+    background-color: #575757;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.profile img {
-    width: 120px; /* Increased width */
-    height: 120px; /* Set height equal to width for a perfect circle */
-    border-radius: 50%; /* Ensure the image is circular */
-    object-fit: cover; /* Ensures the image covers the container without stretching */
+.prescriptions-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
 }
 
-.overview {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.prescriptions-table th,
+.prescriptions-table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
 }
 
-.welcome-card {
-    background-color: #2c64f3;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 60%;
-    margin: 0 auto;
-    animation: fadeIn 1s ease-in-out;
+.prescriptions-table th {
+    background-color: #333;
+    color: #fff;
 }
 
-.welcome-card h1 {
-    font-size: 36px; 
-    animation: slideIn 1s ease-in-out;
-}
-
-.welcome-card h2 {
-    font-size: 28px; 
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
-.statistics {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.stat {
+.prescriptions-table td {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1;
-    margin: 0 10px;
+}
+
+.prescriptions-table button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.prescriptions-table button:hover {
+    background-color: #575757;
+}
+/* Consultation of doc feature*/
+/* Flexbox container for form and laws sections */
+.form-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px; /* Limit width for responsiveness */
+}
+
+/* Form section styles */
+.form-section, .laws-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-.stat:first-child {
-    margin-left: 0;
-}
-
-.stat:last-child {
-    margin-right: 0;
-}
-
-.stat i {
-    font-size: 30px;
-    margin-bottom: 10px;
-    color: #3B82F6; 
-}
-
-.charts {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    gap: 4px; 
-}
-
-.line-chart, .pie-chart {
-    background-color: #f9f5f5;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 45%; 
-    margin: 0 1px; 
-}
-
-.appointments {
-    display: flex;
-    justify-content: space-between;
-}
-
-.calendar {
-    background-color:  #dfe9f8;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    width: 40%;
-    margin: 0 auto;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000000; /* Black border */
 }
 
-#calendar {
-    max-width: 100%;
-    height: 300px; 
+/* Add hover effect */
+.form-section:hover, .laws-section:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
 }
 
-.appointment-list {
-    background-color:  #accbfa;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 50%;
-}
-.appointment-list h3 {
-    font-weight: bold; /* Make the text bold */
-    color: red; /* Set the text color to red */
+/* Form and laws logo styles */
+.form-logo img, .laws-logo img {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    border-radius: 50%; /* Make the logo round */
+    margin-bottom: 20px; /* Space between logo and content */
 }
 
-
-.appointment-list ul {
-    list-style: none;
+/* Form container styles */
+.form-containerC, .consultation-laws {
+    max-width: 300px; /* Limit width for content */
 }
 
-.appointment-list ul li {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
+/* Form and laws title styles */
+.form-containerC h2, .consultation-laws h2 {
+    margin-bottom: 20px; /* Space below title */
 }
 
-.appointment-list a {
+/* Form input and label styles */
+.form-containerC label {
     display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333333; /* Dark grey text */
+}
+
+.form-containerC input[type="text"],
+.form-containerC textarea,
+.form-containerC input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #999999; /* Darker grey border */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Submit button styles */
+.form-containerC button[type="submit"] {
+    background-color: #4c90af; /* Blue button */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.form-containerC button[type="submit"]:hover {
+    background-color: #4583a0; /* Darker blue on hover */
+}
+
+/* Consultation laws list styles */
+.consultation-laws ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.consultation-laws ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Med db list styles */
+
+.headerM {
     text-align: center;
-    margin-top: 10px;
-    color: #4a180d;
-    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-.view-appointments {
-    font-weight: bold;
-    font-size: 24px; 
-    color: #fb2424; 
-    text-decoration: none; 
-    display: inline-block;
-    margin-top: 20px; 
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.view-appointments:hover {
-    text-decoration: underline; 
-}
-.highlight {
-    font-weight: bold;
-    color: red;
+.search-container input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
 }
 
+.search-container button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
 
+.search-container button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}

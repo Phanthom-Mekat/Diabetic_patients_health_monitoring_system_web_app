@@ -4,7 +4,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-  
+    
     margin: 20px auto;
     width: calc(100% - 250px); 
     margin: 20px 0 20px 20px
@@ -140,4 +140,8 @@ body {
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+#curve_chart{
+    height: 200;
 }

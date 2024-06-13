@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabetic Patients Health Monitoring System</title>
-    <link rel="stylesheet" href="Home.css"> <!-- link to external stylesheet -->
+    <link rel="stylesheet" href="Home.css"> <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Removed the img tag as the background image is now set in CSS -->
-    
     <!-- Header Section -->
     <header>
-        <h1>Diabetic Patients Health Monitoring System</h1>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>E-DiaCare: Diabetic Patients Health Monitoring System</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#login">Login/SignUp</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../login_signup/login.html"><i class="fas fa-user"></i> Login/SignUp</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#cta"><i class="fas fa-envelope"></i> Contact Info</a></li>
             </ul>
         </nav>
     </header>
-
     <!-- Features Section -->
     <section id="features" class="features">
+        <p></p>
         <h2>Features</h2>
         <ul>
             <li>
@@ -34,6 +39,7 @@
                 <h3>Medication Reminders</h3>
                 <p>Never miss a dose with our medication reminder system.</p>
             </li>
+            
             <li>
                 <i class="fas fa-comment"></i>
                 <h3>Secure Messaging</h3>
@@ -42,16 +48,61 @@
         </ul>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about" class="blue-bg">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <img src="about-image.jpg" alt="About Us" class="section-img">
+                <p>By offering a completely integrated solution with real-time tracking,
+                     nutritional management, and individualized suggestions, 
+                     our To-Be rich picture approach seeks to overcome the drawbacks of existing solutions.
+                      The existing solution has a very organized data management system 
+                      where the data are maintained in different ways but in our proposed 
+                      system we are trying to solve this problem by collecting data of the users 
+                      through a single system that maintains the whole data process. To do this, 
+                      our system makes use of MySQL databases for the centralized storing of
+                       patient demographics, diagnosis data, physician details, 
+                       hospital information, and other vital data, guaranteeing data 
+                       confidentiality, integrity, and convenient access for authorized users. 
+                       Our system solves the problem of scheduling and taking appointments
+                        through the reception it has become fully automated which gives a perfect
+                         end-to-end system to book appointments with the physician as per their 
+                         schedule and the time given by the physicians will be noted to 
+                         acknowledge the effort of the physicians. </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Diabetes Section -->
+    <section id="study-diabetes" class="white-bg">
+        <div class="container">
+            <h2>Study Diabetes</h2>
+            <div class="study-diabetes-content">
+                <img src="study-diabetes-image.jpg" alt="Study Diabetes" class="section-img">
+                <p>Download our PDF to learn more about diabetes.</p>
+                <a href="guide.pdf" download><button>Download PDF</button></a>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action Section -->
     <section id="cta" class="cta">
         <h2>Join Our Community Today!</h2>
         <p>Sign up for a free account and start taking control of your diabetes.</p>
-        <button>SignUp</button>
+        <button><a href="login.html">SignUp</a></button>
+        <p></p>
+        <h3>Phone: +1234567890</h3>
+        <h3>Email: example@example.com</h3>
+        <h3>Address: Dhaka, Bangladesh</h3>
     </section>
 
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Diabetic Patients Health Monitoring System</p>
+        <p>Department of Computer Science & Engineering</p>
+        <p>Independent University of Bangladesh Dhaka, Bangladesh</p>
     </footer>
+    </div>
 </body>
 </html>
