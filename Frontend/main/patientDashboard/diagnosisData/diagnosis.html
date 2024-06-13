@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Details</title>
+    <link rel="stylesheet" href="diagnosisStyles.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="sidebar">
+            
+            <h2>Dashboard</h2><br><br>
+            <ul>
+                <li><a href="\Frontend\main\patientDashboard\inputHealthData/inputHealthData.html"> Input Health Data</a></li>
+                <li><a href="\Frontend\main\patientDashboard\bookAppointment\viewDoctor.html"> Book Appointments</a></li>
+                <li><a href="\Frontend\main\patientDashboard\diagnosisData\diagnosis.html"> Diagnosis Data</a></li>
+                <li><a href="#"> Diet Plan</a></li>
+                <li><a href="#"> Presciptions</a></li>
+                <li><a href="#"> Recommendations</a></li>
+                <li><a href="#"> Feedback</a></li>
+            </ul>
+        </div>
+        <div class="container">
+           
+            <form>
+                <div class="form-group">
+                    
+                    <h1>Diagnosis Report</h1><br><br>
+                    
+                    <label for="test-name">Test Name</label>
+                    <input type="text" id="testName" name="test-result" placeholder="Enter test name">
+                </div>
+
+                <div class="form-group">
+                    <label for="test-type">Test Type</label>
+                    <select id="test-type" name="test-type">
+                        <option value="">Select test name</option>
+                        <option value="blood-test">Blood Test</option><option value="blood-test">Urine</option><option value="blood-test">Imaging</option>
+                    
+                    <option value="blood-test">Other</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-result">Test Result</label>
+                    <input type="text" id="test-result" name="test-result" placeholder="Enter test result">
+                </div>
+
+                <div class="test-items">
+                    <div class="form-group">
+                        <label>Test Items (optional)</label>
+                        <div class="test-item">
+                            <input type="text" placeholder="Enter item">
+                            <input type="text" placeholder="Enter result">
+                        </div>
+                        <div class="test-item">
+                            <input type="text" placeholder="Enter item">
+                            <input type="text" placeholder="Enter result">
+                        </div>
+                        <div class="test-item">
+                            <input type="text" placeholder="Enter item">
+                            <input type="text" placeholder="Enter result">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-summary">Test Summary</label>
+                    <textarea id="test-summary" name="test-summary" placeholder="Enter test summary"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="diagnosis-date">Diagnosis Date</label>
+                    <input type="date" id="diagnosis-date" name="diagnosis-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="observations">Observations</label>
+                    <textarea id="observations" name="observations" placeholder="Enter observations"></textarea>
+
+                </div>
+                <div class="health-data-footer">
+                    <button class="save-button">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
