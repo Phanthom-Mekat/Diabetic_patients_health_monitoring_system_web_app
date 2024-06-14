@@ -156,3 +156,210 @@ body {
 .appointments-table tr:nth-child(even) {
     background-color: #1F2A40;
 }
+/* CSS for med db overview */
+.headerM {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #060101;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px;
+    border: 1px solid #f7f7f7;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #1F2A40;
+}
+
+/* Ensure it aligns next to sidebar doc prof*/
+
+.photo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 2px solid #fff;
+}
+
+.photo img {
+    width: 90px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.main-content-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; 
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    background-color: #1F2A40;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+.profile-table th, .profile-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.profile-table th {
+    background-color: #333;
+    color: white;
+}
+
+.profile-table tr:nth-child(odd) {
+    background-color: #2A3F54;
+}
+
+.profile-table tr:nth-child(even) {
+    background-color: #1F2A40;
+}
+
+.profile-table tr:hover {
+    background-color: #444;
+}
+
+/* CSS for the appointments table */
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white; /* Keep content in white */
+}
+
+.appointments-table th, .appointments-table td {
+    border: 1px solid #333; /* Darker border for better contrast */
+    padding: 10px;
+}
+
+.appointments-table th {
+    background-color: #444; /* Dark background for header */
+    color: white;
+}
+
+.appointments-table tr:nth-child(odd) {
+    background-color: #2A3F54; /* Darker background for odd rows */
+}
+
+.appointments-table tr:nth-child(even) {
+    background-color: #1F2A40; /* Darker background for even rows */
+}
+
+.appointments-table tr:hover {
+    background-color: #555; /* Highlight row on hover */
+}
+
+/* Filter container styling */
+#filter-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+#filter-container label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: white; /* White text for labels */
+}
+
+#filter-container select,
+#filter-container input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333; /* Dark background for inputs */
+    color: white; /* White text for inputs */
+}
+
+#filter-container input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+/* Profile card styling */
+.profile-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1F2A40;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card-content {
+    position: relative;
+}
+
+#close-profile-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}

@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Appointments</title>
-    <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link rel="stylesheet" href="DoctorDash.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
+            <div class="sidebar-header">
+                <h2>Manage appointments</h2>
+            </div>
+            <ul class="sidebar-menu">
                 <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
                 <li><a href="doctor_profile.html">View Profile</a></li>
                 <li><a href="doctor_appointments.html">Manage Appointments</a></li>
-                <li><a href="doctor_prescriptions.html">Prescribe medicine</a></li>
+                <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
                 <li><a href="doctor_instructions.html">Consult Patients</a></li>
                 <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
                 <li><a href="doctor_medicine.html">Medicine Database</a></li>
@@ -59,12 +61,21 @@
                             <th>Time</th>
                             <th>Action</th>
                             <th>Approval Status</th>
+                            <th>View Profile</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Appointments data will be inserted here -->
                     </tbody>
                 </table>
+                <!-- Profile card container -->
+                <div id="profile-card" class="profile-card" style="display: none;">
+                    <div class="profile-card-content">
+                        <span id="close-profile-card">&times;</span>
+                        <h3>Patient Profile</h3>
+                        <p id="profile-details"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

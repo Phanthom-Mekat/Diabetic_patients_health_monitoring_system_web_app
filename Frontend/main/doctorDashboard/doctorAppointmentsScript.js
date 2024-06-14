@@ -5,49 +5,33 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
         { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
         { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
-        { id: 1, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
-        { id: 2, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
-        { id: 3, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
-        { id: 4, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
+        { id: 5, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-21', time: '5:00 PM', status: 'pending' },
+        { id: 9, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
+        { id: 10, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
+        { id: 13, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
+        { id: 14, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
+        { id: 15, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
+        { id: 11, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
+        { id: 12, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-18', time: '2:00 PM', status: 'pending' },
+        { id: 31, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
+        { id: 41, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
+        { id: 51, appointmentDate: '2024-06-20', appointmentType: 'online', date: '2024-06-20', time: '5:00 PM', status: 'approved' },
+        { id: 19, appointmentDate: '2024-06-18', appointmentType: 'online', date: '2024-06-18', time: '1:00 PM', status: 'approved' },
+        { id: 22, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-08', time: '2:00 PM', status: 'pending' },
+        { id: 32, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
+        { id: 43, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
+        { id: 52, appointmentDate: '2024-06-20', appointmentType: 'offline', date: '2024-06-22', time: '5:00 PM', status: 'pending' },
         // Add more dummy data for testing filtering logic
     ];
+
+    var patientProfiles = {
+        1: { name: 'John Doe', age: 30, gender: 'Male', phone: '+1234567890', email: 'john.doe@example.com', address: '123 Main St, City, Country' },
+        2: { name: 'Jane Smith', age: 28, gender: 'Female', phone: '+1234567891', email: 'jane.smith@example.com', address: '456 Elm St, City, Country' },
+        3: { name: 'Alice Johnson', age: 35, gender: 'Female', phone: '+1234567892', email: 'alice.johnson@example.com', address: '789 Oak St, City, Country' },
+        4: { name: 'Bob Brown', age: 40, gender: 'Male', phone: '+1234567893', email: 'bob.brown@example.com', address: '101 Pine St, City, Country' },
+        5: { name: 'Carol White', age: 32, gender: 'Female', phone: '+1234567894', email: 'carol.white@example.com', address: '202 Maple St, City, Country' }
+        // Add more dummy patient profiles for testing
+    };
 
     /**
      * Render appointments table
@@ -71,8 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${appointment.time}</td>
                 <td>${getActionButtons(appointment)}</td>
                 <td>${appointment.status}</td>
+                <td><button class="view-profile-btn" data-id="${appointment.id}">View Profile</button></td>
             `;
             tableBody.appendChild(row);
+        });
+
+        // Add event listeners for view profile buttons
+        document.querySelectorAll('.view-profile-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var appointmentId = this.getAttribute('data-id');
+                showProfileCard(appointmentId);
+            });
         });
     }
 
@@ -137,6 +130,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial rendering of appointments
     renderAppointments(appointments);
+
+    /**
+     * Show profile card
+     * @param {number} appointmentId - Appointment ID
+     */
+    function showProfileCard(appointmentId) {
+        var profile = patientProfiles[appointmentId];
+        if (!profile) {
+            alert('Profile not found.');
+            return;
+        }
+
+        var profileDetails = `
+            <strong>Name:</strong> ${profile.name}<br>
+            <strong>Age:</strong> ${profile.age}<br>
+            <strong>Gender:</strong> ${profile.gender}<br>
+            <strong>Phone:</strong> ${profile.phone}<br>
+            <strong>Email:</strong> ${profile.email}<br>
+            <strong>Address:</strong> ${profile.address}
+        `;
+
+        document.getElementById('profile-details').innerHTML = profileDetails;
+        document.getElementById('profile-card').style.display = 'block';
+    }
+
+    // Close profile card
+    document.getElementById('close-profile-card').addEventListener('click', function() {
+        document.getElementById('profile-card').style.display = 'none';
+    });
 });
 
 /**
@@ -146,4 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function approveAppointment(id) {
     // Dummy logic
     console.log('Appointment with ID ' + id + ' has been approved.');
+    // Here you would typically make an API call to update the appointment status in the backend
+    alert('Appointment with ID ' + id + ' has been approved.');
 }

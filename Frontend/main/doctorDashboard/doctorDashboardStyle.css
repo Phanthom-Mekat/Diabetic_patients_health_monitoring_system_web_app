@@ -107,96 +107,10 @@ body {
 /* doc profile*/
 /* Existing styles remain unchanged */
 
-.profile-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.profile-table th, .profile-table td {
-    border: 1px solid #000;
-    padding: 10px;
-}
-
-.profile-table th {
-    background-color: #000;
-    color: white;
-}
-
-.profile-table tr:nth-child(odd) {
-    background-color: #f2f2f2;
-}
-
-.profile-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.photo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border: 2px solid black; /* Add black border */
-}
-
-.photo img {
-    width: 90px; /* Adjust image size */
-    height: auto;
-}
 
 
 
 
-/* CSS for the appointments table */
-.appointments-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.appointments-table th, .appointments-table td {
-    border: 1px solid #000;
-    padding: 10px;
-}
-
-.appointments-table th {
-    background-color: #000;
-    color: white;
-}
-
-.appointments-table tr:nth-child(odd) {
-    background-color: #f2f2f2;
-}
-
-.appointments-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-#filter-container {
-    margin-bottom: 20px;
-}
-#filter-container {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-#filter-container label {
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-#filter-container select,
-#filter-container input[type="text"] {
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#filter-container input[type="radio"] {
-    margin-left: 10px;
-    margin-right: 5px;
-}
 
 
 
@@ -404,63 +318,6 @@ body {
 
 /* Med db list styles */
 
-.headerM {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.search-container input[type="text"] {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-}
-
-.search-container button {
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s;
-}
-
-.search-container button:hover {
-    background-color: #45a049;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-}
-
-th {
-    background-color: #333;
-    color: white;
-}
-
-tbody tr:hover {
-    background-color: #f1f1f1;
-}
 
 /* CSS for doctor dashboard overview */
 
