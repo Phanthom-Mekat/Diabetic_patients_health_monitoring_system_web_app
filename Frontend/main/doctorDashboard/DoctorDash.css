@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141E30;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1F2A40;
+    padding: 20px;
+}
+
+.sidebar-header h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 15px 0;
+}
+
+.sidebar-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #2A3F54;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.welcome-card {
+    background-color: #2A3F54;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.welcome-card .highlight {
+    color: #FFCE56;
+    font-weight: bold;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header-item {
+    background-color: #2A3F54;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.header-item:last-child {
+    margin-right: 0;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.chart-item {
+    background-color: #2A3F54;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.chart-item:last-child {
+    margin-right: 0;
+}
+
+.pie-chart, .line-chart {
+    height: 250px;
+    width: 100%;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    background-color: #2A3F54;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.stat-item:last-child {
+    margin-right: 0;
+}
+
+.appointments-table {
+    background-color: #2A3F54;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.appointments-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.appointments-table th, .appointments-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.appointments-table th {
+    background-color: #1F2A40;
+}
+
+.appointments-table tr:nth-child(even) {
+    background-color: #1F2A40;
+}
+
+.view-appointments {
+    color: #FFCE56;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
