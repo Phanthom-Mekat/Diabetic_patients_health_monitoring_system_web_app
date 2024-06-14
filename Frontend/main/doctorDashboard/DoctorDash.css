@@ -363,3 +363,180 @@ tbody tr:hover {
     color: white;
     font-size: 20px;
 }
+/* consultation form  styling */
+.consultation-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.consultation-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-submit,
+.btn-reset {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-reset {
+    background-color: #e74c3c;
+    color: white;
+}
+
+
+/* prescript form  styling */
+.form-container,
+.table-container {
+    background-color: #1a2732;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.form-container h2,
+.table-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2ecc71;
+    color: white;
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-container button i {
+    font-size: 16px;
+}
+
+.prescriptions-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+.prescriptions-table th,
+.prescriptions-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.prescriptions-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+.prescriptions-table tr:nth-child(odd) {
+    background-color: #2c3e50;
+}
+
+.prescriptions-table tr:hover {
+    background-color: #34495e;
+}
+
+.prescriptions-table .actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.prescriptions-table .actions .btn-edit {
+    background-color: #f39c12;
+    color: white;
+}
+
+.prescriptions-table .actions .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}

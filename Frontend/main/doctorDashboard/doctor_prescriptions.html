@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prescribe Medicine</title>
-    <link rel="stylesheet" href="doctorDashboardStyle.css">
+    <link rel="stylesheet" href="DoctorDash.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="sidebar-menu">
                 <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
                 <li><a href="doctor_profile.html">View Profile</a></li>
                 <li><a href="doctor_appointments.html">Manage Appointments</a></li>
@@ -29,54 +31,50 @@
             </header>
             <div class="main-content">
                 <div class="form-container">
-                    <h2>Prescription Form</h2>
+                    <h2>Prescribe Medicine</h2>
                     <form id="prescription-form">
-                        <label for="appointment-id">Appointment ID:</label>
-                        <input type="text" id="appointment-id" name="appointment-id" required>
-                        
-                        <label for="prescription-id">Prescription ID:</label>
-                        <input type="text" id="prescription-id" name="prescription-id" required>
-                        
-                        <label for="drug-name">Drug Name:</label>
-                        <input type="text" id="drug-name" name="drug-name" required>
-                        
-                        <label for="dose">Dose:</label>
-                        <input type="text" id="dose" name="dose" required>
-                        
-                        <label for="dosage">Dosage:</label>
-                        <select id="dosage" name="dosage" onchange="checkOther(this);" required>
-                            <option value="Once a day">Once a day</option>
-                            <option value="Twice a day">Twice a day</option>
-                            <option value="Thrice a day">Thrice a day</option>
-                            <option value="Four times a day">Four times a day</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        <input type="text" id="customDosage" name="customDosage" style="display: none;">
-                        <script>
-                            function checkOther(select) {
-                                var customDosageInput = document.getElementById("customDosage");
-                                if (select.value === "Other") {
-                                    customDosageInput.style.display = "inline-block";
-                                    customDosageInput.required = true;
-                                } else {
-                                    customDosageInput.style.display = "none";
-                                    customDosageInput.required = false;
-                                }
-                            }
-                        </script>
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" required min="0" max="10">
-                        
-                        <button type="submit">Add Prescription</button>
+                        <div class="form-group">
+                            <label for="appointment-id">Appointment ID:</label>
+                            <input type="text" id="appointment-id" name="appointment-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prescription-id">Prescription ID:</label>
+                            <input type="text" id="prescription-id" name="prescription-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="drug-name">Drug Name:</label>
+                            <input type="text" id="drug-name" name="drug-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dose">Dose:</label>
+                            <input type="text" id="dose" name="dose" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dosage">Dosage:</label>
+                            <select id="dosage" name="dosage" onchange="checkOther(this);" required>
+                                <option value="Once a day">Once a day</option>
+                                <option value="Twice a day">Twice a day</option>
+                                <option value="Thrice a day">Thrice a day</option>
+                                <option value="Four times a day">Four times a day</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" id="customDosage" name="customDosage" style="display: none;">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" required min="1" max="100">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Add Prescription</button>
+                        </div>
                     </form>
                 </div>
                 <div class="table-container">
-                    <h2>Search Prescription by Appointment ID</h2>
+                    <h2>Update Previous Prescriptions</h2>
                     <div class="search-container">
                         <input type="text" id="search-appointment-id" placeholder="Enter Appointment ID">
                         <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
                     </div>
-                    <h2>Previous Prescriptions</h2>
                     <table id="prescriptions-table" class="prescriptions-table">
                         <thead>
                             <tr>
