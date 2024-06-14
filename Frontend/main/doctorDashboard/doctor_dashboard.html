@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://kit.fontawesome.com/39df84b900.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
 </head>
 <body>
     <div class="container">
@@ -21,82 +20,103 @@
                 <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
                 <li><a href="doctor_profile.html">View Profile</a></li>
                 <li><a href="doctor_appointments.html">Manage Appointments</a></li>
-                <li><a href="doctor_prescriptions.html">Prescribe medicine</a></li>
+                <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
                 <li><a href="doctor_instructions.html">Consult Patients</a></li>
                 <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
                 <li><a href="doctor_medicine.html">Medicine Database</a></li>
                 <li><a href="../Home/index.html">Logout</a></li>
             </ul>
         </div>
-      
-    <div class="main-content">
-        <header>
-            <h1>Dashboard</h1>
-        </header> 
-        <section class="overview">
-            <div class="welcome-card">
-                <h1>👋 Welcome back,</h1>
-                <h1>Dr. Tashfiq Islam</h1>
-                <p>You have total <span class="highlight">12 appointments</span> today!</p>
 
-            </div>
-            <div class="statistics">
-                <div class="stat">
-                    <i class="fa-regular fa-hospital-user"></i>
-                    <h3>Total Patients</h3>
-                    <p>473</p>
+        <div class="main-content">
+            <header>
+                <h1>Dashboard</h1>
+            </header>
+            <section class="overview">
+                <div class="welcome-card">
+                    <h1>👋 Welcome back,</h1>
+                    <h1>Dr. Tashfiq Islam</h1>
+                    <p>You have <span class="highlight">12 appointments</span> today!</p>
                 </div>
-                <div class="stat">
-                    <i class="fa-regular fa-stethoscope"></i>
-                    <h3>Consultation</h3>
-                    <p>236</p>
+                <div class="statistics">
+                    <div class="stat">
+                        <i class="fa-regular fa-hospital-user"></i>
+                        <h3>Total Patients</h3>
+                        <p id="total-patients">...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fa-regular fa-stethoscope"></i>
+                        <h3>Consultations</h3>
+                        <p id="total-consultations">...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fa-regular fa-syringe"></i>
+                        <h3>Treated</h3>
+                        <p id="total-treated">...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fa-regular fa-truck-medical"></i>
+                        <h3>Surgery</h3>
+                        <p id="total-surgeries">...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fa-regular fa-tint"></i>
+                        <h3>Average Glucose</h3>
+                        <p id="average-glucose">...</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fa-regular fa-bell"></i>
+                        <h3>Available Physicians</h3>
+                        <p id="available-physicians">...</p>
+                    </div>
                 </div>
-                <div class="stat">
-                    <i class="fa-regular fa-syringe"></i>
-                    <h3>Treated</h3>
-                    <p>105</p>
+            </section>
+            <section class="charts">
+                <div id="demographics_chart" class="chart"></div>
+                <div class="calendar">
+                    <h3>Your Appointments</h3>
+                    <div id="calendar"></div>
                 </div>
-                <div class="stat">
-                    <i class="fa-regular fa-truck-medical"></i>
-                    <h3>Surgery</h3>
-                    <p>132</p>
+            </section>
+            <section class="data-charts">
+                <div id="diagnosis_chart" class="chart"></div>
+            </section>
+            <section class="appointments">
+                <div class="appointment-list">
+                    <h3>Today's Appointments</h3>
+                    <ul id="appointment-list">
+                        <!-- Appointments will be inserted here by JavaScript -->
+                    </ul>
+                    <a href="doctor_appointments.html" class="view-appointments">View All Appointments</a>
                 </div>
-            </div>
-        </section> 
-        <section class="charts">
-            <div id="curve_chart" style="width: 48%; height: 300px;"></div>
-            <div class="calendar">
-                <h3>Your Appointments</h3>
-                <div id="calendar"></div>
-            </div>
-        
-        </section>
-        <section class="appointments">
-            <div id="piechart" style="width: 800px; height: 400px;"></div>
-            <div class="appointment-list">
-                <h3>Today's Appointments</h3>
-                <ul>
-                    <li>
-                        <span>10:00 am - 11:00 am</span>
-                        <span>Brain Mathew</span>
-                    </li>
-                    <li>
-                        <span>11:00 am - 12:00 pm</span>
-                        <span>Sika Chirag</span>
-                    </li>
-                    <li>
-                        <span>2:00 pm - 2:30 pm</span>
-                        <span>Peter Parker Joel</span>
-                    </li>
-                    <li>
-                        <span>3:00 pm - 3:45 pm</span>
-                        <span>Rebecca Lynn Stone</span>
-                    </li>
+            </section>
+            <section class="recent-activity">
+                <h3>Recent Activity</h3>
+                <ul id="recent-activity-list">
+                    <!-- Recent activity will be inserted here by JavaScript -->
                 </ul>
-                <a href="doctor_appointments.html" class="view-appointments">View All Appointments</a>
-            </div>
-        </section>
-    
+            </section>
+            <section class="facility-management">
+                <div class="facility">
+                    <i class="fa-regular fa-hospital"></i>
+                    <h3>Hospitals</h3>
+                    <p id="total-hospitals">...</p>
+                </div>
+                <div class="facility">
+                    <i class="fa-regular fa-clinic-medical"></i>
+                    <h3>Diagnosis Centers</h3>
+                    <p id="total-diagnosis-centers">...</p>
+                </div>
+                <div class="facility">
+                    <i class="fa-regular fa-ambulance"></i>
+                    <h3>Other Facilities</h3>
+                    <p id="total-other-facilities">...</p>
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2024 Health Monitoring System for Diabetic Patients. All rights reserved.</p>
+            </footer>
+        </div>
     </div>
     <script src="doctor_dashboardscript.js"></script>
 </body>

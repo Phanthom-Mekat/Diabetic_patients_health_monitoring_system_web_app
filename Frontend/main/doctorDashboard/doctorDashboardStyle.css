@@ -7,7 +7,7 @@
 
 body {
     display: flex;
-    height: 100vh;
+    height:auto;
 }
 
 .header {
@@ -24,6 +24,7 @@ body {
     overflow-y: auto;
     height: 100%;
 }
+
 
 .sidebar {
     width: 250px;
@@ -64,6 +65,7 @@ body {
     flex-direction: column;
     width: 100%;
     overflow-y: auto;
+    
 }
 
 .welcome-title {
@@ -461,155 +463,183 @@ tbody tr:hover {
 }
 
 /* CSS for doctor dashboard overview */
-.main-content {
-    padding: 20px;
-    background-color: #ffffff;
+
+.overview {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
 }
 
 .welcome-card {
-    background-color: #2b4efc;
+    background-color: #343a40;
+    color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 60%;
-    margin: 0 auto;
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .welcome-card h1 {
-    font-size: 36px; 
-    animation: slideIn 1s ease-in-out;
+    margin: 0;
 }
 
-.welcome-card h2 {
-    font-size: 28px; 
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.highlight {
+.welcome-card .highlight {
     font-weight: bold;
-    color: red;
+    color: #f1c40f;
 }
-
 
 .statistics {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
 
-.stat {
-    background-color: #fff;
+.statistics .stat {
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     text-align: center;
-    flex: 1;
-    margin: 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+.statistics .stat i {
+    font-size: 2em;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.statistics .stat h3 {
+    margin: 10px 0;
 }
 
 .charts {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
-#curve_chart {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 48%;
-    height: 300px;
-}
-
-#pieChart {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    height: 200px;
-}
-
-.appointments {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+.chart {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .calendar {
-    background-color: #abbefc;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 40%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-#calendar {
-    max-width: 100%;
-    height: 300px;
+.data-charts {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
-.appointment-list {
-    background-color: #bac7fb;
+.appointments {
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 48%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.appointment-list h3 {
+    margin: 0 0 10px 0;
 }
 
 .appointment-list ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
-.appointment-list li {
-    margin-bottom: 10px;
+.appointment-list ul li {
     display: flex;
     justify-content: space-between;
-    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.appointment-list li span {
-    font-weight: bold;
-    color: #555;
+.appointment-list ul li:last-child {
+    border-bottom: none;
 }
 
 .view-appointments {
-    font-weight: bold;
-    font-size: 24px;
-    color: #3B82F6;
-    text-decoration: none;
-    display: inline-block;
+    display: block;
+    text-align: center;
     margin-top: 20px;
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.view-appointments:hover {
-    text-decoration: underline;
+.recent-activity {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.recent-activity h3 {
+    margin: 0 0 10px 0;
+}
+
+.recent-activity ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-activity ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.recent-activity ul li:last-child {
+    border-bottom: none;
+}
+
+.recent-activity .highlight {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.facility-management {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.facility {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.facility i {
+    font-size: 2em;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.facility h3 {
+    margin: 10px 0;
+}
+
+.facility p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+footer p {
+    margin: 0;
 }
