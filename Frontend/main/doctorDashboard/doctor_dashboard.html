@@ -31,33 +31,61 @@
                 <p>Consultations: <span class="highlight">75</span></p>
                 <p>Treated: <span class="highlight">65</span></p>
                 <p>Available Physicians: <span class="highlight">5</span></p>
-                <a href="doctor_appointments.html" class="view-appointments">View All Appointments</a>
+                
             </div>
             <div class="header">
-                <div class="header-item">Average Glucose</div>
-                <div class="header-item">Total Patients</div>
-                <div class="header-item">Consultations</div>
-                <div class="header-item">Treated</div>
+                <div class="header-item">
+                    <img src="glucose_icon.png" alt="Glucose" class="icon">
+                    <p>Average Glucose</p>
+                    <span>92 mg/dL</span>
+                </div>
+                <div class="header-item">
+                    <img src="patients_icon.png" alt="Patients" class="icon">
+                    <p>Total Patients</p>
+                    <span>150</span>
+                </div>
+                <div class="header-item">
+                    <img src="consultations_icon.png" alt="Consultations" class="icon">
+                    <p>Consultations</p>
+                    <span>75</span>
+                </div>
+                <div class="header-item">
+                    <img src="treated_icon.png" alt="Treated" class="icon">
+                    <p>Treated</p>
+                    <span>65</span>
+                </div>
             </div>
             <div class="charts">
                 <div class="chart-item">
                     <h3>Age Demographics</h3>
                     <div class="pie-chart">
-                        <!-- Placeholder for Pie Chart -->
                         <canvas id="pieChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-item">
                     <h3>Average Glucose Levels</h3>
                     <div class="line-chart">
-                        <!-- Placeholder for Line Chart -->
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
             </div>
+            <div class="charts">
+                <div class="chart-item">
+                    <h3>Diabetes Types Detected</h3>
+                    <div class="bar-chart">
+                        <canvas id="barChart1"></canvas>
+                    </div>
+                </div>
+                <div class="chart-item">
+                    <h3>Diabetes with Kidney Disease</h3>
+                    <div class="bar-chart">
+                        <canvas id="barChart2"></canvas>
+                    </div>
+                </div>
+            </div>
             <div class="stats">
-                <div class="stat-item">New Users: +113</div>
-                <div class="stat-item">Monthly Sale: +80%</div>
+                <div class="stat-item">New Patients: +113</div>
+                <div class="stat-item">Diabetes Detections: +30%</div>
                 <div class="stat-item">Impressions: +80</div>
             </div>
             <div class="appointments-table">

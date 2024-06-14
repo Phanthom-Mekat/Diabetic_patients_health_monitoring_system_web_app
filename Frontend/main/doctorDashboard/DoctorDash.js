@@ -28,4 +28,46 @@ document.addEventListener("DOMContentLoaded", function() {
             ]
         }
     });
+
+    // Bar Chart for Diabetes Types
+    var ctxBar1 = document.getElementById('barChart1').getContext('2d');
+    var barChart1 = new Chart(ctxBar1, {
+        type: 'bar',
+        data: {
+            labels: ['Type 1', 'Type 2', 'Gestational', 'Other'],
+            datasets: [{
+                label: 'Diabetes Types',
+                data: [50, 80, 20, 10],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Bar Chart for Diabetes with Kidney Disease
+    var ctxBar2 = document.getElementById('barChart2').getContext('2d');
+    var barChart2 = new Chart(ctxBar2, {
+        type: 'bar',
+        data: {
+            labels: ['Without Kidney Disease', 'With Kidney Disease'],
+            datasets: [{
+                label: 'Diabetes Patients with Kidney Disease',
+                data: [90, 10],
+                backgroundColor: ['#36A2EB', '#FF6384']
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 });
