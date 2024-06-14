@@ -12,7 +12,7 @@
     <div class="container">
         <div class="sidebar">
             <div class="sidebar-header">
-                <h2>Dashboard</h2>
+                <h2>E-DiaCare</h2>
             </div>
             <ul class="sidebar-menu">
                 <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
@@ -21,7 +21,7 @@
                 <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
                 <li><a href="doctor_instructions.html">Consult Patients</a></li>
                 <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
-                <li><a href="doctor_medicine.html">Medicine Database</a></li>
+                <li><a href="doctor_track_and_updateMedicine.html">Update Prescription and Track Medicine</a></li>
                 <li><a href="../Home/index.html">Logout</a></li>
             </ul>
         </div>
@@ -34,63 +34,56 @@
                     <h2>Prescribe Medicine</h2>
                     <form id="prescription-form">
                         <div class="form-group">
-                            <label for="appointment-id">Appointment ID:</label>
-                            <input type="text" id="appointment-id" name="appointment-id" required>
+                            <label for="patient-name">Patient Name:</label>
+                            <input type="text" id="patient-name" name="patient-name" required>
                         </div>
                         <div class="form-group">
-                            <label for="prescription-id">Prescription ID:</label>
-                            <input type="text" id="prescription-id" name="prescription-id" required>
+                            <label for="symptoms">Symptoms:</label>
+                            <textarea id="symptoms" name="symptoms" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="drug-name">Drug Name:</label>
-                            <input type="text" id="drug-name" name="drug-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dose">Dose:</label>
-                            <input type="text" id="dose" name="dose" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dosage">Dosage:</label>
-                            <select id="dosage" name="dosage" onchange="checkOther(this);" required>
-                                <option value="Once a day">Once a day</option>
-                                <option value="Twice a day">Twice a day</option>
-                                <option value="Thrice a day">Thrice a day</option>
-                                <option value="Four times a day">Four times a day</option>
-                                <option value="Other">Other</option>
+                            <label for="diagnosis">Diagnosis:</label>
+                            <select id="diagnosis" name="diagnosis" required>
+                                <option value="Type-1 Diabetes">Type-1 Diabetes</option>
+                                <option value="Type-2 Diabetes">Type-2 Diabetes</option>
+                                <option value="Gestational Diabetes">Gestational Diabetes</option>
+                                <option value="Others">Others</option>
                             </select>
-                            <input type="text" id="customDosage" name="customDosage" style="display: none;">
+                            <input type="text" id="custom-diagnosis" name="custom-diagnosis" style="display: none;" placeholder="Specify diagnosis">
                         </div>
-                        <div class="form-group">
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" required min="1" max="100">
+                        <div id="drugs-container">
+                            <div class="drug-entry">
+                                <h3>Drug 1</h3>
+                                <div class="form-group">
+                                    <label for="drug-name-1">Drug Name:</label>
+                                    <input type="text" id="drug-name-1" name="drug-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dose-1">Dose (e.g., 500mg):</label>
+                                    <input type="text" id="dose-1" name="dose" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dosage-1">Dosage:</label>
+                                    <select id="dosage-1" name="dosage" required>
+                                        <option value="Once a day">Once a day</option>
+                                        <option value="Twice a day">Twice a day</option>
+                                        <option value="Thrice a day">Thrice a day</option>
+                                        <option value="Four times a day">Four times a day</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <input type="text" id="custom-dosage-1" name="custom-dosage" style="display: none;" placeholder="Specify dosage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity-1">Quantity:</label>
+                                    <input type="number" id="quantity-1" name="quantity" required min="1" max="100">
+                                </div>
+                            </div>
                         </div>
+                        <button type="button" id="add-drug-btn" class="btn-add-drug">Add Another Drug</button>
                         <div class="form-actions">
                             <button type="submit" class="btn-submit">Add Prescription</button>
                         </div>
                     </form>
-                </div>
-                <div class="table-container">
-                    <h2>Update Previous Prescriptions</h2>
-                    <div class="search-container">
-                        <input type="text" id="search-appointment-id" placeholder="Enter Appointment ID">
-                        <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
-                    </div>
-                    <table id="prescriptions-table" class="prescriptions-table">
-                        <thead>
-                            <tr>
-                                <th>Appointment ID</th>
-                                <th>Prescription ID</th>
-                                <th>Drug Name</th>
-                                <th>Dose</th>
-                                <th>Dosage</th>
-                                <th>Quantity</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Prescription data will be inserted here -->
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

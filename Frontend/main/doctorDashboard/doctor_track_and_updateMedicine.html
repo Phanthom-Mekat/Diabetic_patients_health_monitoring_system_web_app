@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>Track Medicine</h2>
+            <h2>E-DiaCare</h2>
             <ul class="sidebar-menu">
                 <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
                 <li><a href="doctor_profile.html">View Profile</a></li>
@@ -18,35 +18,39 @@
                 <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
                 <li><a href="doctor_instructions.html">Consult Patients</a></li>
                 <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
-                <li><a href="doctor_medicine.html">Medicine Database</a></li>
+                <li><a href="doctor_track_and_updateMedicine.html">Update Prescription and track medicine</a></li>
                 <li><a href="../Home/index.html">Logout</a></li>
             </ul>
         </div>
         <div class="main-content-wrapper">
             <header class="headerM">
-                <h1 class="welcome-title">Medicine Database</h1>
+                <h1 class="welcome-title">Update Prescription and track medicine</h1>
             </header>
-            <div class="main-content">
+            <div class="table-container">
+                <h2>Update Previous Prescriptions</h2>
                 <div class="search-container">
-                    <input type="text" id="search-bar" placeholder="Search Medicine">
+                    <input type="text" id="search-appointment-id" placeholder="Enter Appointment ID">
                     <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
                 </div>
-                <table id="medicine-table">
+                <table id="prescriptions-table" class="prescriptions-table">
                     <thead>
                         <tr>
-                            <th>Medicine Name</th>
+                            <th>Appointment ID</th>
                             <th>Prescription ID</th>
-                            <th>Patient Name</th>
-                            <th>Details</th>
+                            <th>Medicine Name</th>
+                            <th>Dose</th>
+                            <th>Dosage</th>
+                            <th>Quantity</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Table content will be added dynamically -->
+                        <!-- Prescription data will be inserted here -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <script src="medicineDatabaseScript.js"></script>
+    <script src="doctor_track_and_updateMedicine.js"></script>
 </body>
 </html>
