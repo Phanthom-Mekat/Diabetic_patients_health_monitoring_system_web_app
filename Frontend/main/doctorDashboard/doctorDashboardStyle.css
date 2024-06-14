@@ -459,3 +459,157 @@ th {
 tbody tr:hover {
     background-color: #f1f1f1;
 }
+
+/* CSS for doctor dashboard overview */
+.main-content {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.welcome-card {
+    background-color: #2b4efc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 60%;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.welcome-card h1 {
+    font-size: 36px; 
+    animation: slideIn 1s ease-in-out;
+}
+
+.welcome-card h2 {
+    font-size: 28px; 
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.highlight {
+    font-weight: bold;
+    color: red;
+}
+
+
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#curve_chart {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    height: 300px;
+}
+
+#pieChart {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 200px;
+}
+
+.appointments {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.calendar {
+    background-color: #abbefc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 40%;
+}
+
+#calendar {
+    max-width: 100%;
+    height: 300px;
+}
+
+.appointment-list {
+    background-color: #bac7fb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+.appointment-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.appointment-list li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.appointment-list li span {
+    font-weight: bold;
+    color: #555;
+}
+
+.view-appointments {
+    font-weight: bold;
+    font-size: 24px;
+    color: #3B82F6;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.view-appointments:hover {
+    text-decoration: underline;
+}
