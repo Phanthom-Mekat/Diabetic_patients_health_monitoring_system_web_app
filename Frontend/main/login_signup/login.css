@@ -6,7 +6,7 @@
 }
 body {
   image-rendering: pixelated;
-  background-image: url("bgimge.jpg");
+  background-image: url("h.jpg");
   background-size: cover;
   display: flex;
   justify-content: center;
