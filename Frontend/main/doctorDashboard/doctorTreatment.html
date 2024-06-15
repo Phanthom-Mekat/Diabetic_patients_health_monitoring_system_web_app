@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Consultation</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="DoctorDashPatient.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>E-DiaCare</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
+                <li><a href="doctor_profile.html">View Profile</a></li>
+                <li><a href="doctor_appointments.html">Manage Appointments</a></li>
+                <li><a href="doctor_prescriptions.html">Prescribe Medicine</a></li>
+                <li><a href="doctor_instructions.html">Consult Patients</a></li>
+                <li><a href="doctor_patient_list.html">View Patient Metrics</a></li>
+                <li><a href="doctor_track_and_updateMedicine.html">Update Prescription and Track Medicine</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Prescribe Medicine</h1>
+            </header>
+            <div class="main-content">
+
+                <!-- Patient Demographic Data -->
+                <section class="patient-demographic">
+                    <h2>Patient Demographic Data</h2>
+                    <table class="demographic-table">
+                        <tr>
+                            <td>First Name:</td>
+                            <td>Dummy First Name</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td>Dummy Last Name</td>
+                        </tr>
+                        <tr>
+                            <td>Age:</td>
+                            <td>Dummy Age</td>
+                        </tr>
+                        <tr>
+                            <td>District:</td>
+                            <td>Dummy District</td>
+                        </tr>
+                        <tr>
+                            <td>Sub District:</td>
+                            <td>Dummy Sub District</td>
+                        </tr>
+                        <tr>
+                            <td>Gender:</td>
+                            <td>Male</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number:</td>
+                            <td>Dummy Phone Number</td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td>Dummy Email</td>
+                        </tr>
+                        <tr>
+                            <td>Diabetes Type:</td>
+                            <td>Dummy Diabetes Type</td>
+                        </tr>
+                        <tr>
+                            <td>Weight:</td>
+                            <td>Dummy Weight</td>
+                        </tr>
+                        <tr>
+                            <td>BMI:</td>
+                            <td>Dummy BMI</td>
+                        </tr>
+                        <tr>
+                            <td>Height:</td>
+                            <td>Dummy Height</td>
+                        </tr>
+                        <tr>
+                            <td>Other Illness:</td>
+                            <td>Dummy Other Illness</td>
+                        </tr>
+                        <tr>
+                            <td>Insulin Status:</td>
+                            <td>Dummy Insulin Status</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- Diagnosis Symptom -->
+                <section class="diagnosis-symptom">
+                    <h2>Diagnosis Symptom</h2>
+                    <table class="symptom-table">
+                        <thead>
+                            <tr>
+                                <th>Symptom Name</th>
+                                <th>Duration</th>
+                                <th>Test Item</th>
+                                <th>Result</th>
+                                <th>Result Summary</th>
+                                <th>Observation</th>
+                                <th>Reference Value (Max, Min)</th>
+                                <th>Diagnosis Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dummy Symptom</td>
+                                <td>Dummy Duration</td>
+                                <td>Dummy Test Item</td>
+                                <td>Dummy Result</td>
+                                <td>Dummy Result Summary</td>
+                                <td>Dummy Observation</td>
+                                <td>Dummy Reference Value</td>
+                                <td>Dummy Diagnosis Date</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Prescribe Medicine -->
+                <section class="prescribe-medicine">
+                    <h2>Prescribe Medicine</h2>
+                    <form id="prescription-form">
+                        <div class="form-group">
+                            <label for="patient-name">Patient Name:</label>
+                            <input type="text" id="patient-name" name="patient-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptoms">Symptoms:</label>
+                            <textarea id="symptoms" name="symptoms" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="diagnosis">Diagnosis:</label>
+                            <select id="diagnosis" name="diagnosis" required>
+                                <option value="Type-1 Diabetes">Type-1 Diabetes</option>
+                                <option value="Type-2 Diabetes">Type-2 Diabetes</option>
+                                <option value="Gestational Diabetes">Gestational Diabetes</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            <input type="text" id="custom-diagnosis" name="custom-diagnosis" style="display: none;" placeholder="Specify diagnosis">
+                        </div>
+                        <div id="drugs-container">
+                            <div class="drug-entry">
+                                <h3>Drug 1</h3>
+                                <div class="form-group">
+                                    <label for="drug-name-1">Drug Name:</label>
+                                    <input type="text" id="drug-name-1" name="drug-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dose-1">Dose (e.g., 500mg):</label>
+                                    <input type="text" id="dose-1" name="dose" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dosage-1">Dosage:</label>
+                                    <select id="dosage-1" name="dosage" required>
+                                        <option value="Once a day">Once a day</option>
+                                        <option value="Twice a day">Twice a day</option>
+                                        <option value="Thrice a day">Thrice a day</option>
+                                        <option value="Four times a day">Four times a day</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <input type="text" id="custom-dosage-1" name="custom-dosage" style="display: none;" placeholder="Specify dosage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity-1">Quantity:</label>
+                                    <input type="number" id="quantity-1" name="quantity" required min="1" max="100">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-drug-btn" class="btn-add-drug">Add Another Drug</button>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Add Prescription</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Consultation Form -->
+                <section class="consultation-form-section">
+                    <h2>Consultation Form</h2>
+                    <form id="consultation-form" class="consultation-form">
+                        <div class="form-group">
+                            <label for="appointment-id">Appointment ID:</label>
+                            <input type="text" id="appointment-id" name="appointment-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="instructions">Instructions:</label>
+                            <textarea id="instructions" name="instructions" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="suggested-action">Suggested Action:</label>
+                            <textarea id="suggested-action" name="suggested-action" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="follow-up-date">Follow-Up Date:</label>
+                            <input type="text" id="follow-up-date" name="follow-up-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Reason of Consultation:</label>
+                            <select id="reason" name="reason" required>
+                                <option value="treatment">Treatment</option>
+                                <option value="report-checking">Report Checking</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Submit</button>
+                            <button type="reset" class="btn-reset">Reset</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Update Previous Prescriptions -->
+                <section class="update-previous-prescriptions">
+                    <h2>Update Previous Prescriptions</h2>
+                    <div class="table-container">
+                        <div class="search-container">
+                            <input type="text" id="search-appointment-id" placeholder="Enter Appointment ID">
+                            <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
+                        </div>
+                        <table id="prescriptions-table" class="prescriptions-table">
+                            <thead>
+                                <tr>
+                                    <th>Appointment ID</th>
+                                    <th>Prescription ID</th>
+                                    <th>Medicine Name</th>
+                                    <th>Dose</th>
+                                    <th>Dosage</th>
+                                    <th>Quantity</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Prescription data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div><!-- .main-content -->
+        </div><!-- .main-content-wrapper -->
+    </div><!-- .container -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="doctorPrescriptionsScript.js"></script>
+    <script src="doctorConsultationScript.js"></script>
+    <script src="doctor_track_and_updateMedicine.js"></script>
+
+    <!-- jQuery UI Datepicker initialization -->
+    <script>
+        $(function() {
+            $('#follow-up-date').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
+
+</body>
+</html>

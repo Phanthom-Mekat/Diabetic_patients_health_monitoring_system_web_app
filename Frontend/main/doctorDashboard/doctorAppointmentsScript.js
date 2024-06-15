@@ -20,154 +20,190 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 22, appointmentDate: '2024-06-18', appointmentType: 'offline', date: '2024-06-08', time: '2:00 PM', status: 'pending' },
         { id: 32, appointmentDate: '2024-06-19', appointmentType: 'online', date: '2024-06-19', time: '3:00 PM', status: 'approved' },
         { id: 43, appointmentDate: '2024-06-19', appointmentType: 'offline', date: '2024-06-19', time: '4:00 PM', status: 'pending' },
-        { id: 52, appointmentDate: '2024-06-20', appointmentType: 'offline', date: '2024-06-22', time: '5:00 PM', status: 'pending' },
+        { id: 52, appointmentDate: '2024-06-20', appointmentType: 'offline', date: '2024-06-22', time: '5:00 PM', status: 'pending' }
         // Add more dummy data for testing filtering logic
     ];
 
     var patientProfiles = {
         1: { name: 'John Doe', age: 30, gender: 'Male', phone: '+1234567890', email: 'john.doe@example.com', address: '123 Main St, City, Country' },
         2: { name: 'Jane Smith', age: 28, gender: 'Female', phone: '+1234567891', email: 'jane.smith@example.com', address: '456 Elm St, City, Country' },
-        3: { name: 'Alice Johnson', age: 35, gender: 'Female', phone: '+1234567892', email: 'alice.johnson@example.com', address: '789 Oak St, City, Country' },
-        4: { name: 'Bob Brown', age: 40, gender: 'Male', phone: '+1234567893', email: 'bob.brown@example.com', address: '101 Pine St, City, Country' },
-        5: { name: 'Carol White', age: 32, gender: 'Female', phone: '+1234567894', email: 'carol.white@example.com', address: '202 Maple St, City, Country' }
-        // Add more dummy patient profiles for testing
+        3: { name: 'Alice Johnson', age: 35, gender: 'Female', phone: '+1234567892', email: 'alice.johnson@example.com', address: '789 Maple St, City, Country' },
+        4: { name: 'Bob Brown', age: 40, gender: 'Male', phone: '+1234567893', email: 'bob.brown@example.com', address: '321 Oak St, City, Country' },
+        5: { name: 'Carol White', age: 32, gender: 'Female', phone: '+1234567894', email: 'carol.white@example.com', address: '654 Pine St, City, Country' },
+        9: { name: 'Ali White', age: 30, gender: 'Male', phone: '+1234567890', email: 'john.doe@example.com', address: '123 Main St, City, Country' },
+        10: { name: 'Rahul Smith', age: 28, gender: 'Female', phone: '+1234567891', email: 'jane.smith@example.com', address: '456 Elm St, City, Country' },
+        13: { name: 'Don Johnson', age: 35, gender: 'Female', phone: '+1234567892', email: 'alice.johnson@example.com', address: '789 Maple St, City, Country' },
+        14: { name: 'Surat Brown', age: 40, gender: 'Male', phone: '+1234567893', email: 'bob.brown@example.com', address: '321 Oak St, City, Country' },
+        15: { name: 'Ansh White', age: 32, gender: 'Female', phone: '+1234567894', email: 'carol.white@example.com', address: '654 Pine St, City, Country' },
+        11: { name: 'Dhruv White', age: 30, gender: 'Male', phone: '+1234567890', email: 'john.doe@example.com', address: '123 Main St, City, Country' },
+        12: { name: 'Akash Smith', age: 28, gender: 'Female', phone: '+1234567891', email: 'jane.smith@example.com', address: '456 Elm St, City, Country' },
+        31: { name: 'Aayush Johnson', age: 35, gender: 'Female', phone: '+1234567892', email: 'alice.johnson@example.com', address: '789 Maple St, City, Country' },
+        41: { name: 'Parth Brown', age: 40, gender: 'Male', phone: '+1234567893', email: 'bob.brown@example.com', address: '321 Oak St, City, Country' },
+        51: { name: 'Nimit White', age: 32, gender: 'Female', phone: '+1234567894', email: 'carol.white@example.com', address: '654 Pine St, City, Country' },
+        19: { name: 'Ajit White', age: 30, gender: 'Male', phone: '+1234567890', email: 'john.doe@example.com', address: '123 Main St, City, Country' },
+        22: { name: 'Akash Smith', age: 28, gender: 'Female', phone: '+1234567891', email: 'jane.smith@example.com', address: '456 Elm St, City, Country' },
+        32: { name: 'Akshay Johnson', age: 35, gender: 'Female', phone: '+1234567892', email: 'alice.johnson@example.com', address: '789 Maple St, City, Country' },
+        43: { name: 'Rahul Brown', age: 40, gender: 'Male', phone: '+1234567893', email: 'bob.brown@example.com', address: '321 Oak St, City, Country' },
+        52: { name: 'Vivek White', age: 32, gender: 'Female', phone: '+1234567894', email: 'carol.white@example.com', address: '654 Pine St, City, Country' }
     };
 
-    /**
-     * Render appointments table
-     * @param {Array} appointments - Array of appointments
-     */
-    function renderAppointments(appointments) {
-        var tableBody = document.querySelector('#appointments-table tbody');
-        tableBody.innerHTML = '';
-
-        if (appointments.length === 0) {
-            alert('No matching appointments found.');
-            return;
-        }
+    function populateAppointmentsTable() {
+        var tableBody = $('#appointments-table tbody');
+        tableBody.empty();
 
         appointments.forEach(function(appointment) {
-            var row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${appointment.id}</td>
-                <td>${appointment.appointmentDate}</td>
-                <td>${appointment.appointmentType}</td>
-                <td>${appointment.time}</td>
-                <td>${getActionButtons(appointment)}</td>
-                <td>${appointment.status}</td>
-                <td><button class="view-profile-btn" data-id="${appointment.id}">View Profile</button></td>
-            `;
-            tableBody.appendChild(row);
-        });
+            var row = $('<tr>');
+            row.append($('<td>').text(appointment.id));
+            row.append($('<td>').text(appointment.appointmentDate));
+            row.append($('<td>').text(appointment.appointmentType));
+            row.append($('<td>').text(appointment.time));
 
-        // Add event listeners for view profile buttons
-        document.querySelectorAll('.view-profile-btn').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var appointmentId = this.getAttribute('data-id');
-                showProfileCard(appointmentId);
+            var actionCell = $('<td>');
+            if (appointment.status === 'pending') {
+                var approveButton = $('<button>').text('Approve').click(function() {
+                    updateAppointmentStatus(appointment.id, 'approved');
+                });
+                var rejectButton = $('<button>').text('Reject').click(function() {
+                    updateAppointmentStatus(appointment.id, 'rejected');
+                });
+                actionCell.append(approveButton).append(rejectButton);
+            }
+            row.append(actionCell);
+
+            var statusCell = $('<td>').text(appointment.status);
+            row.append(statusCell);
+
+            var profileButton = $('<button>').text('View Profile').click(function() {
+                showPatientProfile(appointment.id);
             });
+            row.append($('<td>').append(profileButton));
+
+            // Conditional Treatment button
+            var treatmentCell = $('<td>');
+            if (appointment.status === 'approved') {
+                var treatmentButton = $('<button>').text('Treatment').click(function() {
+                    redirectToTreatmentScene(appointment.id);
+                });
+                treatmentCell.append(treatmentButton);
+            } else if (appointment.status === 'rejected') {
+                treatmentCell.text('Appointment cancelled');
+            }
+            row.append(treatmentCell);
+
+            tableBody.append(row);
         });
     }
 
-    /**
-     * Get action buttons based on appointment status
-     * @param {Object} appointment - Appointment object
-     * @returns {string} - HTML for action buttons
-     */
-    function getActionButtons(appointment) {
-        if (appointment.status === 'pending') {
-            return `<button onclick="approveAppointment(${appointment.id})">Approve</button>`;
-        } else {
-            return `<button disabled>Approved</button>`;
+    function updateAppointmentStatus(appointmentId, status) {
+        var appointment = appointments.find(function(a) { return a.id === appointmentId; });
+        if (appointment) {
+            appointment.status = status;
+            populateAppointmentsTable();
         }
     }
 
-    /**
-     * Filter appointments based on selected filters
-     */
+    function showPatientProfile(appointmentId) {
+        var profile = patientProfiles[appointmentId];
+        if (profile) {
+            $('#profile-details').html(`
+                <p><strong>Name:</strong> ${profile.name}</p>
+                <p><strong>Age:</strong> ${profile.age}</p>
+                <p><strong>Gender:</strong> ${profile.gender}</p>
+                <p><strong>Phone:</strong> ${profile.phone}</p>
+                <p><strong>Email:</strong> ${profile.email}</p>
+                <p><strong>Address:</strong> ${profile.address}</p>
+            `);
+            $('#profile-card').show();
+        }
+    }
+
+    function redirectToTreatmentScene(appointmentId) {
+        window.location.href = `doctorTreatment.html?appointmentId=${appointmentId}`;
+    }
+
+    $('#close-profile-card').click(function() {
+        $('#profile-card').hide();
+    });
+
+    // Filter logic
+    $('#appointment-type').change(function() {
+        filterAppointments();
+    });
+
+    $('#appointment-date').datepicker({
+        onSelect: function() {
+            filterAppointments();
+        }
+    });
+
+    $('#action-filter').change(function() {
+        filterAppointments();
+    });
+
+    $('input[name="status-filter"]').change(function() {
+        filterAppointments();
+    });
+
     function filterAppointments() {
-        var appointmentType = document.querySelector('#appointment-type').value;
-        var appointmentDate = document.querySelector('#appointment-date').value;
-        var action = document.querySelector('#action-filter').value;
-        var status = document.querySelector('input[name="status-filter"]:checked').value;
+        var typeFilter = $('#appointment-type').val();
+        var dateFilter = $('#appointment-date').val();
+        var actionFilter = $('#action-filter').val();
+        var statusFilter = $('input[name="status-filter"]:checked').val();
 
         var filteredAppointments = appointments.filter(function(appointment) {
-            var meetsCriteria = true;
-
-            if (appointmentType !== 'all' && appointment.appointmentType !== appointmentType) {
-                meetsCriteria = false;
-            }
-
-            if (appointmentDate && appointment.appointmentDate !== appointmentDate) {
-                meetsCriteria = false;
-            }
-
-            if (action === 'approve' && appointment.status !== 'pending') {
-                meetsCriteria = false;
-            }
-
-            if (action === 'reject' && appointment.status !== 'approved') {
-                meetsCriteria = false;
-            }
-
-            if (status !== 'all' && appointment.status !== status) {
-                meetsCriteria = false;
-            }
-
-            return meetsCriteria;
+            var typeMatch = (typeFilter === 'all' || appointment.appointmentType === typeFilter);
+            var dateMatch = (!dateFilter || appointment.appointmentDate === dateFilter);
+            var actionMatch = (actionFilter === 'all' || appointment.status === actionFilter);
+            var statusMatch = (statusFilter === 'all' || appointment.status === statusFilter);
+            return typeMatch && dateMatch && actionMatch && statusMatch;
         });
 
-        renderAppointments(filteredAppointments);
+        var tableBody = $('#appointments-table tbody');
+        tableBody.empty();
+
+        filteredAppointments.forEach(function(appointment) {
+            var row = $('<tr>');
+            row.append($('<td>').text(appointment.id));
+            row.append($('<td>').text(appointment.appointmentDate));
+            row.append($('<td>').text(appointment.appointmentType));
+            row.append($('<td>').text(appointment.time));
+
+            var actionCell = $('<td>');
+            if (appointment.status === 'pending') {
+                var approveButton = $('<button>').text('Approve').click(function() {
+                    updateAppointmentStatus(appointment.id, 'approved');
+                });
+                var rejectButton = $('<button>').text('Reject').click(function() {
+                    updateAppointmentStatus(appointment.id, 'rejected');
+                });
+                actionCell.append(approveButton).append(rejectButton);
+            }
+            row.append(actionCell);
+
+            var statusCell = $('<td>').text(appointment.status);
+            row.append(statusCell);
+
+            var profileButton = $('<button>').text('View Profile').click(function() {
+                showPatientProfile(appointment.id);
+            });
+            row.append($('<td>').append(profileButton));
+
+            // Conditional Treatment button
+            var treatmentCell = $('<td>');
+            if (appointment.status === 'approved') {
+                var treatmentButton = $('<button>').text('Treatment').click(function() {
+                    redirectToTreatmentScene(appointment.id);
+                });
+                treatmentCell.append(treatmentButton);
+            } else if (appointment.status === 'rejected') {
+                treatmentCell.text('Appointment cancelled');
+            }
+            row.append(treatmentCell);
+
+            tableBody.append(row);
+        });
     }
 
-    // Event listeners for filter change
-    document.querySelectorAll('#appointment-type, #appointment-date, #action-filter, input[name="status-filter"]').forEach(function(element) {
-        element.addEventListener('change', filterAppointments);
-    });
-
-    // Initialize datepicker
-    $('#appointment-date').datepicker({ dateFormat: 'yy-mm-dd' });
-
-    // Initial rendering of appointments
-    renderAppointments(appointments);
-
-    /**
-     * Show profile card
-     * @param {number} appointmentId - Appointment ID
-     */
-    function showProfileCard(appointmentId) {
-        var profile = patientProfiles[appointmentId];
-        if (!profile) {
-            alert('Profile not found.');
-            return;
-        }
-
-        var profileDetails = `
-            <strong>Name:</strong> ${profile.name}<br>
-            <strong>Age:</strong> ${profile.age}<br>
-            <strong>Gender:</strong> ${profile.gender}<br>
-            <strong>Phone:</strong> ${profile.phone}<br>
-            <strong>Email:</strong> ${profile.email}<br>
-            <strong>Address:</strong> ${profile.address}
-        `;
-
-        document.getElementById('profile-details').innerHTML = profileDetails;
-        document.getElementById('profile-card').style.display = 'block';
-    }
-
-    // Close profile card
-    document.getElementById('close-profile-card').addEventListener('click', function() {
-        document.getElementById('profile-card').style.display = 'none';
-    });
+    // Initialize table with all appointments
+    populateAppointmentsTable();
 });
-
-/**
- * Handle approving appointments
- * @param {number} id - Appointment ID
- */
-function approveAppointment(id) {
-    // Dummy logic
-    console.log('Appointment with ID ' + id + ' has been approved.');
-    // Here you would typically make an API call to update the appointment status in the backend
-    alert('Appointment with ID ' + id + ' has been approved.');
-}
