@@ -20,7 +20,7 @@
 }
 
 html {
-   font-size: 62.5%;
+   font-size: 65%;
    overflow-x: hidden;
    scroll-behavior: smooth;
 }
@@ -38,8 +38,10 @@ html::-webkit-scrollbar-thumb {
 }
 
 section {
-   padding: 3rem 9%;
+   padding: 3rem 4%;
 }
+
+
 
 .heading {
    text-align: center;
@@ -57,9 +59,10 @@ a.logo {
 
 .diet .controls {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
    gap: 1.5rem;
    list-style: none;
+   width:230%;
 }
 
 .diet .controls .buttons {
@@ -90,6 +93,7 @@ a.logo {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
    gap: 1.5rem;
+   width: 230%;
 }
 
 .diet .image-container .box {
@@ -187,11 +191,13 @@ a.logo {
 }
 
 .sidebar {
+   
    width: 250px;
    background-color: #00060d;
    color: white;
    padding: 20px;
    flex-shrink: 0;
+
 }
 
 .sidebar h2 {
