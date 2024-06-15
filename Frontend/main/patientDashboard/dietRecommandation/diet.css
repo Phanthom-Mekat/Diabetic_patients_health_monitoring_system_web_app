@@ -177,3 +177,45 @@ a.logo {
       font-size: 50%;
    }
 }
+
+
+.container1 {
+   display: flex;
+   width: 100%;
+   overflow-y: auto;
+   height: 100%;
+}
+
+.sidebar {
+   width: 250px;
+   background-color: #00060d;
+   color: white;
+   padding: 20px;
+   flex-shrink: 0;
+}
+
+.sidebar h2 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.sidebar ul {
+   list-style: none;
+}
+
+.sidebar ul li {
+   margin: 15px 0;
+}
+
+.sidebar ul li a {
+   color: white;
+   text-decoration: none;
+   display: block;
+   padding: 10px;
+   border-radius: 5px;
+   transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+   background-color: #34495e;
+}

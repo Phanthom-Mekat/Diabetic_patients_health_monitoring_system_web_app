@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Health Data</title>
+    <link rel="stylesheet" href="viewPrescription.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="\Frontend\main\patientDashboard\patientDashboard.html">Dashboard</a><br><br><br><br>
+            <ul>
+                <li><a href="/Frontend/main/patientDashboard/profile/viewProfile.html"> View Profile</a></li>
+                <li><a href="/Frontend/main/patientDashboard/inputHealthData/inputHealthData.html"> Daily Health Data</a></li>
+                <li><a href="\Frontend\main\patientDashboard\bookAppointment\viewDoctor.html"> Book Appointments</a></li>
+                <li><a href="\Frontend\main\patientDashboard\diagnosisData\diagnosis.html"> Diagnosis Data</a></li>
+                <li><a href="\Frontend\main\patientDashboard\dietRecommandation\diet.html"> Diet Plan</a></li>
+                <li><a href="/Frontend/main/patientDashboard/viewPrescription/viewPrescription.html"> Prescriptions</a></li>
+                <li><a href="#"> Recommendations</a></li>
+                <li><a href="#"> Feedback</a></li>
+                <li><a href="/Frontend/main/Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="health-data-container">
+            <div class="health-data-header">
+                <h2> Prescription Manager </h2>
+            </div>
+            <div class="prescription-table-container">
+                <h3>Prescription Details</h3>
+                <table class="prescription-table">
+                    <thead>
+                        <tr>
+                            <th>Doctor</th>
+                            <th>Symptoms</th>
+                            <th>Diagnosis</th>
+                            <th>Drug Name</th>
+                            <th>Dosage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Headache, Fever, Cough</td>
+                            <td>Flu</td>
+                            <td>Ibuprofen</td>
+                            <td>Take 1 tablet every 6 hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="hover-card">
+                    <p><strong>Quantity:</strong> 30 tablets</p>
+                    <p><strong>Instructions:</strong> Take with food. Avoid alcohol.</p>
+                    <p><strong>Refills:</strong> 2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.prescription-table tbody tr').addEventListener('mouseenter', function() {
+            document.querySelector('.hover-card').style.display = 'block';
+        });
+        document.querySelector('.prescription-table tbody tr').addEventListener('mouseleave', function() {
+            document.querySelector('.hover-card').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

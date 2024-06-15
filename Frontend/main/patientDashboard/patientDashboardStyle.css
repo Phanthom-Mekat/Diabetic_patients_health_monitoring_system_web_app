@@ -204,6 +204,9 @@ body {
 .top-card .card-title {
     font-size: 1rem;
     color: #7f8c8d;
+   
+    
+   
 }
 
 .top-card .card-value {
@@ -323,4 +326,46 @@ body.dark-mode .card-value {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.chart-item {
+    background-color: #fff8f8fb;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.chart-item:last-child {
+    margin-right: 0;
+}
+
+.pie-chart, .line-chart, .bar-chart {
+    height: 250px;
+    width: 100%;
+}
+
+body.dark-mode .chart-item {
+    background-color: #17181a;
+    color: #e7ecf1;
+}
+
+.cardLogos{
+    width: 30px; 
+    height: 30px;
+    
+    
+}
+
+
+.userName{
+
+    font-size: larger;
+    padding-left: 390px;
 }

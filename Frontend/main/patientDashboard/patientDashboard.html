@@ -47,11 +47,12 @@
         <div class="sidebar">
             <h2>Dashboard</h2><br><br>
             <ul>
+                <li><a href="/Frontend/main/patientDashboard/profile/viewProfile.html"> View Profile</a></li>
                 <li><a href="inputHealthData/inputHealthData.html"> Daily Health Data</a></li>
                 <li><a href="\Frontend\main\patientDashboard\bookAppointment\viewDoctor.html"> Book Appointments</a></li>
                 <li><a href="\Frontend\main\patientDashboard\diagnosisData\diagnosis.html"> Diagnosis Data</a></li>
                 <li><a href="/Frontend/main/patientDashboard/dietRecommandation/diet.html"> Diet Plan</a></li>
-                <li><a href="#"> Prescriptions</a></li>
+                <li><a href="/Frontend/main/patientDashboard/viewPrescription/viewPrescription.html"> Prescriptions</a></li>
                 <li><a href="#"> Recommendations</a></li>
                 <li><a href="#"> Feedback</a></li>
                 <li><a href="../Home/index.html">Logout</a></li>
@@ -64,10 +65,12 @@
                 <img src="nightMode.png" height="35" width="90" id="darkModeToggle" class="darkicon" onclick="toggleDarkMode()">
                 <script src="script.js"></script>
                 
-                
+                <span class="userName">John Doe</span>
+                 
                 <div class="dropdown">
                     <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
                     <label for="dropdown-toggle" class="dropbtn">
+                        
                         <img src="profileIcon.png" alt="Profile Icon" class="profile-icon" height="40" width="40">
                     </label>
                     <div class="dropdown-content">
@@ -79,22 +82,23 @@
             </header>
             <div class="top-container">
                 <div class="card top-card">
-                    <div class="card-title">BP Reading</div>
+                    
+                    <div class="card-title"><img class="cardLogos"src="bp_reading.png"><span>BP Reading</span></div>
                     <div class="card-value">167</div>
                     <div class="card-date">Today</div>
                 </div>
                 <div class="card top-card">
-                    <div class="card-title">Glucose Reading</div>
+                    <div class="card-title"><img class="cardLogos"src="glucose.jpg">Glucose Reading</div>
                     <div class="card-value">185</div>
                     <div class="card-date">Today</div>
                 </div>
                 <div class="card top-card">
-                    <div class="card-title">Weight Reading</div>
+                    <div class="card-title"><img class="cardLogos"src="weight.png">Weight Reading</div>
                     <div class="card-value">101</div>
                     <div class="card-date">Today</div>
                 </div>
                 <div class="card top-card">
-                    <div class="card-title">Calorie Intake</div>
+                    <div class="card-title"><img class="cardLogos"src="calorie.jfif">Calorie Intake</div>
                     <div class="card-value">31</div>
                     <div class="card-date">Today</div>
                 </div>
@@ -127,6 +131,28 @@
                         <div id="piechart" class="chart"></div>
                     </div>
                 </div>
+
+
+                <div class="charts">
+                    <div class="chart-item">
+                        <h3>Blood Sugar Levels</h3><br>
+                        <div class="line-chart">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    
+                
+                
+                    <div class="chart-item">
+                        <h3>Calorie Intake Chart</h3><br>
+                        <div class="bar-chart">
+                            <canvas id="barChart1"></canvas>
+                        </div>
+                    </div>
+                    </div>
+
+
                 <h3><span class="appnHead">Appointments</span></h3>
                 <div class="card2">
                     <div class="appointmens">
@@ -167,5 +193,8 @@
             drawChart();
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="patientDash.js"></script>
 </body>
 </html>
