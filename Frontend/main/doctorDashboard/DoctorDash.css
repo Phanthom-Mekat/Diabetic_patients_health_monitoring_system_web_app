@@ -168,9 +168,9 @@ body {
 }
 
 .photo img {
-    width: 90px;
+    width: 180px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 75%;
 }
 
 .main-content-wrapper {

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Health Data</title>
+    <link rel="stylesheet" href="patient_chat.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="/Frontend/main/patientDashboard/patientDashboard.html">Dashboard</a>
+            <ul>
+                <li><a href="/Frontend/main/patientDashboard/profile/viewProfile.html">View Profile</a></li>
+                <li><a href="inputHealthData.html">Daily Health Data</a></li>
+                <li><a href="/Frontend/main/patientDashboard/bookAppointment/viewDoctor.html">Book Appointments</a></li>
+                <li><a href="/Frontend/main/patientDashboard/diagnosisData/diagnosis.html">Diagnosis Data</a></li>
+                <li><a href="/Frontend/main/patientDashboard/dietRecommandation/diet.html">Diet Plan</a></li>
+                <li><a href="/Frontend/main/patientDashboard/viewPrescription/viewPrescription.html">Prescriptions</a></li>
+                <li><a href="#">Recommendations</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="patient_chat.html">Chat with doctors</a></li>
+                <li><a href="/Frontend/main/Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="health-data-container">
+            <div class="health-data-header">
+                <h2>Patient Health Data</h2>
+            </div>
+            <div class="main-content">
+                <div class="chat-sidebar">
+                    <input type="text" placeholder="Search for..." id="search" onkeyup="filterChats()">
+                    <ul id="chatList"></ul>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <h3 id="chatWith">Chat with...</h3>
+                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Type a message...">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+                <div class="chat-profile">
+                    <div class="profile-header">
+                        <h3>Profile</h3>
+                    </div>
+                    <div id="profileInfo">
+                        <!-- Profile info will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="patient_chat.js"></script>
+</body>
+</html>
