@@ -16,6 +16,67 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+
+body, .container1 {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-image: url("1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.container1 {
+    display: flex;
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #00060d;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+}
+
+.dashboardLink {
+    padding-left: 42.5px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
 .health-data-container {
     background-color: #fff;
     border-radius: 8px;
@@ -94,26 +155,8 @@ html {
     background-color: #555;
 }
 
-.dashboardLink{
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    padding:20px;
-    
-}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    
-}
-body {
-    display: flex;
-    height: 100vh;
-}
+
 
 .container {
     display: flex;
@@ -122,42 +165,7 @@ body {
     height: 100%;
 }
 
-.sidebar {
-    width: 250px;
-    background-color: #00060d;
-    color: white;
-    padding: 20px;
-    flex-shrink: 0;
-}
 
-
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar ul li {
-    margin: 15px 0;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.sidebar ul li a:hover {
-    background-color: #34495e;
-}
-
-.dashboardLink{
-    padding-left: 42.5px;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
 
 #curve_chart{
     height: 200;

@@ -63,6 +63,8 @@ body {
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-weight: 700;
+    text-decoration: none;
+    color: white;
 }
 
 .profile-container {
@@ -107,12 +109,3 @@ body {
     margin-top: 20px;
 }
 
-
-.dashboardLink{
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    padding:20px;
-    
-}

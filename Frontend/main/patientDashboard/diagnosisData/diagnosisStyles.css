@@ -71,7 +71,14 @@ body {
     align-items: center;
     
 }
-
+.dashboardLink {
+    padding-left: 42.5px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
 .container form {
     max-width: 800px;
     width: 100%;
