@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physician Database</title>
+    <link rel="stylesheet" href="physicianDatabase.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="#">E-Diacare</a>
+            <ul>
+                <li><a href="#">View Profile</a></li>
+                <li><a href="#">Health Facilities Database</a></li>
+                <li><a href="#">Physician Database</a></li>
+                <li><a href="#">Patient Database</a></li>
+                <li><a href="#">View Feedback</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Welcome To Admin Dashboard</h1>
+                <span class="userName">Mr. Mekat</span>
+                <div class="dropdown">
+                    <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+                    <label for="dropdown-toggle" class="dropbtn">
+                        <img src="profile-icon.png" alt="Profile Icon" class="profile-icon" height="40" width="40">
+                    </label>
+                    <div class="dropdown-content">
+                        <a href="#profile">Profile</a>
+                        <a href="#settings">Settings</a>
+                        <a href="../Home/index.html">Logout</a>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <h2>Physician Database</h2>
+                <form id="physicianForm" class="form">
+                    <input type="text" name="physicianID" placeholder="ID" required>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="number" name="age" placeholder="Age" required>
+                    <input type="text" name="district" placeholder="Address (District)" required>
+                    <input type="text" name="subDistrict" placeholder="Address (Sub-District)" required>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="text" name="nid" placeholder="NID" required>
+            
+                    <div class="multivalue-container" id="certificationsContainer">
+                        <input type="text" name="certifications[]" placeholder="Certification" required>
+                        <button type="button" id="addCertificationButton">Add Certification</button>
+                    </div>
+            
+                    <div class="multivalue-container" id="educationContainer">
+                        <input type="text" name="education[]" placeholder="Education" required>
+                        <button type="button" id="addEducationButton">Add Education</button>
+                    </div>
+            
+                    <input type="number" name="experience" placeholder="Years of Experience" required>
+            
+                    <div class="multivalue-container" id="affiliationsContainer">
+                        <input type="text" name="affiliations[]" placeholder="Hospital Affiliation" required>
+                        <button type="button" id="addAffiliationButton">Add Affiliation</button>
+                    </div>
+            
+                    <select name="healthcareProfessionalType" id="healthcareProfessionalType" required>
+                        <option value="" disabled selected>Select Healthcare Professional Type</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Nutritionist">Nutritionist</option>
+                    </select>
+            
+                    <div id="doctorFields" class="conditional-fields">
+                        <input type="text" name="specialty" placeholder="Specialty">
+                    </div>
+            
+                    <div id="nutritionistFields" class="conditional-fields">
+                        <input type="text" name="nutritionistType" placeholder="Nutritionist Type">
+                    </div>
+            
+                    <button type="submit">Add Physician</button>
+                </form>
+            
+                <input type="text" id="searchBar" placeholder="Search for physicians...">
+            
+                <div class="filters">
+                    <label>
+                        <input type="radio" name="healthcareProfessionalTypeFilter" value="all" checked> All
+                    </label>
+                    <label>
+                        <input type="radio" name="healthcareProfessionalTypeFilter" value="doctor"> Doctor
+                    </label>
+                    <label>
+                        <input type="radio" name="healthcareProfessionalTypeFilter" value="nutritionist"> Nutritionist
+                    </label>
+                </div>
+            </div>
+            
+                <table id="physicianTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address (District)</th>
+                            <th>Address (Sub-District)</th>
+                            <th>Gender</th>
+                            <th>Phone Number</th>
+                            <th>E-mail</th>
+                            <th>NID</th>
+                            <th>Certifications</th>
+                            <th>Education</th>
+                            <th>Experience</th>
+                            <th>Hospital Affiliation</th>
+                            <th>Type</th>
+                            <th>Details</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="physicianTableBody">
+                        <!-- Dummy data rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="physicianDatabase.js"></script>
+</body>
+</html>

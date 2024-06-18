@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E1E2F;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: #252540;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.main-content-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-title {
+    font-size: 24px;
+}
+
+.userName {
+    margin-right: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-checkbox {
+    display: none;
+}
+
+.dropbtn img {
+    border-radius: 50%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-checkbox:checked + .dropbtn + .dropdown-content {
+    display: block;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+#physicianForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #4A4A6A;
+    border-radius: 10px;
+    background-color: #2A2A48;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    flex: 1 1 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #4A4A6A;
+    border-radius: 5px;
+    background-color: #2A2A48;
+    color: white;
+}
+
+#certificationsContainer,
+#educationContainer,
+#affiliationsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#certificationsContainer button,
+#educationContainer button,
+#affiliationsContainer button {
+    align-self: flex-start;
+    margin-top: 10px;
+    background-color: #36A2EB;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#certificationsContainer button:hover,
+#educationContainer button:hover,
+#affiliationsContainer button:hover {
+    background-color: #2C8DD4;
+}
+
+button[type="submit"] {
+    background-color: #FF6384;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #E55972;
+}
+
+#searchBar {
+    width: calc(100% - 42px);
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #4A4A6A;
+    background-color: #2A2A48;
+    color: white;
+    border-radius: 5px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #2A2A48;
+}
+
+table, th, td {
+    border: 1px solid #4A4A6A;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #35354E;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button.edit {
+    background-color: #36A2EB;
+}
+
+button.delete {
+    background-color: #FF6384;
+}
