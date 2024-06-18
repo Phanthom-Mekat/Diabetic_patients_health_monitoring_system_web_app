@@ -189,44 +189,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal for displaying details
     function showDetailsModal(physician) {
-        const modal = document.createElement('div');
-        modal.classList.add('modal');
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Physician Details</h2>
-                <p>ID: ${physician.id}</p>
-                <p>Name: ${physician.name}</p>
-                <p>Age: ${physician.age}</p>
-                <p>Address: ${physician.district}, ${physician.subDistrict}</p>
-                <p>Gender: ${physician.gender}</p>
-                <p>Phone Number: ${physician.phoneNumber}</p>
-                <p>Email: ${physician.email}</p>
-                <p>NID: ${physician.nid}</p>
-                <p>Certifications: ${physician.certifications.join(', ')}</p>
-                <p>Education: ${physician.education.join(', ')}</p>
-                <p>Years of Experience: ${physician.experience}</p>
-                <p>Hospital Affiliations: ${physician.affiliations.join(', ')}</p>
-                <p>Type: ${physician.type}</p>
-                <p>${physician.type === 'Doctor' ? 'Specialty: ' + physician.specialty : 'Nutritionist Type: ' + physician.nutritionistType}</p>
-            </div>
-        `;
+        // Close any existing modal and overlay
+        const existingModal = document.querySelector('.modal');
+        const existingOverlay = document.querySelector('.modal-overlay');
+        
+        if (existingModal) {
+            existingModal.remove();
+        }
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
 
+        // Create modal overlay
+        const modalOverlay = document.createElement('div');
+        modalOverlay.classList.add('modal-overlay');
+        document.body.appendChild(modalOverlay);
+
+        // Create modal
+        const modal = document.createElement('div');
+        modal.classList.add('modal', 'show');
+        modal.innerHTML = `
+            <span class="close">&times;</span>
+            <h2>Physician Details</h2>
+            <p>ID: ${physician.id}</p>
+            <p>Name: ${physician.name}</p>
+            <p>Age: ${physician.age}</p>
+            <p>Address: ${physician.district}, ${physician.subDistrict}</p>
+            <p>Gender: ${physician.gender}</p>
+            <p>Phone Number: ${physician.phoneNumber}</p>
+            <p>Email: ${physician.email}</p>
+            <p>NID: ${physician.nid}</p>
+            <p>Certifications: ${physician.certifications.join(', ')}</p>
+            <p>Education: ${physician.education.join(', ')}</p>
+            <p>Years of Experience: ${physician.experience}</p>
+            <p>Hospital Affiliations: ${physician.affiliations.join(', ')}</p>
+            <p>Type: ${physician.type}</p>
+            <p>${physician.type === 'Doctor' ? 'Specialty: ' + physician.specialty : 'Nutritionist Type: ' + physician.nutritionistType}</p>
+        `;
         document.body.appendChild(modal);
 
+        // Close modal function
         const closeModal = () => {
-            modal.style.display = 'none';
-            document.body.removeChild(modal);
+            modalOverlay.remove();
+            modal.remove();
         };
 
+        // Event listeners to close modal
         modal.querySelector('.close').addEventListener('click', closeModal);
-        window.addEventListener('click', event => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-
-        modal.style.display = 'block';
+        modalOverlay.addEventListener('click', closeModal);
     }
+
 });
 

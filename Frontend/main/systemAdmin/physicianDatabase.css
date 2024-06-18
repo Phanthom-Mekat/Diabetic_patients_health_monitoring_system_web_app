@@ -217,3 +217,51 @@ button.edit {
 button.delete {
     background-color: #FF6384;
 }
+/* Updated CSS for the modal and its backdrop */
+
+/* Overlay for modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Ensure it's above other content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100; /* Higher than modal-overlay */
+    background-color: #2A2A48;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Close button for modal */
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+/* Show modal and overlay */
+.modal.show {
+    display: block;
+}
+
+.modal-overlay.show {
+    display: block;
+}
