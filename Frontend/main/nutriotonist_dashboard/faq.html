@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Questions</title>
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Visitor Questions</h1>
+        <div class="questions-list">
+            <!-- Questions will be dynamically added here -->
+        </div>
+        <div class="answer-form">
+            <h2>Answer Question</h2>
+            <form id="answer-form">
+                <label for="question-id">Question ID:</label>
+                <input type="text" id="question-id" name="question-id" readonly>
+
+                <label for="question-text">Question:</label>
+                <textarea id="question-text" name="question-text" rows="4" readonly></textarea>
+
+                <label for="answer-text">Your Answer:</label>
+                <textarea id="answer-text" name="answer-text" rows="4" required></textarea>
+
+                <button type="submit">Submit Answer</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/faq.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Food Categories</title>
+    <link rel="stylesheet" href="css/recipes.css">
+    <script src="https://kit.fontawesome.com/847b0e3032.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <article class="meal-plans" id="plans">
+        <h2 class="section-heading plans-h">Meal Plans</h2>
+        <div class="plans-cards">
+            <div class="meal-card">
+                <h3>Vegetarian Plan</h3>
+                <p>Vibrant and delicious vegetarian meals from mains to soups packed with veggies.</p>
+                <img src="https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="stir fried noodles with veggies" class="sample-meal" />
+            </div>
+            <div class="meal-card">
+                <h3>Balanced Diet Plan</h3>
+                <p>Delicious, healthy and satisfying low cal meals with colorful smoothies and healthy snacks.</p>
+                <img src="https://images.pexels.com/photos/5639482/pexels-photo-5639482.jpeg" alt="fish with vegetables on a plate" class="sample-meal" />
+            </div>
+            <div class="meal-card">
+                <h3>Muscle Gain Plan</h3>
+                <p>Protein packed meals and snacks that will help you build and maintain lean muscle.</p>
+                <img src="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="steak with veggies and mash" class="sample-meal" />
+            </div>
+        </div>
+    </article>
+
+    <div class="container">
+        <div class="category" id="breakfast" data-link="#breakfast-section">
+            <div class="overlay">Breakfast</div>
+        </div>
+        <div class="category" id="lunch" data-link="#lunch-section">
+            <div class="overlay">Lunch</div>
+        </div>
+        <div class="category" id="dinner" data-link="#dinner-section">
+            <div class="overlay">Dinner</div>
+        </div>
+    </div>
+
+    <div id="breakfast-section" class="content-section">
+        <h2>Breakfast</h2>
+        <div class="carousel">
+            <button class="carousel-prev">❮</button>
+            <div class="carousel-container">
+                <div class="demo-meals">
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Pancakes with berries">
+                        <div class="meal-info">
+                            <h3>Pancakes with Berries</h3>
+                            <p>Calories: 350 | Protein: 8g | Carbs: 50g | Fat: 12g</p>
+                            <p class="health-risk low">Low health risk</p>
+                        </div>
+                    </div>
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="Avocado Toast">
+                        <div class="meal-info">
+                            <h3>Avocado Toast</h3>
+                            <p>Calories: 250 | Protein: 6g | Carbs: 28g | Fat: 14g</p>
+                            <p class="health-risk low">Low health risk</p>
+                        </div>
+                    </div>
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg" alt="Smoothie Bowl">
+                        <div class="meal-info">
+                            <h3>Smoothie Bowl</h3>
+                            <p>Calories: 300 | Protein: 5g | Carbs: 60g | Fat: 8g</p>
+                            <p class="health-risk moderate">Moderate health risk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-next">❯</button>
+        </div>
+        <button class="back-to-top" data-link="#breakfast">Back to Top</button>
+    </div>
+
+    <div id="lunch-section" class="content-section">
+        <h2>Lunch</h2>
+        <div class="carousel">
+            <button class="carousel-prev">❮</button>
+            <div class="carousel-container">
+                <div class="demo-meals">
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg" alt="Margherita Pizza">
+                        <div class="meal-info">
+                            <h3>Margherita Pizza</h3>
+                            <p>Calories: 300 | Protein: 12g | Carbs: 40g | Fat: 10g</p>
+                            <p class="health-risk moderate">Moderate health risk</p>
+                        </div>
+                    </div>
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg" alt="Chicken Salad">
+                        <div class="meal-info">
+                            <h3>Chicken Salad</h3>
+                            <p>Calories: 200 | Protein: 20g | Carbs: 15g | Fat: 8g</p>
+                            <p class="health-risk low">Low health risk</p>
+                        </div>
+                    </div>
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg" alt="Smoothie Bowl">
+                        <div class="meal-info">
+                            <h3>Quinoa Bowl</h3>
+                            <p>Calories: 350 | Protein: 10g | Carbs: 50g | Fat: 12g</p>
+                            <p class="health-risk moderate">Moderate health risk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-next">❯</button>
+        </div>
+        <button class="back-to-top" data-link="#lunch">Back to Top</button>
+    </div>
+
+    <div id="dinner-section" class="content-section">
+        <h2>Dinner</h2>
+        <div class="carousel">
+            <button class="carousel-prev">❮</button>
+            <div class="carousel-container">
+                <div class="demo-meals">
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg" alt="Margherita Pizza">
+                        <div class="meal-info">
+                            <h3>Margherita Pizza</h3>
+                            <p>Calories: 300 | Protein: 12g | Carbs: 40g | Fat: 10g</p>
+                            <p class="health-risk moderate">Moderate health risk</p>
+                        </div>
+                    </div>
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg" alt="Chicken Salad">
+                        <div class="meal-info">
+                            <h3>Chicken Salad</h3>
+                            <p>Calories: 200 | Protein: 20g | Carbs: 15g | Fat: 8g</p>
+                            <p class="health-risk low">Low health risk</p>
+                        </div>
+                    </div>
+                    <div class="meal-demo-card">
+                        <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg" alt="Smoothie Bowl">
+                        <div class="meal-info">
+                            <h3>Quinoa Bowl</h3>
+                            <p>Calories: 350 | Protein: 10g | Carbs: 50g | Fat: 12g</p>
+                            <p class="health-risk moderate">Moderate health risk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-next">❯</button>
+        </div>
+        <button class="back-to-top" data-link="#dinner">Back to Top</button>
+    </div>
+
+    <script src="js/recipes.js"></script>
+</body>
+</html>

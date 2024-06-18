@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Calendar</title>
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prev" class="nav-button">Prev</button>
+            <div class="current-date">
+                <span id="month" class="month-name"></span>
+                <span id="year" class="year-number"></span>
+            </div>
+            <button id="next" class="nav-button">Next</button>
+        </div>
+        <div class="calendar-body">
+            <div class="day-names">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div id="calendar-days" class="days"></div>
+        </div>
+    </div>
+
+    <script src="js/calendar.js"></script>
+</body>
+</html>

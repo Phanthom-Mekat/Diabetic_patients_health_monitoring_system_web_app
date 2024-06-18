@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Meal Plan Form</title>
+    <link rel="stylesheet" href="css/meal-plan.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/meal-plan.js"></script>
+</head>
+<body>
+    <form>
+        <h4>Your Personal Meal Plan</h4>
+        
+        <section class="gender-sec">
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">Male</label>
+        </section>
+        
+        <section>
+            <label for="age">Age:</label>
+            <select name="age" id="age">
+                <option value="" disabled selected>&#x25BC; Select your age</option>
+                <!-- Add options for age here -->
+            </select>
+            <span>year(s)</span>
+        </section>
+        
+        <section>
+            <label for="height">Height:</label>
+            <input type="text" name="height" id="height">
+            <span>cm</span>
+        </section>
+        
+        <section>
+            <label for="weight">Weight:</label>
+            <input type="text" name="weight" id="weight">
+            <input type="hidden" name="json">
+            <span>kg</span>
+        </section>
+        
+        <section>
+            <button class="btn" type="submit">
+                <p>See Your Result</p>
+            </button>
+        </section>
+        
+        <section class="result">
+            <p class="print-result"></p>
+            <p class="print-result2"></p>
+        </section>
+    </form>
+</body>
+</html>
