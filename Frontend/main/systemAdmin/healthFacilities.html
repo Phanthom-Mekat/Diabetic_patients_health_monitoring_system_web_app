@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Health Facilities Database</title>
+    <link rel="stylesheet" href="healthFacilities.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="#">E-Diacare</a>
+            <ul>
+                <li><a href="#">View Profile</a></li>
+                <li><a href="#">Health Facilities Database</a></li>
+                <li><a href="#">Physician Database</a></li>
+                <li><a href="#">Patient Database</a></li>
+                <li><a href="#">View Feedback</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Welcome To Health Facilities Database</h1>
+                <span class="userName">Mr. Mekat</span>
+                <div class="dropdown">
+                    <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+                    <label for="dropdown-toggle" class="dropbtn">
+                        <img src="profile-icon.png" alt="Profile Icon" class="profile-icon" height="40" width="40">
+                    </label>
+                    <div class="dropdown-content">
+                        <a href="#profile">Profile</a>
+                        <a href="#settings">Settings</a>
+                        <a href="../Home/index.html">Logout</a>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <h2>Add New Health Care Facility</h2>
+                <form id="facilityForm">
+                    <label for="facilityName">Name:</label>
+                    <input type="text" id="facilityName" name="facilityName" required><br><br>
+                    
+                    <label for="district">District:</label>
+                    <input type="text" id="district" name="district" required><br><br>
+                    
+                    <label for="subDistrict">Sub-District:</label>
+                    <input type="text" id="subDistrict" name="subDistrict" required><br><br>
+                    
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" required><br><br>
+                    
+                    <label for="hotline">Hotline:</label>
+                    <input type="text" id="hotline" name="hotline" required><br><br>
+                    
+                    <label for="serviceOffered">Service Offered:</label>
+                    <input type="text" id="serviceOffered" name="serviceOffered" required><br><br>
+                    
+                    <label for="facilityType">Facility Type:</label>
+                    <select id="facilityType" name="facilityType" required>
+                        <option value="">Select Facility Type</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="DiagnosticCenter">Diagnostic Center</option>
+                    </select><br><br>
+                    
+                    <div id="hospitalFields" style="display: none;">
+                        <label for="emergencyService">Emergency Service:</label>
+                        <input type="text" id="emergencyService" name="emergencyService"><br><br>
+                        
+                        <label for="icuCapacity">ICU Capacity:</label>
+                        <input type="text" id="icuCapacity" name="icuCapacity"><br><br>
+                    </div>
+                    
+                    <div id="diagCenterFields" style="display: none;">
+                        <label for="diagnosticService">Diagnostic Service:</label>
+                        <input type="text" id="diagnosticService" name="diagnosticService"><br><br>
+                    </div>
+                    
+                    <button type="submit">Add Facility</button>
+                </form>
+                
+                <h2>Health Facilities List</h2>
+                <input type="text" id="searchBar" placeholder="Search facilities...">
+                <label><input type="radio" name="facilityTypeFilter" value="all" checked>All</label>
+                <label><input type="radio" name="facilityTypeFilter" value="hospital">Hospital</label>
+                <label><input type="radio" name="facilityTypeFilter" value="diagCenter">Diagnostic Center</label>
+                
+                <table id="facilityTable">
+                    <thead>
+                        <tr>
+                            <th>FacilityID</th>
+                            <th>Name</th>
+                            <th>Location (District)</th>
+                            <th>Location (Sub-District)</th>
+                            <th>Department</th>
+                            <th>Hotline</th>
+                            <th>Service Offered</th>
+                            <th>Facility Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="facilityTableBody">
+                        <!-- Table rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="healthFacilities.js"></script>
+</body>
+</html>

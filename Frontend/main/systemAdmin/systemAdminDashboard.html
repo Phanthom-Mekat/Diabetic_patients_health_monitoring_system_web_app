@@ -5,42 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="systemAdminDashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <a class="dashboardLink" href="\Frontend\main\systemAdmin\systemAdminDashboard.html">E-Diacare</a><br><br><br><br>
+            <a class="dashboardLink" href="#">E-Diacare</a>
             <ul>
-                <li><a href="#"> View Profile</a></li>
-                <li><a href="#">Health Facilities database</a></li>
-                <li><a href="#">Physician database</a></li>
-                <li><a href="#"> Patient database</a></li>
+                <li><a href="#">View Profile</a></li>
+                <li><a href="#">Health Facilities Database</a></li>
+                <li><a href="#">Physician Database</a></li>
+                <li><a href="PatientDatabase.html">Patient Database</a></li>
                 <li><a href="#">View Feedback</a></li>
                 <li><a href="../Home/index.html">Logout</a></li>
             </ul>
         </div>
-        
         <div class="main-content-wrapper">
             <header class="header">
                 <h1 class="welcome-title">Welcome To Admin Dashboard</h1>
-                
                 <span class="userName">Mr. Mekat</span>
-                 
                 <div class="dropdown">
                     <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
                     <label for="dropdown-toggle" class="dropbtn">
-                        
-                        <img src="image" alt="Profile Icon" class="profile-icon" height="40" width="40">
+                        <img src="profile-icon.png" alt="Profile Icon" class="profile-icon" height="40" width="40">
                     </label>
                     <div class="dropdown-content">
                         <a href="#profile">Profile</a>
                         <a href="#settings">Settings</a>
-                        <a href="\Frontend\main\Home\index.html">Logout</a>
+                        <a href="../Home/index.html">Logout</a>
                     </div>
                 </div>
             </header>
+            <div class="dashboard">
+                <!-- Doctor Database -->
+                <div class="card">
+                    <h2>Doctor Database</h2>
+                    <div class="canvas-container">
+                        <canvas id="doctorDatabaseChart"></canvas>
+                    </div>
+                </div>
+                <!-- Patients with Diabetes Types -->
+                <div class="card">
+                    <h2>Patients with Diabetes Types</h2>
+                    <div class="canvas-container">
+                        <canvas id="diabetesTypesChart"></canvas>
+                    </div>
+                </div>
+                <!-- Doctors Affiliated with More than One Hospital -->
+                <div class="card">
+                    <h2>Doctors with Multiple Affiliations</h2>
+                    <div class="canvas-container">
+                        <canvas id="multipleAffiliationsChart"></canvas>
+                    </div>
+                </div>
+                <!-- Real-time Tracking and Dietary Management -->
+                <div class="card">
+                    <h2>Real-time Tracking and Dietary Management</h2>
+                    <div class="canvas-container">
+                        <canvas id="trackingDietaryChart"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <script src="systemAdminDashboard.js"></script>
 </body>
 </html>
-        

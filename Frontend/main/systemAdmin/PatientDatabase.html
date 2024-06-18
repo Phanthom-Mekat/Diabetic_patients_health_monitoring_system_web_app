@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Patient Database</title>
+    <link rel="stylesheet" href="PatientDatabase.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a class="dashboardLink" href="#">E-Diacare</a>
+            <ul>
+                <li><a href="#">View Profile</a></li>
+                <li><a href="#">Health Facilities Database</a></li>
+                <li><a href="#">Physician Database</a></li>
+                <li><a href="#">Patient Database</a></li>
+                <li><a href="#">View Feedback</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrapper">
+            <header class="header">
+                <h1 class="welcome-title">Welcome To Admin Dashboard</h1>
+                <span class="userName">Mr. Mekat</span>
+                <div class="dropdown">
+                    <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+                    <label for="dropdown-toggle" class="dropbtn">
+                        <img src="profile-icon.png" alt="Profile Icon" class="profile-icon" height="40" width="40">
+                    </label>
+                    <div class="dropdown-content">
+                        <a href="#profile">Profile</a>
+                        <a href="#settings">Settings</a>
+                        <a href="../Home/index.html">Logout</a>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <h2>Patient Database</h2>
+                <input type="text" id="searchBar" placeholder="Search for patients...">
+                <table id="patientTable">
+                    <thead>
+                        <tr>
+                            <th>PatientID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address (District)</th>
+                            <th>Address (Sub-District)</th>
+                            <th>Gender</th>
+                            <th>Phone Number</th>
+                            <th>E-mail</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="PatientDatabase.js"></script>
+</body>
+</html>

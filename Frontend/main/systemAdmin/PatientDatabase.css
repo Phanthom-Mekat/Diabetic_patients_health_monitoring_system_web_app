@@ -89,26 +89,58 @@ body {
     display: block;
 }
 
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.content {
     margin-top: 20px;
 }
 
-.card {
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
     background-color: #2A2A48;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.card h2 {
-    margin-top: 0;
-    font-size: 20px;
+table, th, td {
+    border: 1px solid #4A4A6A;
 }
 
-.canvas-container {
-    position: relative;
-    height: 300px;
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #35354E;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: #FF6384;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.edit {
+    background-color: #36A2EB;
+}
+
+button.delete {
+    background-color: #FF6384;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #4A4A6A;
+    background-color: #2A2A48;
+    color: white;
+    border-radius: 5px;
 }

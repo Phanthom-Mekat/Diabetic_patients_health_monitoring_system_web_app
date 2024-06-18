@@ -1,4 +1,7 @@
-body {
+/* healthFacilities.css */
+
+/* General styles */
+body, html {
     font-family: Arial, sans-serif;
     background-color: #1E1E2F;
     color: #FFFFFF;
@@ -89,26 +92,88 @@ body {
     display: block;
 }
 
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.content {
     margin-top: 20px;
 }
 
-.card {
+form {
     background-color: #2A2A48;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto 20px;
 }
 
-.card h2 {
-    margin-top: 0;
-    font-size: 20px;
+form label {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
 }
 
-.canvas-container {
-    position: relative;
-    height: 300px;
+form input, form select {
+    width: calc(50% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #4A4A6A;
+    background-color: #2A2A48;
+    color: white;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #4A4A6A;
+    background-color: #2A2A48;
+    color: white;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #2A2A48;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid #4A4A6A;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #35354E;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button.edit {
+    background-color: #36A2EB;
+}
+
+button.delete {
+    background-color: #FF6384;
 }
