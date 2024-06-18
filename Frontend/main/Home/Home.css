@@ -12,19 +12,19 @@
 }
 
 html {
-    font-size: 65%;
+    font-size: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
-  background-image: url("emergency_2.jpg");
+  background-image: url("home.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  color: #333;
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -116,7 +116,7 @@ header nav ul li a.active {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
-  color: #212121;
+  color: #ffebeb;
   margin-bottom: 10px;
 }
 
@@ -165,7 +165,7 @@ button:focus {
 }
 
 header {
-  background-color: rgba(33, 35, 199, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 20px;
   text-align: center;
   color: #fff;
@@ -210,7 +210,6 @@ nav a.active {
 
 .features {
   padding: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
   margin-top: 80px;
 }
 
@@ -317,7 +316,6 @@ nav a.active {
 }
 
 .cta {
-  background-color:rgba(96, 130, 158, 0.8);
   color: #fff;
   padding: 40px;
   text-align: center;
@@ -362,4 +360,38 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
   border-radius: 10px;
   margin-top: 20px;
+}
+
+
+.about-content,
+.study-diabetes-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about-content img,
+.study-diabetes-content img {
+  width: 45%;
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content .left-img {
+  order: 1;
+}
+
+.study-diabetes-content .right-img {
+  order: 3;
+}
+
+.about-content p,
+.study-diabetes-content p {
+  width: 45%;
+  font-size: 18px;
 }
