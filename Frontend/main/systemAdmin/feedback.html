@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="systemAdminDashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Admin Dashboard - View Feedback</title>
+    <link rel="stylesheet" href="feedback.css">
 </head>
 <body>
     <div class="container">
@@ -23,7 +22,7 @@
         </div>
         <div class="main-content-wrapper">
             <header class="header">
-                <h1 class="welcome-title">Welcome To Admin Dashboard</h1>
+                <h1 class="welcome-title">View Feedback</h1>
                 <span class="userName">Mr. Mekat</span>
                 <div class="dropdown">
                     <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
@@ -37,38 +36,25 @@
                     </div>
                 </div>
             </header>
-            <div class="dashboard">
-                <!-- Doctor Database -->
-                <div class="card">
-                    <h2>Doctor Database</h2>
-                    <div class="canvas-container">
-                        <canvas id="doctorDatabaseChart"></canvas>
-                    </div>
-                </div>
-                <!-- Patients with Diabetes Types -->
-                <div class="card">
-                    <h2>Patients with Diabetes Types</h2>
-                    <div class="canvas-container">
-                        <canvas id="diabetesTypesChart"></canvas>
-                    </div>
-                </div>
-                <!-- Doctors Affiliated with More than One Hospital -->
-                <div class="card">
-                    <h2>Doctors with Multiple Affiliations</h2>
-                    <div class="canvas-container">
-                        <canvas id="multipleAffiliationsChart"></canvas>
-                    </div>
-                </div>
-                <!-- Real-time Tracking and Dietary Management -->
-                <div class="card">
-                    <h2>Real-time Tracking and Dietary Management</h2>
-                    <div class="canvas-container">
-                        <canvas id="trackingDietaryChart"></canvas>
-                    </div>
-                </div>
+            <div class="content">
+                <table id="feedbackTable">
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Rating</th>
+                            <th>Feedback/Complaints</th>
+                            <th>Goal Achieved?</th>
+                            <th>Suggestions</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <script src="systemAdminDashboard.js"></script>
+    <script src="feedback.js"></script>
 </body>
 </html>
