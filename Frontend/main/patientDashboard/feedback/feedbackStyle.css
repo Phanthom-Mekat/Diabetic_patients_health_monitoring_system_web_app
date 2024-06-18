@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 65%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    background-image: url("1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    
+}
+
+.container1 {
+    display: flex;
+    width: 100%;
+    overflow-y: auto;
+    flex-grow: 1; 
+    height: 100%;
+    overflow: hidden; 
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #00060d;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+}
+
+.dashboardLink {
+    padding-left: 42.5px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
+
+.health-data-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px;
+    width: calc(100% - 270px); 
+}
+
+.health-data-header {
+    background-color: #00060d;
+    padding: 15px;
+    color: #fff;
+}
+
+.health-data-header h2 {
+    margin: 0;
+}
+
+
+
+.feedback-form {
+    padding: 20px;
+    background-color: #ffffff;
+   
+    margin: 20px;
+}
+
+.feedback-form h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.feedback-form .stars span {
+    font-size: 24px;
+    color: #ffcc00;
+    cursor: pointer;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+}
+
+.feedback-form .goal-achievement div,
+.feedback-form .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feedback-form .goal-achievement input {
+    margin-right: 5px;
+}
+
+.feedback-form .goal-achievement label {
+    margin-right: 20px;
+}
+
+.feedback-form button {
+    padding: 10px 20px;
+    background-color: #00060d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.feedback-form button:hover {
+    background-color: #333;
+}
+
+.rating {
+    display: flex;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.star {
+    color: #ccc;
+    transition: color 0.2s;
+    
+}
+.star1 {
+    color: #ccc;
+    transition: color 0.2s;
+    padding-left: 30px;}
+
+.star.filled {
+    color: #ffcc00;
+}
+
+.rateTitle{
+    font-size: 1.5rem;
+    padding-right: 30px;
+}
