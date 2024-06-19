@@ -253,9 +253,6 @@ button {
 }
 
 
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.5);
-}
-
 button {
     display: block;
     margin-left: auto;
@@ -327,4 +324,83 @@ form {
     font-family: ui-monospace;
     font-size: large;
     font-weight: 500;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #097272;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.navbar {
+    width: 200px;
+    background-color: #5cb85c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+}
+
+.navbar ul li {
+    width: 100%;
+}
+
+.navbar ul li a {
+    color: rgb(1, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 30px;
+    width: 100%;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #1288a2;
+    transform: scale(1.1);
+}
+
+
+form {
+    min-width: 320px;
+    height: 510px;
+    width: 30%;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    transform: translateX(-50%);
+    padding: 10px 20px 50px;
+    border-radius: 40px;
+    background: linear-gradient(#f4f1e3 5%, goldenrod 5%);
+    color: #f4f1e3;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.5);
 }

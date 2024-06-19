@@ -15,8 +15,8 @@ a {
 
 
 /* common part of css ends here  */
-
-body, html {
+/* 
+ body, html {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
 }
@@ -25,7 +25,79 @@ body {
     background-color: #e0f7fa;
     color: #333;
     line-height: 1.6;
+}  */
+
+
+
+
+.navbar {
+    width: 200px;
+    background-color: #5cb85c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
 }
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+}
+
+.navbar ul li {
+    width: 100%;
+}
+
+.navbar ul li a {
+    color: rgb(1, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 30px;
+    width: 100%;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #1288a2;
+    transform: scale(1.1);
+}
+
+
+.meal-plans {
+    padding: 50px 20px;
+    margin-left: 100px;
+    text-align: center;
+}
+
+.container {
+    flex-direction: row;
+    margin-left: 150px;
+}
+
+
+
+
+
+
+
+
+
 
 .container {
     display: flex;
@@ -286,3 +358,14 @@ body {
 
 /* Other CSS remains the same */
 
+.content-section {
+    padding: 50px 20px;
+    text-align: center;
+    margin-left: 150px;
+}
+
+.meal-plans {
+    padding: 50px 20px;
+    text-align: center;
+    margin-left: 200px;
+}

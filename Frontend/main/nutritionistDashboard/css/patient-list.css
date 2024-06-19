@@ -10,8 +10,76 @@ ul, ol {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
+
+
+
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #097272;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.navbar {
+    width: 200px;
+    background-color: #5cb85c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+}
+
+.navbar ul li {
+    width: 100%;
+}
+
+.navbar ul li a {
+    color: rgb(1, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 30px;
+    width: 100%;
+    display: block;
+    /* transition: all 0.3s ease; */
+}
+
+.navbar ul li a:hover {
+    background-color: #1288a2;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
 
 /* common part of css ends here */
 
@@ -63,10 +131,7 @@ a {
 
 /*-- Start List Of Patient --*/
 
-.my-patient-list {
-    margin: 15px;
-    margin-bottom: 30px;
-}
+
 
 .my-patient-list .list-patient {
     border: 1px solid #cccccc;
@@ -161,8 +226,10 @@ a {
     background-color: #046bb3;
 }
 
-/* Media Queries for responsiveness */
-@media screen and (max-width: 767px) {
+/* Media Queries for responsiveness  */
+
+
+ @media screen and (max-width: 767px) {
     .patient-row {
         flex-direction: column;
         align-items: flex-start;
@@ -185,3 +252,9 @@ a {
 }
 
 /*-- End My Code --*/
+
+
+.my-patient-list {
+    margin-left: 195px;
+    width: 100%;
+}
