@@ -18,11 +18,14 @@ body {
 }
 
 .sidebar {
-    background-color: #1F2A40; /* Dark navy sidebar */
+    width: 250px;
+    background-color: #1F2A40;
     padding: 20px;
-    border-right: 1px solid #2c3e50; /* Darker border */
-    overflow-y: auto; /* Enable vertical scrollbar for sidebar */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
 }
+
 
 .sidebar-header h2 {
     color: #fff;
