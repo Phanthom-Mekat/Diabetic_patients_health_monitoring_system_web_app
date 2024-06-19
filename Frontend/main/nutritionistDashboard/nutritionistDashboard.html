@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutritionist Dashboard</title>
+    <link rel="stylesheet" href="css/nutritionistDashboard.css">
+</head>
+<body>
+    <div id="banner">Welcome to Nutritionist Dashboard</div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">E-Diacare</div>
+            <ul>
+                <li><a href="nutritionistDashboard.html">Dashboard Overview</a></li>
+                <li><a href="view_Nutr_profile.html">View Profile</a></li>
+                <li><a href="meal-plan.html">Meal Plan</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <input type="search" placeholder="Search here...">
+                <div class="notifications">Notifications</div>
+            </header>
+            <div class="dashboard-overview">
+                <div class="card">Total Clients<br><span id="total-clients">150</span></div>
+                <div class="card">New Clients<br><span id="new-clients">20</span></div>
+                <div class="card">Meal Plans<br><span id="meal-plans">35</span></div>
+                <div class="card">Recipes<br><span id="recipes">75</span></div>
+            </div>
+            <div class="charts">
+                <div class="chart">
+                    <h3>Client Analysis</h3>
+                    <canvas id="clientChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Target vs Reality</h3>
+                    <canvas id="targetChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Sales Mapping by Country</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+            <div class="additional-info">
+                <div class="info">
+                    <h4>Volume vs Service Level</h4>
+                    <canvas id="volumeChart"></canvas>
+                </div>
+                <div class="info">
+                    <h4>New Users</h4>
+                    <div id="new-users">
+                        <p>Name: Albert Flores</p>
+                        <p>Email: albert.flores@example.com</p>
+                        <a href="#">view profile</a>
+                        <hr>
+                        <p>Name: Samantha Lee</p>
+                        <p>Email: samantha.lee@example.com</p>
+                        <a href="#">view profile</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/nutritionistDashboard.js"></script>
+</body>
+</html>

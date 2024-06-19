@@ -1,44 +1,80 @@
-$(document).ready(function() {
-    // Populate age options dynamically
-    for (let i = 9; i < 99; i++) {
-        const ageOption = `<option value="${i + 1}">${i + 1}</option>`;
-        $('#age').append(ageOption);
-    }
-
-    $('button').click(function(evt) {
-        evt.preventDefault();
-        post();
-    });
-
-    function post() {
-        const datas = $('form').serializeArray();
-        datas.find(obj => obj.name == 'json').value = 'true'; // Change json value in serialized object (not the form!)
-
-        $('.result').css('display', 'block');
-        console.log(datas);
-
-        let gender = datas.find(obj => obj.name == 'gender').value;
-        let age = datas.find(obj => obj.name == 'age').value;
-        let height = datas.find(obj => obj.name == 'height').value;
-        let weight = datas.find(obj => obj.name == 'weight').value;
-        let bmi = weight / ((height * height) * 0.0001);
-        console.log(bmi);
-
-        const arr = ['Greek yogurt', 'pasta', 'stinky tofu', 'potato soup', 'chicken wings', 'a piece of bread'];
-        const randomFood1 = arr[Math.floor(Math.random() * arr.length)];
-        const randomFood2 = arr[Math.floor(Math.random() * arr.length)];
-        const randomFood3 = arr[Math.floor(Math.random() * arr.length)];
-        $('.print-result').html(`Your special meal for today is <br> 
-        breakfast : <span>${randomFood1}</span> and <br> lunch : <span>${randomFood2}</span> and <br> dinner: <span>${randomFood3}</span> <br> Your BMI is ${bmi} <br>`);
-        
-        
-        
-        if (bmi < 18.5) {
-            $('.print-result2').text('Have more! Your BMI is too low.');
-        } else if (bmi >= 18.5 && bmi < 24) {
-            $('.print-result2').text('Your BMI is normal');
-        } else {
-            $('.print-result2').text('Eat less and exercise more to keep fit. Your BMI is too high.');
+document.addEventListener('DOMContentLoaded', function() {
+    // Sample data for meal plan requests
+    const mealPlanRequests = [
+        {
+            id: '001',
+            name: 'Alice Smith',
+            age: 30,
+            gender: 'Female',
+            dailyMetrics: {
+                bloodPressure: '120/80 mmHg',
+                weight: '65 kg',
+                glucoseLevel: '90 mg/dL',
+                calorieConsumption: '2000 kcal'
+            }
+        },
+        {
+            id: '002',
+            name: 'Bob Johnson',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
         }
-    }
+    ];
+
+    // Populate the meal plan requests table
+    const tableBody = document.getElementById('meal-plan-requests');
+    mealPlanRequests.forEach(request => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${request.id}</td>
+            <td>${request.name}</td>
+            <td>${request.age}</td>
+            <td>${request.gender}</td>
+            <td>
+                BP: ${request.dailyMetrics.bloodPressure}<br>
+                Weight: ${request.dailyMetrics.weight}<br>
+                Glucose: ${request.dailyMetrics.glucoseLevel}<br>
+                Calories: ${request.dailyMetrics.calorieConsumption}
+            </td>
+            <td><button class="button" onclick="suggestDiet('${request.id}', '${request.name}')">Suggest Diet</button></td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+});
+
+function suggestDiet(id, name) {
+    document.getElementById('patient-id').value = id;
+    document.getElementById('suggest-diet-popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById('suggest-diet-popup').style.display = 'none';
+}
+
+// Handling the form submission
+document.getElementById('diet-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const dietPlan = {
+        id: document.getElementById('patient-id').value,
+        dietType: document.getElementById('diet-type').value,
+        goal: document.getElementById('goal').value,
+        calories: document.getElementById('calories').value,
+        carbs: document.getElementById('carbs').value,
+        proteins: document.getElementById('proteins').value,
+        fats: document.getElementById('fats').value,
+        startDate: document.getElementById('start-date').value,
+        endDate: document.getElementById('end-date').value
+    };
+
+    console.log('Suggested Diet Plan:', dietPlan);
+
+    closePopup();
 });

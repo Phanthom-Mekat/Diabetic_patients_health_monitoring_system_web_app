@@ -3,74 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Meal Plan Form</title>
+    <title>Meal Plan</title>
     <link rel="stylesheet" href="css/meal-plan.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/meal-plan.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-                <a href="nutritionist.html">Nutritionist</a>
-            </div>
-        <ul>
-            <li><a href="patient-list.html">My Patients</a></li>
-            <li><a href="report.html">Reports</a></li>
-            <li><a href="meal-plan.html">Meal Plans</a></li>
-            <li><a href="recipes.html">Recipes</a></li>
-            <li><a href="../Home/index.html">Logout</a></li>
-        </ul>
-    </nav>
-    
-    
-    
-    <form>
-       
-        
+    <div id="banner">Welcome to Nutritionist Dashboard</div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">E-Diacare</div>
+            <ul>
+                <li><a href="nutritionistDashboard.html">Dashboard Overview</a></li>
+                <li><a href="view_Nutr_profile.html">View Profile</a></li>
+                <li><a href="meal-plan.html">Meal Plan</a></li>
+                <li><a href="../Home/index.html">Logout</a></li>
+            </ul>
+        </aside>
+        <div class="main-content">
+            <h2>Meal Plan Requests</h2>
+            <table class="meal-plan-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Daily Metrics</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="meal-plan-requests">
+                    <!-- Rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 
+    <!-- Popup for suggesting diet -->
+    <div id="suggest-diet-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Suggest Diet Plan</h2>
+            <form id="diet-form">
+                <label for="patient-id">Patient ID:</label>
+                <input type="text" id="patient-id" name="patient-id" readonly><br>
+                
+                <label for="diet-type">Diet Type:</label>
+                <input type="text" id="diet-type" name="diet-type"><br>
+                
+                <label for="goal">Goal:</label>
+                <input type="text" id="goal" name="goal"><br>
+                
+                <label for="calories">Calories:</label>
+                <input type="number" id="calories" name="calories"><br>
+                
+                <label for="carbs">Carbohydrates:</label>
+                <input type="number" id="carbs" name="carbs"><br>
+                
+                <label for="proteins">Proteins:</label>
+                <input type="number" id="proteins" name="proteins"><br>
+                
+                <label for="fats">Fats:</label>
+                <input type="number" id="fats" name="fats"><br>
+                
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start-date"><br>
+                
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end-date"><br>
+                
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+    </div>
 
-        <h4>Your Personal Meal Plan</h4>
-        
-        <section class="gender-sec">
-            <label>Gender:</label>
-            <input type="radio" name="gender" value="female" id="female">
-            <label for="female">Female</label>
-            <input type="radio" name="gender" value="male" id="male">
-            <label for="male">Male</label>
-        </section>
-        
-        <section>
-            <label for="age">Age:</label>
-            <select name="age" id="age">
-                <option value="" disabled selected>&#x25BC; Select your age</option>
-                <!-- Add options for age here -->
-            </select>
-            <span>year(s)</span>
-        </section>
-        
-        <section>
-            <label for="height">Height:</label>
-            <input type="text" name="height" id="height">
-            <span>cm</span>
-        </section>
-        
-        <section>
-            <label for="weight">Weight:</label>
-            <input type="text" name="weight" id="weight">
-            <input type="hidden" name="json">
-            <span>kg</span>
-        </section>
-        
-        <section>
-            <button class="btn" type="submit">
-                <p>See Your Result</p>
-            </button>
-        </section>
-        
-        <section class="result">
-            <p class="print-result"></p>
-            <p class="print-result2"></p>
-        </section>
-    </form>
+    <script src="js/meal-plan.js"></script>
 </body>
 </html>
