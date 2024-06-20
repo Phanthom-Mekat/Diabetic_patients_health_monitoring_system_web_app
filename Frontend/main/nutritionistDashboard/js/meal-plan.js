@@ -15,7 +15,96 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: '002',
-            name: 'Bob Johnson',
+            name: 'Bob Muzaffar',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        },
+        {
+            id: '003',
+            name: 'Siraj Johnson',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        }
+        ,
+        {
+            id: '055',
+            name: 'Bob asad',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        }
+        ,
+        {
+            id: '042',
+            name: 'Zaman Johnson',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        },
+        {
+            id: '052',
+            name: 'Tashfiq Johnson',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        }
+        ,
+        {
+            id: '033',
+            name: 'Samin Johnson',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        }
+        ,
+        {
+            id: '077',
+            name: 'Mekat Johnson',
+            age: 45,
+            gender: 'Male',
+            dailyMetrics: {
+                bloodPressure: '130/85 mmHg',
+                weight: '80 kg',
+                glucoseLevel: '110 mg/dL',
+                calorieConsumption: '2500 kcal'
+            }
+        }
+        ,
+        {
+            id: '036',
+            name: 'Ema Johnson',
             age: 45,
             gender: 'Male',
             dailyMetrics: {

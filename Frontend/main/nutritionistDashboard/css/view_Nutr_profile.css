@@ -6,7 +6,7 @@ body {
 }
 
 #banner {
-    background-color: #ff7f50;
+    background-color: rgba(31, 203, 105, 0.72);
     color: white;
     text-align: center;
     padding: 15px;
