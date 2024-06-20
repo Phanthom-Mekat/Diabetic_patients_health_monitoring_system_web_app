@@ -1,105 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
-    <title>DiaCare</title>
-  </head>
-  <body>
-    <div class="container" id="container"><br>
-      <div class="form-container sign-up-container">
-        <form action="login.html">
-          <h1 id="vit">Sign Up</h1><br>
-
-          <input type="text" placeholder="Name" id="name" />
-          <input type="email" placeholder="Email" id="mail" />
-          <input type="password" placeholder="Password" id="pass" /><br>
-          <button>Sign Up</button>
-          <br /><br /><br /><br />
-
-          <div class="social-container">
-            <a href="https:www.facebook.com" class="social" id="fb">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https:www.instagram.com" class="social" id="ins">
-              <i class="fab fa-instagram"> </i>
-            </a>
-            <a href="https://www.gmail.com" class="social" id="gm">
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.twitter.com" class="social" id="tw">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
-        </form>
-      </div>
-      <div class="form-container sign-in-container">
-        <form action="/Frontend/main/patientDashboard/patientDashboard.html"><br>
-          <h1>Sign In</h1>
-            <br><br>
-          <input type="email" placeholder="Email" id="mail" />
-          <input type="password" placeholder="Password" id="pass" /> <br>
-          <button>Log In</button>
-          <br /><br /><br /><br /><br /><br />
-
-          <div class="social-container">
-            <a href="https:www.facebook.com" class="social" id="fb">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https:www.instagram.com" class="social" id="ins">
-              <i class="fab fa-instagram"> </i>
-            </a>
-            <a href="https://www.gmail.com" class="social" id="gm">
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.twitter.com" class="social" id="tw">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h1>welcome</h1>
-            <p>
-              Wherever the art of Medicine is loved, there is also a love of
-              Humanity.
-            </p>
-            <br />
-            <p style="color: rgb(0, 68, 255)">Already have an account?</p>
-            <button class="press" id="signIn">Sign In</button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h1>E-DiaCare</h1>
-            <p>Passion for excellence. Compassion for people.</p>
-            <br />
-            <p style="color: rgb(0, 68, 255)">Don't have an account?</p>
-            <button class="press" id="signUp" style="color: rgb(57, 49, 5)">
-              Sign Up
-            </button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="login.css" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+  <title>DiaCare</title>
+</head>
+<body>
+  <div class="container" id="container"><br>
+    <div class="form-container sign-up-container">
+      <form action="login.html">
+        <h1 id="vit">Sign Up</h1><br>
+        <input type="text" placeholder="Name" id="name" />
+        <input type="email" placeholder="Email" id="mail" />
+        <input type="password" placeholder="Password" id="pass" /><br>
+        <button type="button" id="signUpButton">Sign Up</button>
+        <br /><br /><br /><br />
+        <div class="social-container">
+          <a href="https:www.facebook.com" class="social" id="fb">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https:www.instagram.com" class="social" id="ins">
+            <i class="fab fa-instagram"> </i>
+          </a>
+          <a href="https://www.gmail.com" class="social" id="gm">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.twitter.com" class="social" id="tw">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+    
+    <div class="form-container sign-in-container">
+      <form id="loginForm"><br>
+        <h1>Sign In</h1>
+          <br><br>
+          <select id="user-type">
+            <option value="admin">Admin</option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+            <option value="nutritionist">Nutritionist</option>
+          </select>
+        <input type="email" placeholder="Email" id="mail" />
+        <input type="password" placeholder="Password" id="pass" /> <br>
+        <button type="button" id="loginButton">Log In</button>
+        <br /><br /><br /><br /><br /><br />
+        <div class="social-container">
+          <a href="https:www.facebook.com" class="social" id="fb">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https:www.instagram.com" class="social" id="ins">
+            <i class="fab fa-instagram"> </i>
+          </a>
+          <a href="https://www.gmail.com" class="social" id="gm">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.twitter.com" class="social" id="tw">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>welcome</h1>
+          <p>
+            Wherever the art of Medicine is loved, there is also a love of
+            Humanity.
+          </p>
+          <br />
+          <p style="color: rgb(0, 68, 255)">Already have an account?</p>
+          <button class="press" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>E-DiaCare</h1>
+          <p>Passion for excellence. Compassion for people.</p>
+          <br />
+          <p style="color: rgb(0, 68, 255)">Don't have an account?</p>
+          <button class="press" id="signUp" style="color: rgb(57, 49, 5)">
+            Sign Up
+          </button>
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      const signUpButton = document.getElementById("signUp");
-      const signInButton = document.getElementById("signIn");
-      const container = document.getElementById("container");
+  </div>
+  
+  <!-- Modal Popup HTML -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Complete Your Profile</h2><br><br>
+      <form>
+        <br><br>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <input type="text" placeholder="Age" id="additional-info" />
+        <input type="text" placeholder="Address" id="additional-info" />
+        <input type="text" placeholder="Phone" id="additional-info" />
+        <input type="text" placeholder="Weight" id="additional-info" />
+        <input type="text" placeholder="Height" id="additional-info" />
+        <select id="diabetes-type">
+          <option value="">Diabetes Type</option>
+          <option value="type1">Type 1</option>
+          <option value="type2">Type 2</option>
+          <option value="type3">Type 3</option>
+        </select><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 
-      signUpButton.addEventListener("click", () => {
-        container.classList.add("right-panel-active");
-      });
+  <script type="text/javascript">
+    const signUpButton = document.getElementById("signUp");
+    const signInButton = document.getElementById("signIn");
+    const container = document.getElementById("container");
 
-      signInButton.addEventListener("click", () => {
-        container.classList.remove("right-panel-active");
-      });
-    </script>
-  </body>
+    signUpButton.addEventListener("click", () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener("click", () => {
+      container.classList.remove("right-panel-active");
+    });
+
+    // Modal Popup JavaScript
+    const modal = document.getElementById("modal");
+    const signUpBtn = document.getElementById("signUpButton");
+    const closeBtn = document.querySelector(".close");
+
+    signUpBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Handle Login Button Click
+    document.getElementById("loginButton").addEventListener("click", function() {
+      const userType = document.getElementById("user-type").value;
+      let url = "";
+
+      switch(userType) {
+        case "admin":
+          url = "/Frontend/main/systemAdmin/systemAdminDashboard.html";
+          break;
+        case "patient":
+          url = "/Frontend/main/patientDashboard/patientDashboard.html";
+          break;
+        case "doctor":
+          url = "/Frontend/main/doctorDashboard/doctor_dashboard.html";
+          break;
+        case "nutritionist":
+          url = "/Frontend/main/nutritionistDashboard/nutritionistDashboard.html";
+          break;
+        default:
+          alert("Please select a valid user type.");
+          return;
+      }
+
+      window.location.href = url;
+    });
+  </script>
+</body>
 </html>
-
