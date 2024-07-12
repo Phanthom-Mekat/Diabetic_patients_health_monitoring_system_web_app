@@ -1,0 +1,8 @@
+Diabetes Health Metrics 01: https://www.kaggle.com/code/hanzlanawaz/diabetes-health-prediction-using-anns/input
+Diabetes Health Metrics 02(predict based on diagnostic measurements whether a patient has diabetes): https://www.kaggle.com/datasets/mathchi/diabetes-data-set
+Diabetes symptoms dataset: https://www.kaggle.com/datasets/sujan97/early-stage-diabetes-2020
+Health care faci dataset: https://www.kaggle.com/datasets/prasad22/healthcare-dataset
+Dietary Habits Survey Data:https://www.kaggle.com/datasets/sonalishanbhag/dietaryhabitssurvey
+Disease Symptoms/early stage diabetes detection and Patient Profile Dataset :https://www.kaggle.com/datasets/uom190346a/disease-symptoms-and-patient-profile-dataset
+Food suitable for diabetes and blood pressure: https://www.kaggle.com/datasets/nandagopll/food-suitable-for-diabetes-and-blood-pressure
+Patient demographics: https://www.kaggle.com/datasets/rabieelkharoua/diabetes-health-dataset-analysis
