@@ -1,0 +1,1002 @@
+--  We used these SQL Commands for creating 55 tables and inserting dumm values into those and later , we fixed our mistakes manually through my php admin, 
+-- thus the output is accurate which can be checked from the exported csv file . Use the exported csv file to check the database on your local device using xxamp.
+
+-- Creating tbl_HEALTHCARE_FACILITY
+CREATE TABLE tbl_HEALTHCARE_FACILITY (
+    FacilityID INTEGER(7) NOT NULL,
+    Name VARCHAR(30) NOT NULL,
+    Hotline INTEGER(11),
+    DiagnosisCenter CHAR(1) CHECK (DiagnosisCenter IN ('Y', 'N')),
+    Hospital CHAR(1) CHECK (Hospital IN ('Y', 'N')),
+    CONSTRAINT HealthcareFacility_PK PRIMARY KEY (FacilityID)
+);
+
+-- Creating tbl_HEALTHCARE_FACILITY_DEPT
+CREATE TABLE tbl_HEALTHCARE_FACILITY_DEPT (
+    FacilityID INTEGER(7) NOT NULL,
+    Department VARCHAR(30) NOT NULL,
+    CONSTRAINT HealthcareFacilityDept_PK PRIMARY KEY (FacilityID, Department),
+    CONSTRAINT HealthcareFacilityDept_FK FOREIGN KEY (FacilityID) REFERENCES tbl_HEALTHCARE_FACILITY(FacilityID)
+);
+
+-- Creating tbl_HEALTHCARE_FACILITY_LOCATION
+CREATE TABLE tbl_HEALTHCARE_FACILITY_LOCATION (
+    FacilityID INTEGER(7) NOT NULL,
+    District VARCHAR(20) NOT NULL,
+    Sub_District VARCHAR(15) NOT NULL,
+    CONSTRAINT HealthcareFacilityLocation_PK PRIMARY KEY (FacilityID, District, Sub_District),
+    CONSTRAINT HealthcareFacilityLocation_FK FOREIGN KEY (FacilityID) REFERENCES tbl_HEALTHCARE_FACILITY(FacilityID)
+);
+
+-- Creating tbl_HEALTHCARE_FACILITY_SERVICE
+CREATE TABLE tbl_HEALTHCARE_FACILITY_SERVICE (
+    FacilityID INTEGER(7) NOT NULL,
+    Service VARCHAR(15) NOT NULL,
+    CONSTRAINT HealthcareFacilityService_PK PRIMARY KEY (FacilityID, Service),
+    CONSTRAINT HealthcareFacilityService_FK FOREIGN KEY (FacilityID) REFERENCES tbl_HEALTHCARE_FACILITY(FacilityID)
+);
+
+-- Creating tbl_PATIENT
+CREATE TABLE tbl_PATIENT (
+    PatientID INTEGER(8) NOT NULL,
+    FName VARCHAR(40) NOT NULL,
+    LName VARCHAR(40) NOT NULL,
+    DOB DATE NOT NULL,
+    Gender CHAR(1) CHECK (Gender IN ('M', 'F')),
+    PhoneNumber INTEGER(11) NOT NULL,
+    Email VARCHAR(25),
+    Weight INTEGER(3),
+    Height INTEGER(3),
+    InsulinStatus CHAR(1) CHECK (InsulinStatus IN ('Y', 'N')),
+    CONSTRAINT Patient_PK PRIMARY KEY (PatientID)
+);
+
+
+-- Creating tbl_HOSPITAL
+CREATE TABLE tbl_HOSPITAL (
+    hFacilityID INTEGER(7) NOT NULL,
+    ICUCapacity INTEGER(4) NOT NULL,
+    CONSTRAINT Hospital_PK PRIMARY KEY (hFacilityID),
+    CONSTRAINT Hospital_FK FOREIGN KEY (hFacilityID) REFERENCES tbl_HEALTHCARE_FACILITY(FacilityID)
+);
+
+-- Creating tbl_DIAGNOSIS_CENTER
+CREATE TABLE tbl_DIAGNOSIS_CENTER (
+    dFacilityID INTEGER(7) NOT NULL,
+    CONSTRAINT DiagnosisCenter_PK PRIMARY KEY (dFacilityID ),
+    CONSTRAINT DiagnosisCenter_FK FOREIGN KEY (dFacilityID ) REFERENCES tbl_HEALTHCARE_FACILITY(FacilityID)
+);
+
+-- Creating tbl_HOSPITAL_EMERGENCY_SERVICE
+CREATE TABLE tbl_HOSPITAL_EMERGENCY_SERVICE (
+    hFacilityID INTEGER(7) NOT NULL,
+    EmergencyService VARCHAR(15) NOT NULL,
+    CONSTRAINT HospitalEmergencyService_PK PRIMARY KEY (hFacilityID  , EmergencyService),
+    CONSTRAINT HospitalEmergencyService_FK FOREIGN KEY (hFacilityID  ) REFERENCES tbl_HOSPITAL(hFacilityID )
+);
+
+-- Creating tbl_DIAGNOSIS_CENTER_DIAGNOSTIC_SERVICE
+CREATE TABLE tbl_DIAGNOSIS_CENTER_DIAGNOSTIC_SERVICE (
+    dFacilityID INTEGER(7) NOT NULL,
+    DiagnosticService VARCHAR(25) NOT NULL,
+    CONSTRAINT DiagnosisCenterDiagnosticService_PK PRIMARY KEY (dFacilityID , DiagnosticService),
+    CONSTRAINT DiagnosisCenterDiagnosticService_FK FOREIGN KEY (dFacilityID ) REFERENCES tbl_DIAGNOSIS_CENTER(dFacilityID)
+);
+
+
+CREATE TABLE tbl_DIAGNOSIS_RECORD (
+    DiagnosisID INTEGER(7) NOT NULL,
+    ResultSummary VARCHAR(300) NOT NULL,
+    Date DATE NOT NULL,
+    PatientID INTEGER(8),
+    PRIMARY KEY (DiagnosisID),
+    CONSTRAINT fk_PatientID
+        FOREIGN KEY (PatientID)
+        REFERENCES tbl_PATIENT(PatientID)
+);
+
+
+
+-- Creating tbl_DIAGNOSIS_RECORD_OBSERVATION
+CREATE TABLE tbl_DIAGNOSIS_RECORD_OBSERVATION (
+    DiagnosisID INTEGER(7) NOT NULL,
+    Observation VARCHAR(150),
+    CONSTRAINT DiagnosisRecordObservation_PK PRIMARY KEY (DiagnosisID),
+    CONSTRAINT DiagnosisRecordObservation_FK FOREIGN KEY (DiagnosisID) REFERENCES tbl_DIAGNOSIS_RECORD(DiagnosisID)
+);
+
+-- Creating tbl_DIAGNOSIS_RECORD_RESULT
+CREATE TABLE tbl_DIAGNOSIS_RECORD_RESULT (
+    DiagnosisID INTEGER(7) NOT NULL,
+    TestResult VARCHAR(250) ,
+    CONSTRAINT DiagnosisRecordResult_PK PRIMARY KEY (DiagnosisID, TestResult),
+    CONSTRAINT DiagnosisRecordResult_FK FOREIGN KEY (DiagnosisID) REFERENCES tbl_DIAGNOSIS_RECORD(DiagnosisID)
+);
+
+-- Creating tbl_DIAGNOSIS_RECORD_TEST_ITEM
+CREATE TABLE tbl_DIAGNOSIS_RECORD_TEST_ITEM (
+    DiagnosisID INTEGER(7) NOT NULL,
+    TestItem VARCHAR(50) ,
+    CONSTRAINT DiagnosisRecordTestItem_PK PRIMARY KEY (DiagnosisID, TestItem),
+    CONSTRAINT DiagnosisRecordTestItem_FK FOREIGN KEY (DiagnosisID) REFERENCES tbl_DIAGNOSIS_RECORD(DiagnosisID)
+);
+
+
+-- Creating tbl_DIAGNOSIS_RECORD_REFERENCE_VALUE
+CREATE TABLE tbl_DIAGNOSIS_RECORD_REFERENCE_VALUE (
+    DiagnosisID INTEGER(7) NOT NULL,
+    Min_Value VARCHAR(11) ,
+    Max_Value VARCHAR(11) ,
+    CONSTRAINT DiagnosisRecordReferenceValue_PK PRIMARY KEY (DiagnosisID, Min_Value, Max_Value),
+    CONSTRAINT DiagnosisRecordReferenceValue_FK FOREIGN KEY (DiagnosisID) REFERENCES tbl_DIAGNOSIS_RECORD(DiagnosisID)
+);
+
+
+
+-- Creating tbl_DIAGNOSIS_TEST
+CREATE TABLE tbl_DIAGNOSIS_TEST (
+    DiagnosisTestID INTEGER(7) NOT NULL,
+    TestSample VARCHAR(25) ,
+    DiagnosisBill INTEGER(7),
+    CONSTRAINT DiagnosisTest_PK PRIMARY KEY (DiagnosisTestID)
+);
+
+-- Creating tbl_DIAGNOSIS_TEST_TEST_NAME
+CREATE TABLE tbl_DIAGNOSIS_TEST_TEST_NAME (
+    DiagnosisTestID INTEGER(7) NOT NULL,
+    TestName VARCHAR(30) NOT NULL,
+    CONSTRAINT DiagnosisTestTestName_PK PRIMARY KEY (DiagnosisTestID, TestName),
+    CONSTRAINT DiagnosisTestTestName_FK FOREIGN KEY (DiagnosisTestID) REFERENCES tbl_DIAGNOSIS_TEST(DiagnosisTestID)
+);
+
+-- Creating tbl_DIAGNOSIS_TEST_TEST_TYPE
+CREATE TABLE tbl_DIAGNOSIS_TEST_TEST_TYPE (
+    DiagnosisTestID INTEGER(7) NOT NULL,
+    TestType VARCHAR(30) NOT NULL,
+    CONSTRAINT DiagnosisTestTestType_PK PRIMARY KEY (DiagnosisTestID, TestType),
+    CONSTRAINT DiagnosisTestTestType_FK FOREIGN KEY (DiagnosisTestID) REFERENCES tbl_DIAGNOSIS_TEST(DiagnosisTestID)
+);
+
+-- Creating tbl_DIAGNOSED_SYMPTOM
+CREATE TABLE tbl_DIAGNOSED_SYMPTOM (
+    DiagnosedSymptomID INTEGER(7) NOT NULL,
+    Duration INTEGER(4) NOT NULL,
+    CONSTRAINT DiagnosedSymptom_PK PRIMARY KEY (DiagnosedSymptomID)
+);
+
+-- Creating tbl_DIAGNOSED_SYMPTOM_NAME
+CREATE TABLE tbl_DIAGNOSED_SYMPTOM_NAME (
+    DiagnosedSymptomID INTEGER(7) NOT NULL,
+    Name VARCHAR(25) NOT NULL,
+    CONSTRAINT DiagnosedSymptomName_PK PRIMARY KEY (DiagnosedSymptomID, Name),
+    CONSTRAINT DiagnosedSymptomName_FK FOREIGN KEY (DiagnosedSymptomID) REFERENCES tbl_DIAGNOSED_SYMPTOM(DiagnosedSymptomID)
+);
+
+-- Creating tbl_DIAGNOSTIC_TESTS_UNDER_CENTER
+CREATE TABLE tbl_DIAGNOSTIC_TESTS_UNDER_CENTER (
+    dFacilityID INTEGER(7) NOT NULL,
+    DiagnosisTestID INTEGER(7) NOT NULL,
+    CONSTRAINT DiagnosticTestsUnderCenter_PK PRIMARY KEY (dFacilityID , DiagnosisTestID),
+    CONSTRAINT DiagnosticTestsUnderCenter_FK1 FOREIGN KEY (dFacilityID ) REFERENCES tbl_DIAGNOSIS_CENTER(dFacilityID),
+    CONSTRAINT DiagnosticTestsUnderCenter_FK2 FOREIGN KEY (DiagnosisTestID) REFERENCES tbl_DIAGNOSIS_TEST(DiagnosisTestID)
+);
+
+-- Creating tbl_REVIEW
+CREATE TABLE tbl_REVIEW (
+    ReviewID INTEGER(8) NOT NULL,
+    Stars CHAR(1) CHECK (Stars IN ('Y', 'N')),
+    Date DATE NOT NULL,
+    Description VARCHAR(250),
+    CONSTRAINT Review_PK PRIMARY KEY (ReviewID)
+);
+
+
+-- Creating tbl_HEALTHCARE_PROFESSIONALS
+CREATE TABLE tbl_HEALTHCARE_PROFESSIONALS (
+    ID INTEGER(4) NOT NULL,
+    Name VARCHAR(35) NOT NULL,
+    DOB DATE NOT NULL,
+    Gender CHAR(1) CHECK (Gender IN ('M', 'F')),
+    PhoneNumber INTEGER(11) NOT NULL,
+    Email VARCHAR(30),
+    NID INTEGER(10),
+    YearsOfExperience INTEGER(2),
+    Doctors CHAR(1) CHECK (Doctors IN ('Y', 'N')),
+    Nutritionist CHAR(1) CHECK (Nutritionist IN ('Y', 'N')),
+    CONSTRAINT HealthcareProfessionals_PK PRIMARY KEY (ID)
+);
+
+-- Creating tbl_HEALTHCARE_PROFESSIONALS_ADDRESS
+CREATE TABLE tbl_HEALTHCARE_PROFESSIONALS_ADDRESS (
+    ID INTEGER(4) NOT NULL,
+    District VARCHAR(20) NOT NULL,
+    Sub_District VARCHAR(15) NOT NULL,
+    CONSTRAINT HealthcareProfessionalsAddress_PK PRIMARY KEY (ID, District, Sub_District),
+    CONSTRAINT HealthcareProfessionalsAddress_FK FOREIGN KEY (ID) REFERENCES tbl_HEALTHCARE_PROFESSIONALS(ID)
+);
+
+-- Creating tbl_HEALTHCARE_PROFESSIONALS_CERTIFICATIONS
+CREATE TABLE tbl_HEALTHCARE_PROFESSIONALS_CERTIFICATIONS (
+    ID INTEGER(4) NOT NULL,
+    Certifications VARCHAR(40) NOT NULL,
+    CONSTRAINT HealthcareProfessionalsCertifications_PK PRIMARY KEY (ID, Certifications),
+    CONSTRAINT HealthcareProfessionalsCertifications_FK FOREIGN KEY (ID) REFERENCES tbl_HEALTHCARE_PROFESSIONALS(ID)
+);
+
+-- Creating tbl_HEALTHCARE_PROFESSIONALS_EDUCATION
+CREATE TABLE tbl_HEALTHCARE_PROFESSIONALS_EDUCATION (
+    ID INTEGER(4) NOT NULL,
+    Education VARCHAR(50) NOT NULL,
+    CONSTRAINT HealthcareProfessionalsEducation_PK PRIMARY KEY (ID, Education),
+    CONSTRAINT HealthcareProfessionalsEducation_FK FOREIGN KEY (ID) REFERENCES tbl_HEALTHCARE_PROFESSIONALS(ID)
+);
+
+-- Creating tbl_HEALTHCARE_PROFESSIONALS_HOSPITAL_AFFILIATION
+CREATE TABLE tbl_HEALTHCARE_PROFESSIONALS_HOSPITAL_AFFILIATION (
+    ID INTEGER(4) NOT NULL,
+    HospitalAffiliation VARCHAR(35) NOT NULL,
+    CONSTRAINT HealthcareProfessionalsHospitalAffiliation_PK PRIMARY KEY (ID, HospitalAffiliation),
+    CONSTRAINT HealthcareProfessionalsHospitalAffiliation_FK FOREIGN KEY (ID) REFERENCES tbl_HEALTHCARE_PROFESSIONALS(ID)
+);
+
+-- Creating tbl_DOCTOR
+CREATE TABLE tbl_DOCTOR (
+    DoctorID INTEGER(8) NOT NULL,
+    CONSTRAINT Doctor_PK PRIMARY KEY (DoctorID),
+    CONSTRAINT Doctor_FK FOREIGN KEY (DoctorID) REFERENCES tbl_HEALTHCARE_PROFESSIONALS(ID)
+);
+
+
+
+-- Creating tbl_DOCTOR_SPECIALITY
+CREATE TABLE tbl_DOCTOR_SPECIALITY (
+    DoctorID INTEGER(4) NOT NULL,
+    Speciality VARCHAR(25) NOT NULL,
+    CONSTRAINT DoctorSpeciality_PK PRIMARY KEY (DoctorID, Speciality),
+    CONSTRAINT DoctorSpeciality_FK FOREIGN KEY (DoctorID) REFERENCES tbl_DOCTOR(DoctorID)
+);
+
+-- Creating tbl_NUTRITIONIST
+CREATE TABLE tbl_NUTRITIONIST (
+    NutritionistID INTEGER(4) NOT NULL,
+    CONSTRAINT Nutritionist_PK PRIMARY KEY (NutritionistID),
+    CONSTRAINT Nutritionist_FK FOREIGN KEY (NutritionistID) REFERENCES tbl_HEALTHCARE_PROFESSIONALS(ID)
+);
+
+-- Creating tbl_NUTRITIONIST_TYPE
+CREATE TABLE tbl_NUTRITIONIST_TYPE (
+    NutritionistID INTEGER(4) NOT NULL,
+    NutritionistType VARCHAR(6) NOT NULL,
+    CONSTRAINT NutritionistType_PK PRIMARY KEY (NutritionistID, NutritionistType),
+    CONSTRAINT NutritionistType_FK FOREIGN KEY (NutritionistID) REFERENCES tbl_NUTRITIONIST(NutritionistID)
+);
+
+-- Creating tbl_APPOINTMENT
+CREATE TABLE tbl_APPOINTMENT (
+    AppointmentID INTEGER(8) NOT NULL,
+    Date DATE NOT NULL,
+    Online CHAR(1) CHECK (Online IN ('Y', 'N')),
+    Offline CHAR(1) CHECK (Offline IN ('Y', 'N')),
+    Time DATE NOT NULL,
+    PatientID INTEGER(8) NOT NULL,
+    DoctorID INTEGER(7) NOT NULL,
+    CONSTRAINT Appointment_PK PRIMARY KEY (AppointmentID),
+    CONSTRAINT Appointment_FK1 FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID),
+    CONSTRAINT Appointment_FK2 FOREIGN KEY (DoctorID ) REFERENCES tbl_doctor(DoctorID )
+);
+
+
+
+-- Creating tbl_DAILY_HEALTH_METRICS
+CREATE TABLE tbl_DAILY_HEALTH_METRICS (
+    MetricID INTEGER(8) NOT NULL,
+    BPDiastolic CHAR(1) CHECK (BPDiastolic IN ('Y', 'N')),
+    BPSystolic CHAR(1) CHECK (BPSystolic IN ('Y', 'N')),
+    Weight INTEGER(3),
+    GlucoseLevel INTEGER(3),
+    DailyCaloricConsumption INTEGER(5),
+    Date DATE NOT NULL,
+    CalorieBurned INTEGER(5),
+    CONSTRAINT DailyHealthMetrics_PK PRIMARY KEY (MetricID)
+);
+
+-- Creating tbl_DIET
+CREATE TABLE tbl_DIET (
+    DietID INTEGER(8) NOT NULL,
+    Date DATE NOT NULL,
+    WeightLoss CHAR(1) CHECK (WeightLoss IN ('Y', 'N')),
+    MuscleGain CHAR(1) CHECK (MuscleGain IN ('Y', 'N')),
+    Maintenance CHAR(1) CHECK (Maintenance IN ('Y', 'N')),
+    Time DATE NOT NULL,
+    NumberOfMeals INTEGER(3) NOT NULL,
+    Description VARCHAR(200) NOT NULL,
+    StartingTime DATE NOT NULL,
+    EndingTime DATE NOT NULL,
+    MetricID INTEGER(8) NOT NULL,
+    CONSTRAINT Diet_PK PRIMARY KEY (DietID),
+    CONSTRAINT Diet_FK FOREIGN KEY (MetricID) REFERENCES tbl_DAILY_HEALTH_METRICS(MetricID)
+);
+
+-- Creating tbl_DIET_TYPE
+CREATE TABLE tbl_DIET_TYPE (
+    DietID INTEGER(8) NOT NULL,
+    DietType INTEGER(25) NOT NULL,
+    Name INTEGER(25) NOT NULL,
+    Calories INTEGER(4) NOT NULL,
+    Mineral INTEGER(4) NOT NULL,
+    Carbohydrates INTEGER(4) NOT NULL,
+    Proteins INTEGER(4) NOT NULL,
+    Fats INTEGER(4) NOT NULL,
+    Unit VARCHAR(15) NOT NULL,
+    CONSTRAINT DietType_PK PRIMARY KEY (DietID, DietType),
+    CONSTRAINT DietType_FK FOREIGN KEY (DietID) REFERENCES tbl_DIET(DietID)
+);
+
+-- Creating tbl_DIET_MEAL_TYPE
+CREATE TABLE tbl_DIET_MEAL_TYPE (
+    DietID INTEGER(8) NOT NULL,
+    Breakfast VARCHAR(50),
+    Lunch VARCHAR(50),
+    Dinner VARCHAR(50),
+    Snack VARCHAR(50),
+    CONSTRAINT DietMealType_PK PRIMARY KEY (DietID),
+    CONSTRAINT DietMealType_FK FOREIGN KEY (DietID) REFERENCES tbl_DIET(DietID)
+);
+
+-- Creating tbl_DIET_RECOMMENDATION_USES_DIAGNOSIS
+CREATE TABLE tbl_DIET_RECOMMENDATION_USES_DIAGNOSIS (
+    DietID INTEGER(8) NOT NULL,
+    DiagnosisID INTEGER(7) NOT NULL,
+    CONSTRAINT DietRecommendationUsesDiagnosis_PK PRIMARY KEY (DietID, DiagnosisID),
+    CONSTRAINT DietRecommendationUsesDiagnosis_FK1 FOREIGN KEY (DietID) REFERENCES tbl_DIET(DietID),
+    CONSTRAINT DietRecommendationUsesDiagnosis_FK2 FOREIGN KEY (DiagnosisID) REFERENCES tbl_DIAGNOSIS_RECORD(DiagnosisID)
+);
+
+
+
+-- Creating tbl_PATIENT_DIET_RECOMMENDATIONS
+CREATE TABLE tbl_PATIENT_DIET_RECOMMENDATIONS (
+    PatientID INTEGER(8) NOT NULL,
+    DietID INTEGER(8) NOT NULL,
+    CONSTRAINT PatientDietRecommendations_PK PRIMARY KEY (PatientID, DietID),
+    CONSTRAINT PatientDietRecommendations_FK1 FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID),
+    CONSTRAINT PatientDietRecommendations_FK2 FOREIGN KEY (DietID) REFERENCES tbl_DIET(DietID)
+);
+
+
+-- Creating tbl_CONSULTATION
+CREATE TABLE tbl_CONSULTATION (
+    ConsultationID INTEGER(8) NOT NULL,
+    Instruction VARCHAR(250) NOT NULL,
+    FollowUpDate DATE,
+    AppointmentID INTEGER(8) NOT NULL,
+    CONSTRAINT Consultation_PK PRIMARY KEY (ConsultationID),
+    CONSTRAINT Consultation_FK FOREIGN KEY (AppointmentID) REFERENCES tbl_APPOINTMENT(AppointmentID)
+);
+
+-- Creating tbl_CONSULTATION_SUGGESTED_ACTION
+CREATE TABLE tbl_CONSULTATION_SUGGESTED_ACTION (
+    ConsultationID INTEGER(8) NOT NULL,
+    SuggestedAdvice VARCHAR(250) NOT NULL,
+    CONSTRAINT ConsultationSuggestedAction_PK PRIMARY KEY (ConsultationID, SuggestedAdvice),
+    CONSTRAINT ConsultationSuggestedAction_FK FOREIGN KEY (ConsultationID) REFERENCES tbl_CONSULTATION(ConsultationID)
+);
+
+
+
+-- Creating tbl_PATIENT_FEEDBACK
+CREATE TABLE tbl_PATIENT_FEEDBACK (
+    PatientID INTEGER(8) NOT NULL,
+    ReviewID INTEGER(8) NOT NULL,
+    CONSTRAINT PatientFeedback_PK PRIMARY KEY (PatientID, ReviewID),
+    CONSTRAINT PatientFeedback_FK1 FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID),
+    CONSTRAINT PatientFeedback_FK2 FOREIGN KEY (ReviewID) REFERENCES tbl_REVIEW(ReviewID)
+);
+
+-- Creating tbl_PATIENT_OTHER_ILLNESS
+CREATE TABLE tbl_PATIENT_OTHER_ILLNESS (
+    PatientID INTEGER(8) NOT NULL,
+    OtherIllness VARCHAR(25) NOT NULL,
+    CONSTRAINT PatientOtherIllness_PK PRIMARY KEY (PatientID, OtherIllness),
+    CONSTRAINT PatientOtherIllness_FK FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID)
+);
+
+-- Creating tbl_PATIENT_ADDRESS
+CREATE TABLE tbl_PATIENT_ADDRESS (
+    PatientID INTEGER(8) NOT NULL,
+    District VARCHAR(20) NOT NULL,
+    Sub_District VARCHAR(20) NOT NULL,
+    CONSTRAINT PatientAddress_PK PRIMARY KEY (PatientID, District, Sub_District),
+    CONSTRAINT PatientAddress_FK FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID)
+);
+
+-- Creating tbl_PATIENT_DIABETES_TYPE
+CREATE TABLE tbl_PATIENT_DIABETES_TYPE (
+    PatientID INTEGER(8) NOT NULL,
+    DiabetesType CHAR(6) CHECK (DiabetesType IN ('1', '2', 'others','nil')),
+    CONSTRAINT PatientDiabetesType_PK PRIMARY KEY (PatientID),
+    CONSTRAINT PatientDiabetesType_FK FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID)
+);
+
+
+
+-- Creating tbl_PATIENT_HEALTH_DATA
+CREATE TABLE tbl_PATIENT_HEALTH_DATA (
+    PatientID INTEGER(8) NOT NULL,
+    MetricID INTEGER(8) NOT NULL,
+    CONSTRAINT PatientHealthData_PK PRIMARY KEY (PatientID, MetricID),
+    CONSTRAINT PatientHealthData_FK1 FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID),
+    CONSTRAINT PatientHealthData_FK2 FOREIGN KEY (MetricID) REFERENCES tbl_DAILY_HEALTH_METRICS(MetricID)
+);
+
+-- Creating tbl_MEDICINE
+CREATE TABLE tbl_MEDICINE (
+    MedicineID INTEGER(7) NOT NULL,
+    DrugName VARCHAR(35) NOT NULL,
+    Indications VARCHAR(50) NOT NULL,
+    Interaction VARCHAR(35),
+    SideEffects VARCHAR(35),
+    PrecautionsWarnings VARCHAR(35),
+    DosageInstructions VARCHAR(35),
+    MetricID INTEGER(8) NOT NULL,
+    CONSTRAINT Medicine_PK PRIMARY KEY (MedicineID),
+    CONSTRAINT Medicine_FK FOREIGN KEY (MetricID) REFERENCES tbl_DAILY_HEALTH_METRICS(MetricID)
+);
+
+
+
+
+
+-- Creating tbl_DIAGNOSIS_RECORD_INDICATES_SYMPTOMS
+CREATE TABLE tbl_DIAGNOSIS_RECORD_INDICATES_SYMPTOMS (
+    DiagnosisID INTEGER(7) NOT NULL,
+    DiagnosedSymptomID INTEGER(7) NOT NULL,
+    CONSTRAINT DiagnosisRecordIndicatesSymptoms_PK PRIMARY KEY (DiagnosisID, DiagnosedSymptomID),
+    CONSTRAINT DiagnosisRecordIndicatesSymptoms_FK1 FOREIGN KEY (DiagnosisID) REFERENCES tbl_DIAGNOSIS_RECORD(DiagnosisID),
+    CONSTRAINT DiagnosisRecordIndicatesSymptoms_FK2 FOREIGN KEY (DiagnosedSymptomID) REFERENCES tbl_DIAGNOSED_SYMPTOM(DiagnosedSymptomID)
+);
+
+-- Creating tbl_FOOD
+CREATE TABLE tbl_FOOD (
+    FoodID INTEGER(3) NOT NULL,
+    Name VARCHAR(50) NOT NULL,
+    Carbohydrates INTEGER(4) NOT NULL,
+    Fats INTEGER(3) NOT NULL,
+    Vitamins INTEGER(5) NOT NULL,
+    Protein INTEGER(5) NOT NULL,
+    Minerals INTEGER(5) NOT NULL,
+    Unit VARCHAR(15) NOT NULL,
+    MinCalorie INTEGER(4) NOT NULL,
+    MaxCalorie INTEGER(4) NOT NULL,
+    CONSTRAINT Food_PK PRIMARY KEY (FoodID)
+);
+
+-- Creating tbl_FOOD_OTHER_VITALS
+CREATE TABLE tbl_FOOD_OTHER_VITALS (
+    FoodID INTEGER(3) NOT NULL,
+    VitalName VARCHAR(50) NOT NULL,
+    Unit VARCHAR(15) NOT NULL,
+    CONSTRAINT FoodOtherVitals_PK PRIMARY KEY (FoodID, VitalName),
+    CONSTRAINT FoodOtherVitals_FK FOREIGN KEY (FoodID) REFERENCES tbl_FOOD(FoodID)
+);
+
+-- Creating tbl_DIET_RECOMMENDATION_SUGGEST_FOOD
+CREATE TABLE tbl_DIET_RECOMMENDATION_SUGGEST_FOOD (
+    FoodID INTEGER(3) NOT NULL,
+    DietID INTEGER(8) NOT NULL,
+    CONSTRAINT DietRecommendationSuggestFood_PK PRIMARY KEY (FoodID, DietID),
+    CONSTRAINT DietRecommendationSuggestFood_FK1 FOREIGN KEY (FoodID) REFERENCES tbl_FOOD(FoodID),
+    CONSTRAINT DietRecommendationSuggestFood_FK2 FOREIGN KEY (DietID) REFERENCES tbl_DIET(DietID)
+);
+
+-- Creating TBL_DIET_PLAN
+CREATE TABLE TBL_DIET_PLAN (
+    PatientID INTEGER(8) NOT NULL,
+    DietID INTEGER(8) NOT NULL,
+    NutritionistID INTEGER(7) NOT NULL,
+    DietPlan VARCHAR(250) NOT NULL,
+    CONSTRAINT DietPlan_PK PRIMARY KEY (PatientID, DietID, NutritionistID),
+    CONSTRAINT DietPlan_FK1 FOREIGN KEY (PatientID) REFERENCES tbl_PATIENT(PatientID),
+    CONSTRAINT DietPlan_FK2 FOREIGN KEY (DietID) REFERENCES tbl_DIET(DietID),
+    CONSTRAINT DietPlan_FK3 FOREIGN KEY (NutritionistID) REFERENCES tbl_NUTRITIONIST(NutritionistID)
+);
+
+
+
+-- Creating tbl_DOCTOR_AFFILIATION
+CREATE TABLE tbl_DOCTOR_AFFILIATION (
+   DoctorID INTEGER(7) NOT NULL,
+    hFacilityID INTEGER(7) NOT NULL,
+    StartTime DATE NOT NULL,
+    EndTime DATE NOT NULL,
+    ScDate DATE NOT NULL,
+    CONSTRAINT DoctorAffiliation_PK PRIMARY KEY (DoctorID , hFacilityID , StartTime, EndTime, ScDate),
+    CONSTRAINT DoctorAffiliation_FK1 FOREIGN KEY (DoctorID) REFERENCES tbl_DOCTOR(DoctorID),
+    CONSTRAINT DoctorAffiliation_FK2 FOREIGN KEY (hFacilityID  ) REFERENCES tbl_HOSPITAL(hFacilityID)
+);
+
+
+
+
+
+-- Creating tbl_PRESCRIPTION
+CREATE TABLE tbl_PRESCRIPTION (
+    PrescriptionID INTEGER(8) NOT NULL,
+    Date DATE NOT NULL,
+    UpdatedDate DATE,
+    ConsultationID INTEGER(8) NOT NULL,
+    CONSTRAINT Prescription_PK PRIMARY KEY (PrescriptionID),
+    CONSTRAINT Prescription_FK FOREIGN KEY (ConsultationID) REFERENCES tbl_CONSULTATION(ConsultationID)
+);
+
+-- Creating tbl_PRESCRIPTION_TEST_RECOMMEND
+CREATE TABLE tbl_PRESCRIPTION_TEST_RECOMMEND (
+    PrescriptionID INTEGER(8) NOT NULL,
+    TestRecommend VARCHAR(100) NOT NULL,
+    CONSTRAINT PrescriptionTestRecommend_PK PRIMARY KEY (PrescriptionID, TestRecommend),
+    CONSTRAINT PrescriptionTestRecommend_FK FOREIGN KEY (PrescriptionID) REFERENCES tbl_PRESCRIPTION(PrescriptionID)
+);
+
+-- Creating tbl_PRESCRIPTION_TREAT_SYMPTOM
+CREATE TABLE tbl_PRESCRIPTION_TREAT_SYMPTOM (
+    PrescriptionID INTEGER(8) NOT NULL,
+    DiagnosedSymptomID INTEGER(7) NOT NULL,
+    CONSTRAINT PrescriptionTreatSymptom_PK PRIMARY KEY (PrescriptionID, DiagnosedSymptomID),
+    CONSTRAINT PrescriptionTreatSymptom_FK1 FOREIGN KEY (PrescriptionID) REFERENCES tbl_PRESCRIPTION(PrescriptionID),
+    CONSTRAINT PrescriptionTreatSymptom_FK2 FOREIGN KEY (DiagnosedSymptomID) REFERENCES tbl_DIAGNOSED_SYMPTOM(DiagnosedSymptomID)
+);
+
+-- Creating tbl_PRESCRIPTION_MEDICINE_DOSAGE
+CREATE TABLE tbl_PRESCRIPTION_MEDICINE_DOSAGE (
+    MedicineID INTEGER(8) NOT NULL,
+    PrescriptionID INTEGER(7) NOT NULL,
+    Frequency VARCHAR(150) NOT NULL,
+    Duration INTEGER(3) NOT NULL,
+    CONSTRAINT PrescriptionMedicineDosage_PK PRIMARY KEY (MedicineID, PrescriptionID),
+    CONSTRAINT PrescriptionMedicineDosage_FK1 FOREIGN KEY (MedicineID) REFERENCES tbl_MEDICINE(MedicineID),
+    CONSTRAINT PrescriptionMedicineDosage_FK2 FOREIGN KEY (PrescriptionID) REFERENCES tbl_PRESCRIPTION(PrescriptionID)
+);
+
+- Insertion starts here-
+
+
+-- tbl_PATIENT:
+
+INSERT INTO tbl_PATIENT (PatientID, FName, LName, DOB, Gender, PhoneNumber, Email, Weight, Height, InsulinStatus) VALUES
+(20000001, 'John', 'Doe', '1980-01-01', 'M', 1234567890, 'john.doe@example.com', 70, 175, 'N'),
+(20000002, 'Jane', 'Smith', '1990-02-02', 'F', 2345678901, 'jane.smith@example.com', 60, 165, 'N'),
+(20000003, 'Robert', 'Brown', '1975-03-03', 'M', 3456789012, 'robert.brown@example.com', 80, 180, 'Y'),
+(20000004, 'Emily', 'Clark', '1985-04-04', 'F', 4567890123, 'emily.clark@example.com', 55, 160, 'N'),
+(20000005, 'Michael', 'Davis', '2000-05-05', 'M', 5678901234, 'michael.davis@example.com', 90, 185, 'Y');
+
+
+
+
+-- tbl_HEALTHCARE_FACILITY
+INSERT INTO tbl_HEALTHCARE_FACILITY (FacilityID, Name, Hotline, DiagnosisCenter, Hospital) VALUES
+(100001, 'Central Hospital', 1234567890, 'N', 'Y'),
+(100002, 'Westside Clinic', 2345678901, 'Y', 'N'),
+(100003, 'Eastside Hospital', 3456789012, 'N', 'Y'),
+(100004, 'North Health Center', 4567890123, 'Y', 'N'),
+(100005, 'South Medical Hub', 5678901234, 'N', 'Y');
+
+
+-- tbl_HOSPITAL
+INSERT INTO tbl_HOSPITAL (hFacilityID, ICUCapacity) VALUES
+(100001, 50),
+(100003, 30),
+(100005, 40);
+
+
+
+-- tbl_DIAGNOSIS_CENTER
+INSERT INTO tbl_DIAGNOSIS_CENTER (dFacilityID) VALUES
+(100002),
+(100004);
+
+
+
+
+
+
+-- tbl_HEALTHCARE_FACILITY_DEPT
+INSERT INTO tbl_HEALTHCARE_FACILITY_DEPT (FacilityID, Department) VALUES
+(100001, 'Cardiology'),
+(100001, 'Neurology'),
+(100001, 'Orthopedics'),
+(100002, 'Pediatrics'),
+(100002, 'Dermatology'),
+(100003, 'Emergency'),
+(100003, 'Radiology'),
+(100004, 'Surgery'),
+(100004, 'Outpatient'),
+(100005, 'Inpatient');
+
+
+-- tbl_HEALTHCARE_FACILITY_LOCATION
+INSERT INTO tbl_HEALTHCARE_FACILITY_LOCATION (FacilityID, District, Sub_District) VALUES
+(100001, 'District A', 'SubA1'),
+(100002, 'District B', 'SubB1'),
+(100003, 'District C', 'SubC1'),
+(100004, 'District D', 'SubD1'),
+(100005, 'District E', 'SubE1');
+
+
+-- tbl_HEALTHCARE_FACILITY_SERVICE
+INSERT INTO tbl_HEALTHCARE_FACILITY_SERVICE (FacilityID, Service) VALUES
+(100001, 'Emergency'),
+(100002, 'Radiology'),
+(100003, 'Surgery'),
+(100004, 'Outpatient'),
+(100005, 'Inpatient');
+
+
+-- tbl_HOSPITAL_EMERGENCY_SERVICE
+INSERT INTO tbl_HOSPITAL_EMERGENCY_SERVICE (hFacilityID, EmergencyService) VALUES
+(100001, 'Trauma Care'),
+(100003, 'Burn Unit'),
+(100005, 'Cardiac Emergency');
+
+
+
+-- tbl_DIAGNOSIS_CENTER_DIAGNOSTIC_SERVICE
+INSERT INTO tbl_DIAGNOSIS_CENTER_DIAGNOSTIC_SERVICE (dFacilityID, DiagnosticService) VALUES
+(100002, 'X-ray'),
+(100004, 'MRI');
+
+
+
+
+
+-- tbl_DIAGNOSTIC_TESTS_UNDER_CENTER
+INSERT INTO tbl_DIAGNOSTIC_TESTS_UNDER_CENTER (dFacilityID, DiagnosisTestID) VALUES
+(100002, 4000001),
+(100004, 4000002);
+
+
+
+--  tbl_DIAGNOSIS_RECORD:
+
+INSERT INTO tbl_DIAGNOSIS_RECORD (DiagnosisID, ResultSummary, Date, PatientID) VALUES
+(3000001, 'Normal', '2024-01-01', 20000001),
+(3000002, 'Abnormal', '2024-02-02', 20000002),
+(3000003, 'Critical', '2024-03-03', 20000003),
+(3000004, 'Normal', '2024-04-04', 20000004),
+(3000005, 'Abnormal', '2024-05-05', 20000005);
+
+
+-- tbl_DIAGNOSIS_RECORD_OBSERVATION:
+INSERT INTO tbl_DIAGNOSIS_RECORD_OBSERVATION (DiagnosisID, Observation) VALUES
+(3000001, 'No issues detected'),
+(3000002, 'Requires further analysis'),
+(3000003, 'Immediate attention needed'),
+(3000004, 'Routine check-up'),
+(3000005, 'Minor issues found');
+
+
+
+
+
+--  tbl_DIAGNOSIS_RECORD_RESULT:
+
+INSERT INTO tbl_DIAGNOSIS_RECORD_RESULT (DiagnosisID, TestResult) VALUES
+(3000001, 'Blood Pressure Normal'),
+(3000002, 'High Cholesterol'),
+(3000003, 'Diabetes Detected'),
+(3000004, 'Heart Rate Normal'),
+(3000005, 'Vitamin Deficiency');
+
+
+
+--  tbl_DIAGNOSIS_RECORD_TEST_ITEM:
+
+INSERT INTO tbl_DIAGNOSIS_RECORD_TEST_ITEM (DiagnosisID, TestItem) VALUES
+(3000001, 'Blood Test'),
+(3000002, 'Cholesterol Test'),
+(3000003, 'Glucose Test'),
+(3000004, 'ECG'),
+(3000005, 'Vitamin Test');
+
+
+--  tbl_DIAGNOSIS_RECORD_REFERENCE_VALUE:
+
+INSERT INTO tbl_DIAGNOSIS_RECORD_REFERENCE_VALUE (DiagnosisID, Min_Value, Max_Value) VALUES
+(3000001, '60', '80'),
+(3000002, '100', '200'),
+(3000003, '70', '120'),
+(3000004, '60', '100'),
+(3000005, '40', '60');
+
+
+-- tbl_DIAGNOSIS_TEST:
+
+INSERT INTO tbl_DIAGNOSIS_TEST (DiagnosisTestID, TestSample, DiagnosisBill) VALUES
+(4000001, 'Blood', 200),
+(4000002, 'Urine', 150),
+(4000003, 'Saliva', 100),
+(4000004, 'Tissue', 250),
+(4000005, 'Hair', 300);
+
+
+
+
+--  tbl_DIAGNOSIS_TEST_TEST_NAME:
+
+INSERT INTO tbl_DIAGNOSIS_TEST_TEST_NAME (DiagnosisTestID, TestName) VALUES
+(4000001, 'Complete Blood Count'),
+(4000002, 'Urine Analysis'),
+(4000003, 'Saliva Hormone Test'),
+(4000004, 'Tissue Biopsy'),
+(4000005, 'Hair Mineral Analysis');
+
+--  tbl_DIAGNOSIS_TEST_TEST_TYPE:
+
+INSERT INTO tbl_DIAGNOSIS_TEST_TEST_TYPE (DiagnosisTestID, TestType) VALUES
+(4000001, 'Hematology'),
+(4000002, 'Biochemistry'),
+(4000003, 'Endocrinology'),
+(4000004, 'Pathology'),
+(4000005, 'Toxicology');
+
+-- tbl_DIAGNOSED_SYMPTOM:
+
+INSERT INTO tbl_DIAGNOSED_SYMPTOM (DiagnosedSymptomID, Duration) VALUES (5000001, 7), (5000002, 14), (5000003, 21), (5000004, 28), (5000005, 35);
+
+-- tbl_DIAGNOSED_SYMPTOM_NAME:
+
+INSERT INTO tbl_DIAGNOSED_SYMPTOM_NAME (DiagnosedSymptomID, Name) VALUES
+(5000001, 'Headache'),
+(5000002, 'Fever'),
+(5000003, 'Cough'),
+(5000004, 'Fatigue'),
+(5000005, 'Nausea');
+
+-- tbl_DIAGNOSTIC_TESTS_UNDER_CENTER:
+
+INSERT INTO tbl_DIAGNOSTIC_TESTS_UNDER_CENTER (dFacilityID, DiagnosisTestID) VALUES
+(100002, 4000001),
+(100004, 4000002),
+(100006, 4000003),
+(100008, 4000004),
+(100010, 4000005);
+
+
+
+-- tbl_REVIEW:
+
+INSERT INTO tbl_REVIEW (ReviewID, Stars, Date, Description) VALUES (60000001, 'Y', '2024-01-01', 'Excellent service'), (60000002, 'N', '2024-02-02', 'Needs improvement'), (60000003, 'Y', '2024-03-03', 'Very satisfied'), (60000004, 'N', '2024-04-04', 'Average experience'), (60000005, 'Y', '2024-05-05', 'Highly recommend');
+
+-- tbl_patient_other_illness :
+
+INSERT INTO `tbl_patient_other_illness` (`PatientID`, `OtherIllness`) VALUES (20000001, 'Hypertension'), (20000002, 'Asthma'), (20000003, 'Arthritis'), (20000004, 'Diabetes'), (20000005, 'Chronic Migraine');
+
+
+--  tbl_DAILY_HEALTH_METRICS:
+INSERT INTO tbl_DAILY_HEALTH_METRICS (MetricID, BPDiastolic, BPSystolic, Weight, GlucoseLevel, DailyCaloricConsumption, Date, CalorieBurned) VALUES
+(20001, 'Y', 'Y', 70, 90, 2000, '2024-07-10', 500),
+(20002, 'N', 'Y', 75, 100, 2500, '2024-07-11', 600),
+(20003, 'Y', 'N', 68, 95, 1800, '2024-07-12', 550),
+(20004, 'N', 'N', 80, 105, 2200, '2024-07-13', 650),
+(20005, 'Y', 'Y', 65, 85, 2100, '2024-07-14', 700);
+
+-- tbl_PATIENT_HEALTH_DATA 
+
+INSERT INTO tbl_PATIENT_HEALTH_DATA (PatientID, MetricID) VALUES (20000001, 20001), (20000002, 20002), (20000003, 20003), (20000004, 20004), (20000005, 20005);
+
+--tbl_patient_feedback
+
+INSERT INTO tbl_PATIENT_FEEDBACK (PatientID, ReviewID) VALUES 
+(20000001, 60000001),
+(20000002, 60000002),
+(20000003, 60000003),
+(20000004, 60000004),
+(20000005, 60000005);
+
+
+
+
+
+
+
+
+--tbl_diet
+
+INSERT INTO tbl_DIET (DietID, Date, WeightLoss, MuscleGain, Maintenance, Time, NumberOfMeals, Description, StartingTime, EndingTime, MetricID) VALUES 
+(1, '2024-01-01', 'Y', 'N', 'N', '2024-01-01 08:00:00', 3, 'Low carb diet for weight loss', '2024-01-01 08:00:00', '2024-01-01 18:00:00', 20001),
+(2, '2024-02-01', 'N', 'Y', 'N', '2024-02-01 09:00:00', 5, 'High protein diet for muscle gain', '2024-02-01 09:00:00', '2024-02-01 19:00:00', 20002),
+(3, '2024-03-01', 'N', 'N', 'Y', '2024-03-01 10:00:00', 4, 'Balanced diet for maintenance', '2024-03-01 10:00:00', '2024-03-01 20:00:00', 20003),
+(4, '2024-04-01', 'Y', 'Y', 'N', '2024-04-01 07:00:00', 6, 'Combined diet for weight loss and muscle gain', '2024-04-01 07:00:00', '2024-04-01 17:00:00', 20004),
+(5, '2024-05-01', 'N', 'N', 'Y', '2024-05-01 08:30:00', 3, 'Maintenance diet with moderate protein', '2024-05-01 08:30:00', '2024-05-01 18:30:00', 20005);
+
+--tbl_patient_diet_recommendation
+INSERT INTO tbl_PATIENT_DIET_RECOMMENDATIONS (PatientID, DietID) VALUES 
+(20000001, 1),
+(20000002, 2),
+(20000003, 3),
+(20000004, 4),
+(20000005, 5);
+
+--tbl_patient_diabetes-type
+INSERT INTO tbl_PATIENT_DIABETES_TYPE (PatientID, DiabetesType) VALUES (101, '1'), (102, '2'), (103, 'others'), (104, 'nil'), (105, '1');
+
+-- Inserting sample patient address data
+INSERT INTO tbl_PATIENT_ADDRESS (PatientID, District, Sub_District) VALUES 
+(20000001, 'Central', 'Downtown'),
+(20000002, 'North', 'Uptown'),
+(20000003, 'West', 'Midtown'),
+(20000004, 'East', 'Eastside'),
+(20000005, 'South', 'Southend');
+
+-- Inserting sample nutritionist data
+INSERT INTO tbl_NUTRITIONIST (NutritionistID) VALUES 
+(1),
+(2),
+(3),
+(4),
+(5);
+
+
+-- Inserting sample nutritionist type data
+INSERT INTO tbl_NUTRITIONIST_TYPE (NutritionistID, NutritionistType) VALUES 
+(1, 'Dietitian'),
+(2, 'Coach'),
+(3, 'Consultant'),
+(4, 'Dietitian'),
+(5, 'Coach');
+
+
+-- Inserting sample medicine data
+
+INSERT INTO tbl_MEDICINE (MedicineID, DrugName, Indications, Interaction, SideEffects, PrecautionsWarnings, DosageInstructions, MetricID) VALUES 
+(100001, 'Aspirin', 'Pain relief', 'Anticoagulants', 'Nausea', 'Avoid in case of allergy', 'Take with food', 1001),
+(100002, 'Metformin', 'Diabetes', 'Alcohol', 'Diarrhea', 'Monitor blood sugar', 'Take with meals', 1002),
+(100003, 'Atorvastatin', 'Cholesterol', 'Grapefruit juice', 'Muscle pain', 'Liver function tests', 'Take at bedtime', 1003),
+(100004, 'Lisinopril', 'Hypertension', 'Potassium supplements', 'Cough', 'Monitor blood pressure', 'Take at the same time daily', 1004),
+(100005, 'Omeprazole', 'GERD', 'Clopidogrel', 'Headache', 'Avoid prolonged use', 'Take before meals', 1005);
+
+-- Inserting sample food data
+
+INSERT INTO tbl_FOOD (FoodID, Name, Carbohydrates, Fats, Vitamins, Protein, Minerals, Unit, MinCalorie, MaxCalorie) VALUES 
+(101, 'Apple', 14, 0, 1, 0, 1, 'Piece', 52, 95),
+(102, 'Banana', 27, 0, 1, 1, 1, 'Piece', 89, 105),
+(103, 'Chicken Breast', 0, 3, 0, 31, 1, '100 grams', 165, 200),
+(104, 'Broccoli', 7, 0, 1, 3, 1, '100 grams', 34, 55),
+(105, 'Almonds', 22, 49, 1, 21, 3, '100 grams', 575, 650);
+
+-- Inserting sample food vital data
+
+INSERT INTO tbl_FOOD_OTHER_VITALS (FoodID, VitalName, Unit) VALUES 
+(101, 'Fiber', 'grams'),
+(101, 'Sugar', 'grams'),
+(102, 'Fiber', 'grams'),
+(102, 'Sugar', 'grams'),
+(103, 'Sodium', 'milligrams');
+
+
+-- Inserting sample doctor data
+
+INSERT INTO tbl_DOCTOR (DoctorID) VALUES 
+(1),
+(2),
+(3),
+(4),
+(5);
+
+-- Inserting sample doctor speciality data
+
+INSERT INTO tbl_DOCTOR_SPECIALITY (DoctorID, Speciality) VALUES 
+(1, 'Cardiology'),
+(2, 'Orthopedics'),
+(3, 'Pediatrics'),
+(4, 'Dermatology'),
+(5, 'Oncology');
+
+
+
+-- Inserting sample doctor affiliation data
+INSERT INTO tbl_DOCTOR_AFFILIATION (DoctorID, hFacilityID, StartTime, EndTime, ScDate) VALUES 
+(1, 100001, '2024-01-01', '2024-12-31', '2024-01-01'),
+
+(3, 100003, '2024-01-01', '2024-12-31', '2024-01-01'),
+
+(5, 100005, '2024-01-01', '2024-12-31', '2024-01-01');
+
+
+-- Inserting sample diet plan data
+
+INSERT INTO TBL_DIET_PLAN (PatientID, DietID, NutritionistID, DietPlan) VALUES 
+(20000001, 1, 1, 'Low carb diet with increased protein intake'),
+(20000002, 2, 2, 'High protein diet with moderate carbs'),
+(20000003, 3, 3, 'Balanced diet with emphasis on vitamins and minerals'),
+(20000004, 4, 4, 'Customized diet plan for weight loss and muscle gain'),
+(20000005, 5, 5, 'Maintenance diet with focus on calorie control and nutrients');
+
+
+
+
+
+
+-- Inserting sample diet type data
+
+INSERT INTO tbl_DIET_TYPE (DietID, DietType, Name, Calories, Mineral, Carbohydrates, Proteins, Fats, Unit) VALUES 
+(1, 101, 'Low Carb', 500, 10, 50, 30, 20, 'Grams'),
+(1, 102, 'High Protein', 600, 15, 40, 40, 20, 'Grams'),
+(3, 101, 'Vegetarian', 400, 8, 60, 20, 15, 'Grams'),
+(4, 102, 'Vegan', 350, 5, 55, 15, 15, 'Grams'),
+(5, 101, 'Balanced', 450, 12, 45, 25, 20, 'Grams');
+
+
+
+-- Inserting sample diet recommendation and diagnosis data
+
+INSERT INTO tbl_DIET_RECOMMENDATION_USES_DIAGNOSIS (DietID, DiagnosisID) VALUES 
+(1, 3000001),
+(2, 3000002),
+(3, 3000003),
+(4, 3000004),
+(5, 3000005);
+
+
+-- Inserting sample diet recommendation and suggested food data
+
+INSERT INTO tbl_DIET_RECOMMENDATION_SUGGEST_FOOD (FoodID, DietID) VALUES 
+(101, 1),
+(102, 1),
+(103, 2),
+(104, 2),
+(105, 3);
+
+-- Inserting sample diagnosis record and symptoms data
+
+INSERT INTO tbl_DIAGNOSIS_RECORD_INDICATES_SYMPTOMS (DiagnosisID, DiagnosedSymptomID) VALUES 
+(3000001, 5000001),
+(3000002, 5000002),
+(3000003, 5000003),
+(3000004, 5000004),
+(3000005, 5000005);
+
+
+
+-- Inserting sample diet meal type data
+
+INSERT INTO tbl_DIET_MEAL_TYPE (DietID, Breakfast, Lunch, Dinner, Snack) VALUES 
+(1, 'Scrambled eggs with spinach', 'Grilled chicken salad', 'Salmon with quinoa', 'Greek yogurt with berries'),
+(2, 'Oatmeal with fruits', 'Quinoa with vegetables', 'Grilled tofu with rice', 'Mixed nuts'),
+(3, 'Whole wheat toast with avocado', 'Vegetable stir-fry', 'Bean soup', 'Fruit smoothie'),
+(4, 'Protein shake', 'Baked fish with vegetables', 'Brown rice with lentils', 'Cottage cheese with pineapple'),
+(5, 'Granola with almond milk', 'Mixed green salad', 'Grilled vegetables', 'Hummus with carrots');
+
+
+-- Inserting sample appointment data
+
+INSERT INTO tbl_APPOINTMENT (AppointmentID, Date, Online, Offline, Time, PatientID, DoctorID) VALUES 
+(1001, '2024-07-15', 'N', 'Y', '10:00', 20000001, 1),
+(1002, '2024-07-18', 'Y', 'N', '14:30', 20000002, 2),
+(1003, '2024-07-20', 'N', 'Y', '11:00', 20000003, 3),
+(1004, '2024-07-22', 'Y', 'N', '16:00', 20000004, 4),
+(1005, '2024-07-25', 'N', 'Y', '09:30', 20000005, 5);
+
+-- Inserting sample consultation data
+
+INSERT INTO tbl_CONSULTATION (ConsultationID, Instruction, FollowUpDate, AppointmentID) VALUES 
+(2001, 'Prescribed medication and advised rest', '2024-07-15', 1001),
+(2002, 'Recommended physical therapy exercises', '2024-07-18', 1002),
+(2003, 'Dietary changes for better glucose control', '2024-07-20', 1003),
+(2004, 'Suggested lifestyle modifications for stress management', '2024-07-22', 1004),
+(2005, 'Discussed treatment options and scheduled follow-up', '2024-07-25', 1005);
+
+-- Inserting sample consultation suggested actions
+
+INSERT INTO tbl_CONSULTATION_SUGGESTED_ACTION (ConsultationID, SuggestedAdvice) VALUES 
+(2001, 'Increase water intake and monitor blood pressure daily'),
+(2002, 'Start a daily walking routine and track steps using a pedometer'),
+(2003, 'Reduce caffeine intake and practice relaxation techniques'),
+(2004, 'Follow a low-sodium diet and monitor weight regularly'),
+(2005, 'Keep a food diary and note any allergic reactions');
+
+
+
+
+
+
+
