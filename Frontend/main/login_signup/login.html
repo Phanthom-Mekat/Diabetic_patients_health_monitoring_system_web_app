@@ -129,52 +129,6 @@
         </div>
     </div>
 
-    <!-- JavaScript to handle form submission -->
-    <script>
-        document.getElementById('patient-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const data = {
-                fname: document.getElementById('fname').value,
-                lname: document.getElementById('lname').value,
-                dob: document.getElementById('dob').value,
-                gender: document.getElementById('gender').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                weight: document.getElementById('weight').value,
-                height: document.getElementById('height').value,
-                insulinStatus: document.getElementById('insulin-status').value,
-                diabetesType: document.getElementById('diabetes-type').value,
-                district: document.getElementById('district').value,
-                subDistrict: document.getElementById('sub-district').value
-            };
-
-            console.log('Submitting data:', data);
-
-            try {
-                const response = await fetch('http://localhost:3306/api/patient', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                const result = await response.json();
-                if (response.ok) {
-                    console.log('Success:', result);
-                    alert('Success: Patient data inserted');
-                } else {
-                    console.error('Error:', result.message);
-                    alert('Error: ' + result.message);
-                }
-            } catch (error) {
-                console.error('Fetch error:', error);
-                alert('An error occurred while submitting the form');
-            }
-        });
-    </script>
-
 
 
   <script type="text/javascript">
