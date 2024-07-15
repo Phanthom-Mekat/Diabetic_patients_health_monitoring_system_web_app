@@ -1,87 +1,119 @@
 <?php
-header('Content-Type: application/json');
-$data = json_decode(file_get_contents('php://input'), true);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $servername = "localhost";
-$username = "your_username"; // replace with your MySQL username
-$password = "your_password"; // replace with your MySQL password
-$dbname = "ediacaremaindb";
+$username = "root";
+$password = ""; // Default XAMPP password
+$dbname = "ediacaredbmain";
+$port = 3306;
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Check connection
 if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'message' => "Connection failed: " . $conn->connect_error]));
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Debugging: Output received data to server logs
-file_put_contents('php://stderr', print_r($data, TRUE));
-
-// Generate unique and random PatientID
-$patientID = rand(10000000, 99999999);
-
-// Prepare and bind
-$stmt1 = $conn->prepare("INSERT INTO tbl_patient (PatientID, FName, LName, DOB, Gender, PhoneNumber, Email, Weight, Height, InsulinStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-if (!$stmt1) {
-    echo json_encode(['success' => false, 'message' => "Prepare statement failed for tbl_patient: " . $conn->error]);
-    $conn->close();
-    exit();
-}
-$stmt1->bind_param("issssisiis", $patientID, $data['fname'], $data['lname'], $data['dob'], $data['gender'], $data['phone'], $data['email'], $data['weight'], $data['height'], $data['insulin_status']);
-
-$stmt2 = $conn->prepare("INSERT INTO tbl_patient_address (PatientID, District, Sub_District) VALUES (?, ?, ?)");
-if (!$stmt2) {
-    echo json_encode(['success' => false, 'message' => "Prepare statement failed for tbl_patient_address: " . $conn->error]);
-    $stmt1->close();
-    $conn->close();
-    exit();
-}
-$stmt2->bind_param("iss", $patientID, $data['district'], $data['sub_district']);
-
-$stmt3 = $conn->prepare("INSERT INTO tbl_patient_diabetes_type (PatientID, DiabetesType) VALUES (?, ?)");
-if (!$stmt3) {
-    echo json_encode(['success' => false, 'message' => "Prepare statement failed for tbl_patient_diabetes_type: " . $conn->error]);
-    $stmt1->close();
-    $stmt2->close();
-    $conn->close();
-    exit();
-}
-$stmt3->bind_param("is", $patientID, $data['diabetes_type']);
-
-// Execute queries and check for errors
-if (!$stmt1->execute()) {
-    echo json_encode(['success' => false, 'message' => "Execution failed for tbl_patient: " . $stmt1->error]);
-    $stmt1->close();
-    $stmt2->close();
-    $stmt3->close();
-    $conn->close();
-    exit();
+// Check if all required data is present
+$requiredFields = ['fname', 'lname', 'dob', 'gender', 'phone', 'email', 'weight', 'height', 'insulin_status', 'diabetes_type', 'district', 'sub_district', 'other_illness'];
+foreach ($requiredFields as $field) {
+    if (!isset($_POST[$field])) {
+        die(json_encode(["success" => false, "message" => "Missing field: $field"]));
+    }
 }
 
-if (!$stmt2->execute()) {
-    echo json_encode(['success' => false, 'message' => "Execution failed for tbl_patient_address: " . $stmt2->error]);
-    $stmt1->close();
-    $stmt2->close();
-    $stmt3->close();
-    $conn->close();
-    exit();
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$dob = $_POST['dob'];
+$gender = $_POST['gender'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
+$weight = $_POST['weight'];
+$height = $_POST['height'];
+$insulin_status = $_POST['insulin_status'];
+$diabetes_type = $_POST['diabetes_type'];
+$district = $_POST['district'];
+$sub_district = $_POST['sub_district'];
+$other_illness = $_POST['other_illness'];
+
+// Generate a unique patient ID
+$patient_id = uniqid('PATIENT_'); // Example: PATIENT_5f7c77f5e9e6a
+
+// Start a transaction
+$conn->begin_transaction();
+
+try {
+    // Insert into tbl_PATIENT
+    $stmt = $conn->prepare("INSERT INTO tbl_PATIENT (PatientID, FName, LName, DOB, Gender, PhoneNumber, Email, Weight, Height, InsulinStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    if (!$stmt) {
+        throw new Exception("Prepare statement failed: " . $conn->error);
+    }
+    $stmt->bind_param("ssssisssis", $patient_id, $fname, $lname, $dob, $gender, $phone, $email, $weight, $height, $insulin_status);
+    $stmt->execute();
+    if ($stmt->error) {
+        throw new Exception("Execute statement failed: " . $stmt->error);
+    }
+    echo "Inserted into tbl_PATIENT. ";
+
+    $stmt->close();
+
+    // Insert into tbl_PATIENT_OTHER_ILLNESS
+    $stmt = $conn->prepare("INSERT INTO tbl_PATIENT_OTHER_ILLNESS (PatientID, OtherIllness) VALUES (?, ?)");
+    if (!$stmt) {
+        throw new Exception("Prepare statement failed: " . $conn->error);
+    }
+    $stmt->bind_param("ss", $patient_id, $other_illness);
+    $stmt->execute();
+    if ($stmt->error) {
+        throw new Exception("Execute statement failed: " . $stmt->error);
+    }
+    echo "Inserted into tbl_PATIENT_OTHER_ILLNESS. ";
+
+    $stmt->close();
+
+    // Insert into tbl_PATIENT_ADDRESS
+    $stmt = $conn->prepare("INSERT INTO tbl_PATIENT_ADDRESS (PatientID, District, Sub_District) VALUES (?, ?, ?)");
+    if (!$stmt) {
+        throw new Exception("Prepare statement failed: " . $conn->error);
+    }
+    $stmt->bind_param("sss", $patient_id, $district, $sub_district);
+    $stmt->execute();
+    if ($stmt->error) {
+        throw new Exception("Execute statement failed: " . $stmt->error);
+    }
+    echo "Inserted into tbl_PATIENT_ADDRESS. ";
+
+    $stmt->close();
+
+    // Insert into tbl_PATIENT_DIABETES_TYPE
+    $stmt = $conn->prepare("INSERT INTO tbl_PATIENT_DIABETES_TYPE (PatientID, DiabetesType) VALUES (?, ?)");
+    if (!$stmt) {
+        throw new Exception("Prepare statement failed: " . $conn->error);
+    }
+    $stmt->bind_param("ss", $patient_id, $diabetes_type);
+    $stmt->execute();
+    if ($stmt->error) {
+        throw new Exception("Execute statement failed: " . $stmt->error);
+    }
+    echo "Inserted into tbl_PATIENT_DIABETES_TYPE. ";
+
+    $stmt->close();
+
+    // Commit the transaction
+    $conn->commit();
+
+    // Send success response
+    echo json_encode(["success" => true]);
+
+} catch (Exception $e) {
+    // Rollback the transaction in case of an error
+    $conn->rollback();
+
+    // Send failure response
+    echo json_encode(["success" => false, "message" => $e->getMessage()]);
 }
 
-if (!$stmt3->execute()) {
-    echo json_encode(['success' => false, 'message' => "Execution failed for tbl_patient_diabetes_type: " . $stmt3->error]);
-    $stmt1->close();
-    $stmt2->close();
-    $stmt3->close();
-    $conn->close();
-    exit();
-}
-
-// Close statements and connection
-$stmt1->close();
-$stmt2->close();
-stmt3->close();
 $conn->close();
-
-echo json_encode(['success' => true, 'message' => "Patient data successfully inserted!"]);
 ?>
