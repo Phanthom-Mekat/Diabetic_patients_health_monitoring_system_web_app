@@ -38,8 +38,9 @@ $district = $_POST['district'];
 $sub_district = $_POST['sub_district'];
 $other_illness = $_POST['other_illness'];
 
-// Generate a unique patient ID
-$patient_id = uniqid('PATIENT_'); // Example: PATIENT_5f7c77f5e9e6a
+// Generate a unique patient ID as an integer
+$patient_id = substr(uniqid('PATIENT_'), 0, 8); // Example: PATIENT_
+
 
 // Start a transaction
 $conn->begin_transaction();
@@ -53,7 +54,7 @@ try {
     $stmt->bind_param("ssssisssis", $patient_id, $fname, $lname, $dob, $gender, $phone, $email, $weight, $height, $insulin_status);
     $stmt->execute();
     if ($stmt->error) {
-        throw new Exception("Execute statement failed: " . $stmt->error);
+        throw new Exception("Execute statement failed for tbl_PATIENT: " . $stmt->error);
     }
     echo "Inserted into tbl_PATIENT. ";
 
@@ -67,7 +68,7 @@ try {
     $stmt->bind_param("ss", $patient_id, $other_illness);
     $stmt->execute();
     if ($stmt->error) {
-        throw new Exception("Execute statement failed: " . $stmt->error);
+        throw new Exception("Execute statement failed for tbl_PATIENT_OTHER_ILLNESS: " . $stmt->error);
     }
     echo "Inserted into tbl_PATIENT_OTHER_ILLNESS. ";
 
@@ -81,7 +82,7 @@ try {
     $stmt->bind_param("sss", $patient_id, $district, $sub_district);
     $stmt->execute();
     if ($stmt->error) {
-        throw new Exception("Execute statement failed: " . $stmt->error);
+        throw new Exception("Execute statement failed for tbl_PATIENT_ADDRESS: " . $stmt->error);
     }
     echo "Inserted into tbl_PATIENT_ADDRESS. ";
 
@@ -95,7 +96,7 @@ try {
     $stmt->bind_param("ss", $patient_id, $diabetes_type);
     $stmt->execute();
     if ($stmt->error) {
-        throw new Exception("Execute statement failed: " . $stmt->error);
+        throw new Exception("Execute statement failed for tbl_PATIENT_DIABETES_TYPE: " . $stmt->error);
     }
     echo "Inserted into tbl_PATIENT_DIABETES_TYPE. ";
 
