@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - View Feedback</title>
-    <link rel="stylesheet" href="feedback.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - View Feedback</title>
+  <link rel="stylesheet" href="feedback.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <a class="dashboardLink" href="#">E-Diacare</a>
-            <ul>
-                <li><a href="systemAdminDashboard.html">Dashboard Overview</a></li>
-                <li><a href="adminProfile.html">View Profile</a></li>
-                <li><a href="healthFacilities.html">Health Facilities Database</a></li>
-                <li><a href="physicianDatabase.html">Physician Database</a></li>
-                <li><a href="PatientDatabase.html">Patient Database</a></li>
-                <li><a href="feedback.html">View Feedback</a></li>
-                <li><a href="../Home/index.html">Logout</a></li>
-            </ul>
-        </div>
-        <div class="main-content-wrapper">
-            <header class="header">
-                <h1 class="welcome-title">View Feedback</h1>
-                <span class="userName">Mr. Mekat</span>
-                <div class="dropdown">
-                    <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
-                    <label for="dropdown-toggle" class="dropbtn">
-                        <img src="images/DrMekat.jpg" alt="Profile Icon" class="profile-icon" height="40" width="40">
-                    </label>
-                    <div class="dropdown-content">
-                        <a href="#profile">Profile</a>
-                        <a href="#settings">Settings</a>
-                        <a href="../Home/index.html">Logout</a>
-                    </div>
-                </div>
-            </header>
-            <div class="content">
-                <table id="feedbackTable">
-                    <thead>
-                        <tr>
-                            <th>Patient ID</th>
-                            <th>Rating</th>
-                            <th>Feedback/Complaints</th>
-                            <th>Goal Achieved?</th>
-                            <th>Suggestions</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Table rows will be inserted here by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  <div class="container">
+    <div class="sidebar">
+      <a class="dashboardLink" href="#">E-Diacare</a>
+      <ul>
+        <li><a href="systemAdminDashboard.html">Dashboard Overview</a></li>
+        <li><a href="adminProfile.html">View Profile</a></li>
+        <li><a href="healthFacilities.html">Health Facilities Database</a></li>
+        <li><a href="physicianDatabase.html">Physician Database</a></li>
+        <li><a href="PatientDatabase.html">Patient Database</a></li>
+        <li><a href="feedback.html">View Feedback</a></li>
+        <li><a href="../Home/index.html">Logout</a></li>
+      </ul>
     </div>
-    <script src="feedback.js"></script>
+    <div class="main-content-wrapper">
+      <header class="header">
+        <h1 class="welcome-title">View Feedback</h1>
+        <span class="userName">Mr. Mekat</span>
+        <div class="dropdown">
+          <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+          <label for="dropdown-toggle" class="dropbtn">
+            <img src="images/DrMekat.jpg" alt="Profile Icon" class="profile-icon" height="40" width="40">
+          </label>
+          <div class="dropdown-content">
+            <a href="#profile">Profile</a>
+            <a href="#settings">Settings</a>
+            <a href="../Home/index.html">Logout</a>
+          </div>
+        </div>
+      </header>
+      <div class="content">
+        <table id="feedbackTable">
+          <thead>
+            <tr>
+              <th>ReviewID</th>
+              <th>Stars</th>
+              <th>Date</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody id="feedbackData">
+            <!-- Data will be displayed here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="feedback.js"></script>
 </body>
 </html>
