@@ -7,15 +7,16 @@ const app = express();
 const port = 5000;
 
 
-//  connection configuration db
+//  connection configuration db change ur local db host user password and database name
 const dbConfig = {
     host: 'localhost',
     user: 'root',
-    password: 'mekat',
+    password: 'mekat', //change password after pulling the code
     database: 'ediacaredatabase'
 };
 
 // Create a connection pool for dbms
+
 const pool = mysql.createPool(dbConfig);
 
 // Middleware
