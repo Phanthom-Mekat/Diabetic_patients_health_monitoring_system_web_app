@@ -5,39 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Doctor Profile</title>
     <link rel="stylesheet" href="DoctorDash.css">
-    <script>
-        // Function to fetch doctor profile data using XHR (XMLHttpRequest)
-        function fetchDoctorProfile() {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var data = JSON.parse(xhr.responseText);
-                        // Update HTML elements with fetched data
-                        document.getElementById('doctorID').textContent = data.ID;
-                        document.getElementById('doctorName').textContent = data.Name;
-                        document.getElementById('doctorAge').textContent = data.Age;
-                        document.getElementById('doctorGender').textContent = data.Gender;
-                        document.getElementById('doctorPhoneNumber').textContent = data.PhoneNumber;
-                        document.getElementById('doctorEmail').textContent = data.Email;
-                        document.getElementById('doctorNID').textContent = data.NID;
-                        document.getElementById('doctorYearsOfExperience').textContent = data.YearsOfExperience;
-                        document.getElementById('doctorAddress').textContent = `${data.District}, ${data.Sub_District}`;
-                        document.getElementById('doctorEducation').textContent = data.Education;
-                        document.getElementById('doctorCertifications').textContent = data.Certifications;
-                        document.getElementById('doctorHospitalAffiliation').textContent = data.HospitalAffiliation;
-                    } else {
-                        console.error('Error fetching doctor profile. Status:', xhr.status);
-                    }
-                }
-            };
-            xhr.open('GET', 'fetch_doctor_profile.php', true);
-            xhr.send();
-        }
-
-        // Call fetchDoctorProfile function when the page loads
-        window.onload = fetchDoctorProfile;
-    </script>
 </head>
 <body>
     <div class="container">

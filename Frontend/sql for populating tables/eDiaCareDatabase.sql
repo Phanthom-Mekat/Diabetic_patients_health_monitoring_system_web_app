@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 12, 2024 at 02:48 PM
+-- Host: localhost
+-- Generation Time: Jul 17, 2024 at 11:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ediacaredbmain`
+-- Database: `insertion_work_2`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_appointment` (
   `AppointmentID` int(8) NOT NULL,
   `Date` date NOT NULL,
-  `Online` tinyint(1) DEFAULT NULL,
-  `Offline` tinyint(1) DEFAULT NULL,
+  `Online` char(1) DEFAULT NULL CHECK (`Online` in ('Y','N')),
+  `Offline` char(1) DEFAULT NULL CHECK (`Offline` in ('Y','N')),
   `Time` date NOT NULL,
   `PatientID` int(8) NOT NULL,
   `DoctorID` int(7) NOT NULL
@@ -42,11 +42,11 @@ CREATE TABLE `tbl_appointment` (
 --
 
 INSERT INTO `tbl_appointment` (`AppointmentID`, `Date`, `Online`, `Offline`, `Time`, `PatientID`, `DoctorID`) VALUES
-(1001, '2024-07-15', 1, 0, '0000-00-00', 20000001, 1),
-(1002, '2024-07-18', 0, 1, '0000-00-00', 20000002, 2),
-(1003, '2024-07-20', 1, 0, '0000-00-00', 20000003, 3),
-(1004, '2024-07-22', 0, 1, '0000-00-00', 20000004, 4),
-(1005, '2024-07-25', 1, 0, '0000-00-00', 20000005, 5);
+(1001, '2024-07-15', 'N', 'Y', '0000-00-00', 20000001, 1),
+(1002, '2024-07-18', 'Y', 'N', '0000-00-00', 20000002, 2),
+(1003, '2024-07-20', 'N', 'Y', '0000-00-00', 20000003, 3),
+(1004, '2024-07-22', 'Y', 'N', '0000-00-00', 20000004, 4),
+(1005, '2024-07-25', 'N', 'Y', '0000-00-00', 20000005, 5);
 
 -- --------------------------------------------------------
 
@@ -102,8 +102,8 @@ INSERT INTO `tbl_consultation_suggested_action` (`ConsultationID`, `SuggestedAdv
 
 CREATE TABLE `tbl_daily_health_metrics` (
   `MetricID` int(8) NOT NULL,
-  `BPDiastolic` int(3) DEFAULT NULL,
-  `BPSystolic` int(3) DEFAULT NULL,
+  `BPDiastolic` char(1) DEFAULT NULL CHECK (`BPDiastolic` in ('Y','N')),
+  `BPSystolic` char(1) DEFAULT NULL CHECK (`BPSystolic` in ('Y','N')),
   `Weight` int(3) DEFAULT NULL,
   `GlucoseLevel` int(3) DEFAULT NULL,
   `DailyCaloricConsumption` int(5) DEFAULT NULL,
@@ -116,11 +116,11 @@ CREATE TABLE `tbl_daily_health_metrics` (
 --
 
 INSERT INTO `tbl_daily_health_metrics` (`MetricID`, `BPDiastolic`, `BPSystolic`, `Weight`, `GlucoseLevel`, `DailyCaloricConsumption`, `Date`, `CalorieBurned`) VALUES
-(20001, 88, 140, 70, 90, 2000, '2024-07-10', 500),
-(20002, 95, 166, 75, 100, 2500, '2024-07-11', 600),
-(20003, 75, 150, 68, 95, 1800, '2024-07-12', 550),
-(20004, 88, 145, 80, 105, 2200, '2024-07-13', 650),
-(20005, 75, 144, 65, 85, 2100, '2024-07-14', 700);
+(20001, 'Y', 'Y', 70, 90, 2000, '2024-07-10', 500),
+(20002, 'N', 'Y', 75, 100, 2500, '2024-07-11', 600),
+(20003, 'Y', 'N', 68, 95, 1800, '2024-07-12', 550),
+(20004, 'N', 'N', 80, 105, 2200, '2024-07-13', 650),
+(20005, 'Y', 'Y', 65, 85, 2100, '2024-07-14', 700);
 
 -- --------------------------------------------------------
 
@@ -433,9 +433,9 @@ INSERT INTO `tbl_diagnostic_tests_under_center` (`dFacilityID`, `DiagnosisTestID
 CREATE TABLE `tbl_diet` (
   `DietID` int(8) NOT NULL,
   `Date` date NOT NULL,
-  `WeightLoss` varchar(15) DEFAULT NULL,
-  `MuscleGain` varchar(15) DEFAULT NULL,
-  `Maintenance` varchar(15) DEFAULT NULL,
+  `WeightLoss` char(1) DEFAULT NULL CHECK (`WeightLoss` in ('Y','N')),
+  `MuscleGain` char(1) DEFAULT NULL CHECK (`MuscleGain` in ('Y','N')),
+  `Maintenance` char(1) DEFAULT NULL CHECK (`Maintenance` in ('Y','N')),
   `Time` date NOT NULL,
   `NumberOfMeals` int(3) NOT NULL,
   `Description` varchar(200) NOT NULL,
@@ -499,7 +499,6 @@ CREATE TABLE `tbl_diet_plan` (
 
 INSERT INTO `tbl_diet_plan` (`PatientID`, `DietID`, `NutritionistID`, `DietPlan`) VALUES
 (20000001, 1, 1, 'Low carb diet with increased protein intake'),
-(20000002, 2, 1, 'Low carb diet with increased protein intake'),
 (20000002, 2, 2, 'High protein diet with moderate carbs'),
 (20000003, 3, 3, 'Balanced diet with emphasis on vitamins and minerals'),
 (20000004, 4, 4, 'Customized diet plan for weight loss and muscle gain'),
@@ -1200,6 +1199,17 @@ CREATE TABLE `tbl_prescription` (
   `ConsultationID` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_prescription`
+--
+
+INSERT INTO `tbl_prescription` (`PrescriptionID`, `Date`, `UpdatedDate`, `ConsultationID`) VALUES
+(10000001, '2024-07-01', '2024-07-10', 2001),
+(10000002, '2024-07-02', NULL, 2002),
+(10000003, '2024-07-03', '2024-07-11', 2003),
+(10000004, '2024-07-04', NULL, 2004),
+(10000005, '2024-07-05', '2024-07-12', 2005);
+
 -- --------------------------------------------------------
 
 --
@@ -1213,6 +1223,17 @@ CREATE TABLE `tbl_prescription_medicine_dosage` (
   `Duration` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_prescription_medicine_dosage`
+--
+
+INSERT INTO `tbl_prescription_medicine_dosage` (`MedicineID`, `PrescriptionID`, `Frequency`, `Duration`) VALUES
+(100001, 10000001, 'Twice a day', 7),
+(100002, 10000002, 'Once a day', 10),
+(100003, 10000003, 'Three times a day', 5),
+(100004, 10000004, 'Twice a day', 14),
+(100005, 10000005, 'Once a day', 7);
+
 -- --------------------------------------------------------
 
 --
@@ -1224,6 +1245,17 @@ CREATE TABLE `tbl_prescription_test_recommend` (
   `TestRecommend` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_prescription_test_recommend`
+--
+
+INSERT INTO `tbl_prescription_test_recommend` (`PrescriptionID`, `TestRecommend`) VALUES
+(10000001, 'Blood Test'),
+(10000002, 'X-Ray'),
+(10000003, 'MRI Scan'),
+(10000004, 'Urine Test'),
+(10000005, 'CT Scan');
+
 -- --------------------------------------------------------
 
 --
@@ -1234,6 +1266,17 @@ CREATE TABLE `tbl_prescription_treat_symptom` (
   `PrescriptionID` int(8) NOT NULL,
   `DiagnosedSymptomID` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_prescription_treat_symptom`
+--
+
+INSERT INTO `tbl_prescription_treat_symptom` (`PrescriptionID`, `DiagnosedSymptomID`) VALUES
+(10000001, 5000001),
+(10000002, 5000002),
+(10000003, 5000003),
+(10000004, 5000004),
+(10000005, 5000005);
 
 -- --------------------------------------------------------
 

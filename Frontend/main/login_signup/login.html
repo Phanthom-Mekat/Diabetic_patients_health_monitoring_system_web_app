@@ -174,47 +174,6 @@
 
                 window.location.href = url;
             });
-
-            // Handle Patient Form Submission
-            document.getElementById('patient-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const formData = {
-                    fname: document.getElementById('fname').value,
-                    lname: document.getElementById('lname').value,
-                    dob: document.getElementById('dob').value,
-                    gender: document.getElementById('gender').value,
-                    phone: document.getElementById('phone').value,
-                    email: document.getElementById('email').value,
-                    weight: document.getElementById('weight').value,
-                    height: document.getElementById('height').value,
-                    insulin_status: document.getElementById('insulin-status').value,
-                    diabetes_type: document.getElementById('diabetes-type').value,
-                    other_illness: document.getElementById('other-illness').value,
-                    district: document.getElementById('district').value,
-                    sub_district: document.getElementById('sub-district').value
-                };
-
-                fetch('insert_patient.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Patient data successfully inserted!');
-                    } else {
-                        alert('Failed to insert patient data: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('An error occurred while inserting patient data.');
-                });
-            });
         });
     </script>
 </body>
