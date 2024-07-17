@@ -1296,11 +1296,12 @@ CREATE TABLE `tbl_review` (
 --
 
 INSERT INTO `tbl_review` (`ReviewID`, `Stars`, `Date`, `Description`) VALUES
+
 (60000001, 'Y', '2024-01-01', 'Excellent service'),
 (60000002, 'N', '2024-02-02', 'Needs improvement'),
 (60000003, 'Y', '2024-03-03', 'Very satisfied'),
 (60000004, 'N', '2024-04-04', 'Average experience'),
-(60000005, 'Y', '2024-05-05', 'Highly recommend');
+(60000005, 'Y', '2024-05-05', 'Highly recommended');
 
 --
 -- Indexes for dumped tables
