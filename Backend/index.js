@@ -11,7 +11,7 @@ const port = 5000;
 const dbConfig = {
     host: 'localhost',
     user: 'root',
-    password: '', //change password after pulling the code
+    password: 'mekat', //change password after pulling the code
     database: 'ediacaredatabase'
 };
 
@@ -35,24 +35,16 @@ pool.getConnection()
     });
 
 
-
-// Example route to test database connection
-app.get('/test-db', async (req, res) => {
-    try {
-        const [rows, fields] = await pool.query('SELECT 1 + 1 AS solution');
-        res.json({ solution: rows[0].solution });
-    } catch (error) {
-        console.error('Error executing query:', error);
-        res.status(500).send('Database query error');
-    }
-});
-
-
 // module export to use in other files
 module.exports = { app, pool };
 
-
+// Serve the HTML file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'main', 'systemAdmin', 'feedback.html'));
+});
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
+
+
