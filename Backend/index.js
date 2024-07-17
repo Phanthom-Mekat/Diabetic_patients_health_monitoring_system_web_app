@@ -11,7 +11,7 @@ const port = 5000;
 const dbConfig = {
     host: 'localhost',
     user: 'root',
-    password: 'mekat', //change password after pulling the code
+    password: '', //change password after pulling the code
     database: 'ediacaredatabase'
 };
 
