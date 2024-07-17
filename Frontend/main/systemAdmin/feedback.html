@@ -1,70 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        form, .search-box {
-            margin-bottom: 20px;
-        }
-        input, button {
-            margin: 5px 0;
-            padding: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .error {
-            color: red;
-        }
-        .success {
-            color: green;
-        }
-        .action-buttons button {
-            margin-right: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - View Feedback</title>
+  <link rel="stylesheet" href="feedback.css">
 </head>
 <body>
-    <h1>User Registration</h1>
-    <form id="userForm">
-        <input type="text" id="name" placeholder="Enter your name" required>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="message"></div>
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by name">
+  <div class="container">
+    <div class="sidebar">
+      <a class="dashboardLink" href="#">E-Diacare</a>
+      <ul>
+        <li><a href="systemAdminDashboard.html">Dashboard Overview</a></li>
+        <li><a href="adminProfile.html">View Profile</a></li>
+        <li><a href="healthFacilities.html">Health Facilities Database</a></li>
+        <li><a href="physicianDatabase.html">Physician Database</a></li>
+        <li><a href="PatientDatabase.html">Patient Database</a></li>
+        <li><a href="feedback.html">View Feedback</a></li>
+        <li><a href="../Home/index.html">Logout</a></li>
+      </ul>
     </div>
-    <h2>Registered Users</h2>
-    <table id="userTable">
-        <thead>
+    <div class="main-content-wrapper">
+      <header class="header">
+        <h1 class="welcome-title">View Feedback</h1>
+        <span class="userName">Mr. Mekat</span>
+        <div class="dropdown">
+          <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+          <label for="dropdown-toggle" class="dropbtn">
+            <img src="images/DrMekat.jpg" alt="Profile Icon" class="profile-icon" height="40" width="40">
+          </label>
+          <div class="dropdown-content">
+            <a href="#profile">Profile</a>
+            <a href="#settings">Settings</a>
+            <a href="../Home/index.html">Logout</a>
+          </div>
+        </div>
+      </header>
+      <div class="content">
+        <table id="feedbackTable">
+          <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Actions</th>
+              <th>ReviewID</th>
+              <th>Stars</th>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Actions</th>
             </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-    <script src="feedback.js">
-
-    </script>
+          </thead>
+          <tbody id="feedbackData">
+            <!-- Data will be displayed here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="feedback.js"></script>
 </body>
 </html>
