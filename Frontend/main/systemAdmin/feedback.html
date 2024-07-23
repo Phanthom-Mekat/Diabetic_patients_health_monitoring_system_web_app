@@ -56,90 +56,91 @@
     </div>
   </div>
   <script>
-  const API_URL = 'http://localhost:6000';
-   
-    async function fetchtbl_review() {
-        try {
-            const response = await fetch(`${API_URL}/api/tbl_review`);
-            const tbl_review = await response.json();
-            rendertbl_review(tbl_review);
-        } catch (error) {
-            console.error('Failed to fetch tbl_review:', error);
-            document.getElementById('message').textContent = 'Failed to fetch tbl_review: ' + error.message;
-            document.getElementById('message').className = 'error';
-        }
+      const API_URL = 'http://localhost:6000';
+
+      async function fetchtbl_review() {
+          try {
+              const response = await fetch(`${API_URL}/api/tbl_review`);
+              const tbl_review = await response.json();
+              rendertbl_review(tbl_review);
+          } catch (error) {
+              console.error('Failed to fetch tbl_review:', error);
+          }
+      }
+
+      function rendertbl_review(tbl_review) {
+          const tableBody = document.querySelector('#feedbackTable tbody');
+          tableBody.innerHTML = '';
+
+          tbl_review.forEach(review => {
+              const row = tableBody.insertRow();
+              row.insertCell(0).textContent = review.ReviewID;
+              row.insertCell(1).textContent = review.Stars;
+              row.insertCell(2).textContent = review.Date;
+              row.insertCell(3).textContent = review.Description;
+
+              const actionsCell = row.insertCell(4);
+              actionsCell.className = 'action-buttons';
+
+              const updateButton = document.createElement('button');
+              updateButton.textContent = 'Update';
+              updateButton.onclick = () => updatetbl_review(review.ReviewID, review.Stars, review.Date, review.Description);
+
+              const deleteButton = document.createElement('button');
+              deleteButton.textContent =        actionsCell.appendChild(updateButton);
+          actionsCell.appendChild(deleteButton);
+      });
     }
 
-    function rendertbl_review(tbl_review) {
-        const tableBody = document.querySelector('#tbl_review tbody');
-        tableBody.innerHTML = '';
+    async function updatetbl_review(ReviewID, currentStars, currentDate, currentDescription) {
+        const Stars = prompt('Enter Stars (Y/N):', currentStars);
+        const Date = prompt('Enter Date (YYYY-MM-DD):', currentDate);
+        const Description = prompt('Enter Description:', currentDescription);
 
-        tbl_review.forEach(review => {
-            const row = tableBody.insertRow();
-            row.insertCell(0).textContent = review.ReviewID;
-            row.insertCell(1).textContent = review.Description;
-            
-            const actionsCell = row.insertCell(2);
-            actionsCell.className = 'action-buttons';
-            
-            const updateButton = document.createElement('button');
-            updateButton.textContent = 'Update';
-            updateButton.onclick = () => updatereview(review.ReviewID, review.Description);
-            
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.onclick = () => deletereview(review.ReviewID);
-            
-            actionsCell.appendChild(updateButton);
-            actionsCell.appendChild(deleteButton);
-        });
-    }
-
-    async function updatetbl_review(ReviewID, currentDescription) {
-        const newDescription = prompt('Enter new desc:', currentDescription);
-        if (newDescription && newDescription !== currentDescription) {
+        if (Stars && Date && Description) {
             try {
                 const response = await fetch(`${API_URL}/api/tbl_review/${ReviewID}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ Description: newDescription }),
+                    body: JSON.stringify({ Stars, Date, Description }),
                 });
 
                 if (response.ok) {
-                  fetchtbl_review();
+                    alert('Review updated successfully');
+                    fetchtbl_review();
                 } else {
-                    const data = await response.json();
-                    throw new Error(data.error || 'Failed to update user');
+                    alert('Failed to update review');
                 }
             } catch (error) {
-                console.error('Error updating updatetbl_review:', error);
-                alert('Failed to update updatetbl_review: ' + error.message);
+                console.error('Failed to update review:', error);
             }
         }
     }
 
-    //async function deleteUser(id) {
-       // if (confirm('Are you sure you want to delete this user?')) {
-       //     try {
-       //         const response = await fetch(`${API_URL}/api/users/${id}`, {
-       //             method: 'DELETE',
-      //          });
+    async function deletetbl_review(ReviewID) {
+        if (confirm('Are you sure you want to delete this review?')) {
+            try {
+                const response = await fetch(`${API_URL}/api/tbl_review/${ReviewID}`, {
+                    method: 'DELETE',
+                });
 
-          //      if (response.ok) {
-         //           fetchUsers();
-           //     } else {
-          //          const data = await response.json();
-            //        throw new Error(data.error || 'Failed to delete user');
-          //      }
-          //  } catch (error) {
-           //     console.error('Error deleting user:', error);
-           //     alert('Failed to delete user: ' + error.message);
-          //  }
-       // }
-//    }
-              fetchtbl_review();
-    </script>
+                if (response.ok) {
+                    alert('Review deleted successfully');
+                    fetchtbl_review();
+                } else {
+                    alert('Failed to delete review');
+                }
+            } catch (error) {
+                console.error('Failed to delete review:', error);
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchtbl_review();
+    });
+  </script>
 </body>
 </html>
