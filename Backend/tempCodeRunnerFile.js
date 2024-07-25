@@ -28,10 +28,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-
-// Add other routes to serve other HTML files similarly
-// app.get('/other', (req, res) => {
-    // res.sendFile(path.join(__dirname, '..', 'Frontend', 'main', 'systemAdmin', 'otherPage.html'));
-// });
-
-

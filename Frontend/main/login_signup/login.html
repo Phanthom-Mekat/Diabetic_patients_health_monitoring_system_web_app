@@ -4,9 +4,371 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
     <title>DiaCare</title>
+    <style>
+      @import url("https://fonts.googlepis.com/css?family=Montserrat:400,800");
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+        body {
+        image-rendering: pixelated;
+        background-image: url("h.jpg");
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Montserrat", sans-serif;
+        height: 100vh;
+        margin: 0 auto;
+        }
+        .container {
+        background-color: rgba(118, 154, 187, 0.701);
+        border-radius: 10px;
+        width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0px 14px 28px black;
+        }
+        .form-container {
+        position: absolute;
+        top: 0%;
+        height: 100%;
+        transition: all 0.6 ease-in-out;
+        }
+        .sign-up-container {
+        left: 0;
+        width: 50%;
+        z-index: 1;
+        opacity: 0;
+        }
+        form {
+        background: #000046;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+        }
+        h1 {
+        color: rgb(56, 189, 189);
+        font-weight: bold;
+        margin: 0;
+        }
+        .social-container {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .social-container a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin: 0 6px;
+        font-size: 20px;
+        color: #fff;
+        background-color: #3b5998; 
+        border-radius: 50%;
+        transition: background-color 0.5s ease, transform 0.3s ease;
+        }
+
+        .social-container a:hover {
+        transform: scale(1.1);
+        }
+
+        .social-container a#fb {
+        background-color: #3b5998; 
+        }
+
+        .social-container a#ins {
+        background-color: #e4405f; 
+        }
+
+        .social-container a#gm {
+        background-color: #dd4b39; 
+        }
+
+        .social-container a#tw {
+        background-color: #1da1f2; 
+        }
+        input {
+        background-color: rgb(214, 214, 214);
+        border: none;
+        text-decoration: none;
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 15px;
+
+        border-radius: 10px;
+        }
+        button {
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        background-color: rgba(35, 144, 211, 0.5);
+        color: aqua;
+        font-size: 12px;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        transition: 0.8s ease-in;
+        }
+        .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+        }
+        .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 100;
+        transition: 0.6s ease-in-out;
+        }
+
+
+
+        .overlay {
+        background-color: chartreuse;
+        background:azure;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: white;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: 0.6s ease-in-out;
+        }
+        .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        flex-direction: column;
+        transition: 0.6s ease-in-out;
+        }
+        .overlay-left {
+        transform: translateX(-20%);
+        }
+        .overlay-right {
+        right: 0;
+        transform: translateX(0);
+        }
+        button:active {
+        transform: scale(0.95);
+        }
+        button.press {
+        background-color: transparent;
+        border-color: rgb(20, 169, 119);
+        border-width: 2px;
+        }
+        p {
+        font-family: "Courier New", Courier, monospace;
+        color: rgb(6, 81, 56);
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        margin: 20px 0 30px;
+        }
+        .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+        }
+        .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: slide 0.6s;
+        }
+        @keyframes slide {
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 5;
+        }
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+        }
+        .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+        }
+        .container.right-panel-active .overlay {
+        transform: translateX(50%);
+        }
+        .container.right-panel-active .overlay-left {
+        transform: translateX(0%);
+        }
+        .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+        }
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: none;
+            width: 60%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            animation-name: modalAnimation;
+            animation-duration: 0.4s;
+        }
+
+        @keyframes modalAnimation {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+        }
+
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+        .modal-content h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        }
+
+        .modal-content form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .modal-content input,
+        .modal-content select {
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.5s, box-shadow 0.5s;
+        }
+
+        .modal-content input:focus,
+        .modal-content select:focus {
+        border: 2px solid #555;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+        }
+
+        .modal-content button:hover {
+        background-color: #45a049;
+        }
+
+        /* Container for dynamic fields */
+        #diabetes-types-container, #illnesses-container, #addresses-container {
+        width: 80%;
+        margin-bottom: 20px;
+        }
+
+        #diabetes-types-container select,
+        #illnesses-container input,
+        #addresses-container input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        }
+
+        #illnesses-container input {
+        width: 100%;
+        }
+
+        #addresses-container input {
+        margin-bottom: 10px;
+        }
+
+        /* Button styles for adding more fields */
+        #add-diabetes-type,
+        #add-illness,
+        #add-address {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+        }
+
+        #add-diabetes-type:hover,
+        #add-illness:hover,
+        #add-address:hover {
+        background-color: #0056b3;
+        }
+
+
+                
+    </style>
 </head>
 <body>
     <div class="container" id="container">
@@ -80,15 +442,16 @@
             </div>
         </div>
     </div>
-
     <!-- Modal Popup HTML -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Complete Your Profile</h2>
             <form id="patient-form">
-                <input type="text" placeholder="First Name" id="fname" required />
-                <input type="text" placeholder="Last Name" id="lname" required />
+                <div class="form-row">
+                    <input type="text" placeholder="First Name" id="fname" required />
+                    <input type="text" placeholder="Last Name" id="lname" required />
+                </div>
                 <input type="date" placeholder="Date of Birth" id="dob" required />
                 <select id="gender" title="Gender" required>
                     <option value="">Select Gender</option>
@@ -97,28 +460,133 @@
                 </select>
                 <input type="text" placeholder="Phone Number" id="phone" required />
                 <input type="email" placeholder="Email" id="email" required />
-                <input type="text" placeholder="Weight" id="weight" required />
-                <input type="text" placeholder="Height" id="height" required />
+                <input type="number" placeholder="Weight (kg)" id="weight" required />
+                <input type="number" placeholder="Height (cm)" id="height" required />
                 <select id="insulin-status" title="Insulin Status" required>
                     <option value="">Insulin Status</option>
                     <option value="Y">Yes</option>
                     <option value="N">No</option>
                 </select>
-                <select id="diabetes-type" title="Diabetes Type" required>
-                    <option value="">Diabetes Type</option>
-                    <option value="1">Type 1</option>
-                    <option value="2">Type 2</option>
-                    <option value="3">Type 3</option>
-                </select>
-                <input type="text" placeholder="Other Illness (if any)" id="other-illness" />
-                <input type="text" placeholder="District" id="district" required />
-                <input type="text" placeholder="Sub District" id="sub-district" required />
+                <div id="diabetes-types-container">
+                    <label for="diabetes-type">Diabetes Type</label>
+                    <select class="diabetes-type" title="Diabetes Type" required>
+                        <option value="">Select Diabetes Type</option>
+                        <option value="1">Type 1</option>
+                        <option value="2">Type 2</option>
+                        <option value="3">Others</option>
+                    </select>
+                </div>
+                <div id="illnesses-container">
+                    <label for="other-illness">Other Illness (if any)</label>
+                    <input type="text" class="other-illness" />
+                    <button type="button" id="add-illness">Add Another Illness</button>
+                </div>
+                <div id="addresses-container">
+                    <label for="address">Address</label>
+                    <div class="form-row">
+                        <input type="text" class="address" placeholder="District" required />
+                        <input type="text" class="address" placeholder="Sub District" required />
+                    </div>
+                    <button type="button" id="add-address">Add Another Address</button>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 
+
+
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const addIllnessBtn = document.getElementById('add-illness');
+        const addAddressBtn = document.getElementById('add-address');
+
+        const maxAddresses = 2;
+        const maxIllnesses = 5;
+
+        // Function to add a new illness input
+        addIllnessBtn.addEventListener('click', () => {
+            const container = document.getElementById('illnesses-container');
+            const illnessInputs = document.querySelectorAll('#illnesses-container .other-illness');
+            if (illnessInputs.length < maxIllnesses) {
+                const newInput = document.createElement('input');
+                newInput.className = 'other-illness';
+                newInput.type = 'text';
+                newInput.placeholder = 'Other Illness (if any)';
+                container.appendChild(newInput);
+            } else {
+                alert('You can add a maximum of 5 illnesses.');
+            }
+        });
+
+        // Function to add a new address input
+        addAddressBtn.addEventListener('click', () => {
+            const container = document.getElementById('addresses-container');
+            const addressInputs = document.querySelectorAll('#addresses-container .address');
+            if (addressInputs.length < maxAddresses * 2) { // 2 fields per address
+                const newDistrictInput = document.createElement('input');
+                newDistrictInput.className = 'address';
+                newDistrictInput.type = 'text';
+                newDistrictInput.placeholder = 'District';
+                container.appendChild(newDistrictInput);
+
+                const newSubDistrictInput = document.createElement('input');
+                newSubDistrictInput.className = 'address';
+                newSubDistrictInput.type = 'text';
+                newSubDistrictInput.placeholder = 'Sub District';
+                container.appendChild(newSubDistrictInput);
+            } else {
+                alert('You can add a maximum of 2 addresses.');
+            }
+        });
+    });
+
+        document.addEventListener('DOMContentLoaded', () => {
+        // Existing code...
+
+        // Function to handle form submission
+        document.getElementById('patient-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = {
+                firstName: document.getElementById('fname').value,
+                lastName: document.getElementById('lname').value,
+                dob: document.getElementById('dob').value,
+                gender: document.getElementById('gender').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                weight: document.getElementById('weight').value,
+                height: document.getElementById('height').value,
+                insulinStatus: document.getElementById('insulin-status').value,
+                diabetesTypes: Array.from(document.querySelectorAll('.diabetes-type')).map(el => el.value),
+                otherIllnesses: Array.from(document.querySelectorAll('.other-illness')).map(el => el.value),
+                addresses: Array.from(document.querySelectorAll('.address')).reduce((acc, curr, index, array) => {
+                    if (index % 2 === 0) {
+                        acc.push({ district: curr.value, subDistrict: array[index + 1].value });
+                    }
+                    return acc;
+                }, [])
+            };
+
+            try {
+                const response = await fetch('http://localhost:8000/submitPatientData', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Patient data submitted successfully!');
+                    modal.style.display = 'none';
+                } else {
+                    alert('Failed to submit patient data.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+           }
+        });
+    });
+    //login and signup
         document.addEventListener('DOMContentLoaded', function() {
             const signUpButton = document.getElementById("signUp");
             const signInButton = document.getElementById("signIn");
