@@ -542,15 +542,14 @@
     });
 
         document.addEventListener('DOMContentLoaded', () => {
-        // Existing code...
 
         // Function to handle form submission
         document.getElementById('patient-form').addEventListener('submit', async (event) => {
             event.preventDefault();
 
             const formData = {
-                firstName: document.getElementById('fname').value,
-                lastName: document.getElementById('lname').value,
+                fname: document.getElementById('fname').value,
+                lname: document.getElementById('lname').value,
                 dob: document.getElementById('dob').value,
                 gender: document.getElementById('gender').value,
                 phone: document.getElementById('phone').value,
@@ -569,7 +568,7 @@
             };
 
             try {
-                const response = await fetch('http://localhost:8000/submitPatientData', {
+                ponse = await fetch('http://localhost:8000/DemographicsSubmit/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
@@ -579,11 +578,14 @@
                     alert('Patient data submitted successfully!');
                     modal.style.display = 'none';
                 } else {
+                    const errorData = await response.json();
+                    console.error('Error data:', errorData);
                     alert('Failed to submit patient data.');
                 }
             } catch (error) {
                 console.error('Error:', error);
-           }
+                alert('An error occurred while submitting patient data.');
+            }
         });
     });
     //login and signup

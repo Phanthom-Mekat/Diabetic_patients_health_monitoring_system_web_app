@@ -1,6 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
+const { v4: uuidv4 } = require('uuid');
+
+// Helper function to generate a 9-digit number from a UUID
+const generateNineDigitId = () => {
+    const uuid = uuidv4();
+    let hash = 0;
+    for (let i = 0; i < uuid.length; i++) {
+        hash = (hash * 31 + uuid.charCodeAt(i)) % 1000000000;
+    }
+    return hash.toString().padStart(9, '0');  // Ensure it's exactly 9 digits
+};
 
 // Route for handling patient data submission
 router.post('/submit', async (req, res) => {
@@ -22,19 +33,20 @@ router.post('/submit', async (req, res) => {
     let connection;
 
     try {
+        // Generate a 9-digit PatientID
+        const patientId = generateNineDigitId();
+        console.log('Generated PatientID:', patientId);  // Log the generated ID for debugging
+
         // Start a transaction
         connection = await pool.getConnection();
         await connection.beginTransaction();
 
         // Insert into tbl_patient
-        const [resultPatient] = await connection.query(
-            `INSERT INTO tbl_patient (FName, LName, DOB, Gender, PhoneNumber, Email, Weight, Height, InsulinStatus) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [fname, lname, dob, gender, phone, email, weight, height, insulinStatus]
+        await connection.query(
+            `INSERT INTO tbl_patient (PatientID, FName, LName, DOB, Gender, PhoneNumber, Email, Weight, Height, InsulinStatus) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [patientId, fname, lname, dob, gender, phone, email, weight, height, insulinStatus]
         );
-
-        // Get the newly inserted PatientID
-        const patientId = resultPatient.insertId;
 
         // Insert into tbl_patient_diabetes_type
         for (const diabetesType of diabetesTypes) {
@@ -77,7 +89,7 @@ router.post('/submit', async (req, res) => {
             connection.release();
         }
 
-        res.status(500).json({ error: 'Failed to insert data' });
+        res.status(500).json({ error: 'Failed to insert data', details: error.message, stack: error.stack });
     }
 });
 

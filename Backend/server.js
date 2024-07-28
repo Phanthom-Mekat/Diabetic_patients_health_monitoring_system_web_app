@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, '..', 'Frontend')));
 
 // Use  routes
 //app.use('/feedback', feedbackRoutes);
-app.use('/patient/submit', inputdemographicsroute);
+app.use('/DemographicsSubmit', inputdemographicsroute);
 
 
 // Serve the HTML files based on the route
