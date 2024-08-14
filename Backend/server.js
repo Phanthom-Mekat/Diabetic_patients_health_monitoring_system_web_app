@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-//const feedbackRoutes = require('./routes/feedbackRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 const inputdemographicsroute = require('./routes/inputdemographicsroute');
 const app = express();
 const port = 8000;
@@ -12,40 +12,28 @@ app.use(bodyParser.json());
 // Serve static files from the Frontend directory
 app.use(express.static(path.join(__dirname, '..', 'Frontend')));
 
-// Use  routes
-//app.use('/feedback', feedbackRoutes);
+// Use routes
+app.use('/feedback', feedbackRoutes);
 app.use('/DemographicsSubmit', inputdemographicsroute);
 
-
-// Serve the HTML files based on the route
+// Serve index.html at the root route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'Frontend', 'main', 'login_signup', 'login.html'));
+    res.sendFile(path.join(__dirname, '..', 'Frontend', 'index.html'));
 });
 
-/* app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'Frontend', 'main', 'systemAdmin', 'feedback.html'));
-}); */
+// Serve login.html at the login route
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'Frontend', 'login.html'));
+});
+
+// Serve feedback.html at the feedback route
+app.get('/feedback.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'Frontend', 'feedback.html'));
+});
+
+// Add other routes as needed
 
 // Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Add other routes to serve other HTML files similarly
-// app.get('/other', (req, res) => {
-    // res.sendFile(path.join(__dirname, '..', 'Frontend', 'main', 'systemAdmin', 'otherPage.html'));
-// });
-
-
