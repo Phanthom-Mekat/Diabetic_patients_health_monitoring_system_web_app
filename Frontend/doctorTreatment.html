@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medical Consultation</title>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<link rel="stylesheet" href="doctorTreatment.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Appointments</title>
+    <link rel="stylesheet" href="DoctorDash.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="container">
@@ -17,268 +16,144 @@
             <ul class="sidebar-menu">
                 <li><a href="doctor_dashboard.html">Doctor Dashboard Overview</a></li>
                 <li><a href="doctor_profile.html">View Profile</a></li>
-                <li><a href="doctor_appointments.html">Appointments</a></li>
+                <li><a href="doctor_appointments.html">Manage Appointments</a></li>
                 <li><a href="doctor_chat.html">Chat with patients</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
         </div>
         <div class="main-content-wrapper">
             <header class="header">
-                <h1 class="welcome-title">Treatment</h1>
+                <h1 class="welcome-title">Manage Appointments</h1>
             </header>
             <div class="main-content">
+                <div id="filter-container">
+                    <label for="appointment-type">Filter by Appointment Type:</label>
+                    <select id="appointment-type">
+                        <option value="all">All</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                    </select>
+                    
+                    <label for="appointment-date">Filter by Appointment Date:</label>
+                    <input type="text" id="appointment-date">
 
-                <!-- Patient Demographic Data -->
-                <section class="patient-demographic">
-                    <h2>Patient Demographic Data</h2>
-                    <table class="demographic-table">
+                    <label for="action-filter">Filter by Action:</label>
+                    <select id="action-filter">
+                        <option value="all">All</option>
+                        <option value="approve">Approve</option>
+                        <option value="reject">Reject</option>
+                    </select>
+                    
+                    <label>Status:</label>
+                    <label><input type="radio" name="status-filter" value="all" checked> All</label>
+                    <label><input type="radio" name="status-filter" value="approved"> Approved</label>
+                    <label><input type="radio" name="status-filter" value="pending"> Pending</label>
+                </div>
+                <table id="appointments-table" class="appointments-table">
+                    <thead>
                         <tr>
-                            <td>First Name:</td>
-                            <td>Jahidul</td>
+                            <th>Appointment ID</th>
+                            <th>Patient Name</th>
+                            <th>Appointment Date</th>
+                            <th>Appointment Type</th>
+                            <th>Approval Status</th>
+                            <th>Actions</th>
+                            <th>Treatment</th>
                         </tr>
-                        <tr>
-                            <td>Last Name:</td>
-                            <td>Mekat</td>
-                        </tr>
-                        <tr>
-                            <td>Age:</td>
-                            <td>44</td>
-                        </tr>
-                        <tr>
-                            <td>District:</td>
-                            <td>Noakhali</td>
-                        </tr>
-                        <tr>
-                            <td>Sub District:</td>
-                            <td>Chatkhil</td>
-                        </tr>
-                        <tr>
-                            <td>Gender:</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>Phone Number:</td>
-                            <td>0197733444</td>
-                        </tr>
-                        <tr>
-                            <td>E-mail:</td>
-                            <td>mekat22@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td>Diabetes Type:</td>
-                            <td>Type 2</td>
-                        </tr>
-                        <tr>
-                            <td>Weight:</td>
-                            <td>44 kg</td>
-                        </tr>
-                        <tr>
-                            <td>BMI:</td>
-                            <td>24.9</td>
-                        </tr>
-                        <tr>
-                            <td>Height:</td>
-                            <td>175 cm</td>
-                        </tr>
-                        <tr>
-                            <td>Other Illness:</td>
-                            <td>Paglami</td>
-                        </tr>
-                        <tr>
-                            <td>Insulin Status:</td>
-                            <td>Active</td>
-                        </tr>
-                    </table>
-                </section>
-
-                <!-- Diagnosis Symptom -->
-                <section class="diagnosis-symptom">
-                    <h2>Diagnosis Symptom</h2>
-                    <table class="symptom-table">
-                        <thead>
-                            <tr>
-                                <th>Symptom Name</th>
-                                <th>Duration</th>
-                                <th>Test Item</th>
-                                <th>Result</th>
-                                <th>Result Summary</th>
-                                <th>Observation</th>
-                                <th>Reference Value (Max, Min)</th>
-                                <th>Diagnosis Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>High Blood Sugar</td>
-                                <td>2 weeks</td>
-                                <td>Blood Glucose Test</td>
-                                <td>250 mg/dL</td>
-                                <td>Above normal levels</td>
-                                <td>Fasting condition</td>
-                                <td>70 mg/dL (Min) - 130 mg/dL (Max)</td>
-                                <td>2023-05-10</td>
-                            </tr>
-                            <tr>
-                                <td>Increased Thirst</td>
-                                <td>1 month</td>
-                                <td>N/A</td>
-                                <td>N/A</td>
-                                <td>Polydipsia</td>
-                                <td>Noted during consultation</td>
-                                <td>N/A</td>
-                                <td>2023-05-10</td>
-                            </tr>
-                            <tr>
-                                <td>Frequent Urination</td>
-                                <td>3 weeks</td>
-                                <td>N/A</td>
-                                <td>N/A</td>
-                                <td>Polyuria</td>
-                                <td>Noted during consultation</td>
-                                <td>N/A</td>
-                                <td>2023-05-10</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- Prescribe Medicine -->
-                <section class="prescribe-medicine">
-                    <h2>Prescribe Medicine</h2>
-                    <form id="prescription-form">
-                        <div class="form-group">
-                            <label for="patient-name">Patient Name:</label>
-                            <input type="text" id="patient-name" name="patient-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="symptoms">Symptoms:</label>
-                            <textarea id="symptoms" name="symptoms" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="diagnosis">Diagnosis:</label>
-                            <select id="diagnosis" name="diagnosis" required>
-                                <option value="Type-1 Diabetes">Type-1 Diabetes</option>
-                                <option value="Type-2 Diabetes">Type-2 Diabetes</option>
-                                <option value="Gestational Diabetes">Gestational Diabetes</option>
-                                <option value="Others">Others</option>
-                            </select>
-                            <input type="text" id="custom-diagnosis" name="custom-diagnosis" style="display: none;" placeholder="Specify diagnosis">
-                        </div>
-                        <div id="drugs-container">
-                            <div class="drug-entry">
-                                <h3>Drug 1</h3>
-                                <div class="form-group">
-                                    <label for="drug-name-1">Drug Name:</label>
-                                    <input type="text" id="drug-name-1" name="drug-name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="dose-1">Dose (e.g., 500mg):</label>
-                                    <input type="text" id="dose-1" name="dose" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="dosage-1">Dosage:</label>
-                                    <select id="dosage-1" name="dosage" required>
-                                        <option value="Once a day">Once a day</option>
-                                        <option value="Twice a day">Twice a day</option>
-                                        <option value="Thrice a day">Thrice a day</option>
-                                        <option value="Four times a day">Four times a day</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <input type="text" id="custom-dosage-1" name="custom-dosage" style="display: none;" placeholder="Specify dosage">
-                                </div>
-                                <div class="form-group">
-                                    <label for="quantity-1">Quantity:</label>
-                                    <input type="number" id="quantity-1" name="quantity" required min="1" max="100">
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" id="add-drug-btn" class="btn-add-drug">Add Another Drug</button>
-                        <div class="form-actions">
-                            <button type="submit" class="btn-submit">Add Prescription</button>
-                        </div>
-                    </form>
-                </section>
-
-                <!-- Consultation Form -->
-                <section class="consultation-form-section">
-                    <h2>Consultation Form</h2>
-                    <form id="consultation-form" class="consultation-form">
-                        <div class="form-group">
-                            <label for="appointment-id">Appointment ID:</label>
-                            <input type="text" id="appointment-id" name="appointment-id" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="instructions">Instructions:</label>
-                            <textarea id="instructions" name="instructions" rows="4" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="suggested-action">Suggested Action:</label>
-                            <textarea id="suggested-action" name="suggested-action" rows="4" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="follow-up-date">Follow-Up Date:</label>
-                            <input type="text" id="follow-up-date" name="follow-up-date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reason">Reason of Consultation:</label>
-                            <select id="reason" name="reason" required>
-                                <option value="treatment">Treatment</option>
-                                <option value="report-checking">Report Checking</option>
-                                <option value="others">Others</option>
-                            </select>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn-submit">Submit</button>
-                            <button type="reset" class="btn-reset">Reset</button>
-                        </div>
-                    </form>
-                </section>
-
-                <!-- Update Previous Prescriptions -->
-                <section class="update-previous-prescriptions">
-                    <h2>Update Previous Prescriptions</h2>
-                    <div class="table-container">
-                        <div class="search-container">
-                            <input type="text" id="search-appointment-id" placeholder="Enter Appointment ID">
-                            <button id="search-btn" title="Search"><i class="fas fa-search"></i></button>
-                        </div>
-                        <table id="prescriptions-table" class="prescriptions-table">
-                            <thead>
-                                <tr>
-                                    <th>Appointment ID</th>
-                                    <th>Prescription ID</th>
-                                    <th>Medicine Name</th>
-                                    <th>Dose</th>
-                                    <th>Dosage</th>
-                                    <th>Quantity</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Prescription data will be inserted here -->
-                            </tbody>
-                        </table>
+                    </thead>
+                    <tbody>
+                        <!-- Appointments data will be inserted here -->
+                    </tbody>
+                </table>
+                <!-- Profile card container -->
+                <div id="profile-card" class="profile-card" style="display: none;">
+                    <div class="profile-card-content">
+                        <span id="close-profile-card">&times;</span>
+                        <h3>Patient Profile</h3>
+                        <p id="profile-details"></p>
                     </div>
-                </section>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            </div><!-- .main-content -->
-        </div><!-- .main-content-wrapper -->
-    </div><!-- .container -->
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script src="doctorPrescriptionsScript.js"></script>
-    <script src="doctorConsultationScript.js"></script>
-    <script src="doctor_track_and_updateMedicine.js"></script>
-
-    <!-- jQuery UI Datepicker initialization -->
     <script>
-        $(function() {
-            $('#follow-up-date').datepicker({ dateFormat: 'yy-mm-dd' });
-        });
-    </script>
+        const API_URL = 'http://localhost:8000/appointments';
 
+        async function fetchAppointments() {
+            try {
+                const response = await fetch(API_URL);
+                if (response.ok) {
+                    const appointments = await response.json();
+                    renderAppointments(appointments);
+                } else {
+                    console.error('Error fetching data:', response.status, response.statusText);
+                    console.error('Response:', await response.text());
+                }
+            } catch (error) {
+                console.error('Failed to fetch appointments:', error);
+            }
+        }
+
+        function renderAppointments(appointments) {
+            const tableBody = document.querySelector('#appointments-table tbody');
+            tableBody.innerHTML = '';
+
+            appointments.forEach(appointment => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${appointment.AppointmentID}</td>
+                    <td>${appointment.PatientName}</td>
+                    <td>${appointment.AppointmentDate}</td>
+                    <td>${appointment.AppointmentType}</td>
+                    <td>${appointment.ApprovalStatus}</td>
+                    <td>
+                        <button onclick="approveAppointment(${appointment.AppointmentID})">Approve</button>
+                        <button onclick="rejectAppointment(${appointment.AppointmentID})">Reject</button>
+                    </td>
+                    <td>
+                        <button onclick="viewTreatment(${appointment.AppointmentID})" ${appointment.ApprovalStatus === 'Approved' ? '' : 'disabled'}>Treatment</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        async function approveAppointment(id) {
+            try {
+                const response = await fetch(`${API_URL}/${id}/approve`, {
+                    method: 'PUT'
+                });
+                if (response.ok) {
+                    fetchAppointments();
+                } else {
+                    console.error('Error approving appointment:', response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error('Failed to approve appointment:', error);
+            }
+        }
+
+        async function rejectAppointment(id) {
+            try {
+                const response = await fetch(`${API_URL}/${id}/reject`, {
+                    method: 'PUT'
+                });
+                if (response.ok) {
+                    fetchAppointments();
+                } else {
+                    console.error('Error rejecting appointment:', response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error('Failed to reject appointment:', error);
+            }
+        }
+
+        function viewTreatment(id) {
+            window.location.href = `doctorTreatment.html?appointmentId=${id}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchAppointments);
+    </script>
 </body>
 </html>

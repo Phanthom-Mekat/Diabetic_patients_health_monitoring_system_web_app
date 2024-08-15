@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Details</title>
+    <link rel="stylesheet" href="diagnosisStyles.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="sidebar">
+            <a class="dashboardLink" href="patientDashboard.html">Dashboard</a><br><br><br><br>
+            <ul>
+                <li><a href="viewProfile.html"> View Profile</a></li>
+                <li><a href="inputHealthData.html"> Daily Health Data</a></li>
+                <li><a href="viewDoctor.html"> Book Appointments</a></li>
+                <li><a href="diagnosis.html"> Diagnosis Data</a></li>
+                <li><a href="diet.html"> Diet Plan</a></li>
+                <li><a href="viewPrescription.html"> Prescriptions</a></li>
+                <li><a href="recommandation.html"> Recommendations</a></li>
+                <li><a href="feedbackfromPat.html"> Feedback</a></li>
+                <li><a href="patient_chat.html">Chat with doctors</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="container">
+            <form id="diagnosis-form">
+                <div class="form-group">
+                    <h1>Diagnosis Report</h1><br><br>
+                    <label for="test-name">Test Name</label>
+                    <input type="text" id="test-name" name="test-name" placeholder="Enter test name">
+                </div>
+                <div class="form-group">
+                    <label for="test-type">Test Type</label>
+                    <select id="test-type" name="test-type">
+                        <option value="">Select test name</option>
+                        <option value="blood-test">Blood Test</option>
+                        <option value="urine">Urine</option>
+                        <option value="imaging">Imaging</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="test-result">Test Result</label>
+                    <input type="text" id="test-result" name="test-result" placeholder="Enter test result">
+                </div>
+                <div class="test-items">
+                    <div class="form-group">
+                        <label>Test Items (optional)</label>
+                        <div class="test-item">
+                            <input type="text" class="test-item-input" placeholder="Enter item">
+                        </div>
+                        <div class="test-item">
+                            <input type="text" class="test-item-input" placeholder="Enter item">
+                        </div>
+                        <div class="test-item">
+                            <input type="text" class="test-item-input" placeholder="Enter item">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="test-summary">Test Summary</label>
+                    <textarea id="test-summary" name="test-summary" placeholder="Enter test summary"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis-date">Diagnosis Date</label>
+                    <input type="date" id="diagnosis-date" name="diagnosis-date">
+                </div>
+                <div class="form-group">
+                    <label for="observations">Observations</label>
+                    <textarea id="observations" name="observations" placeholder="Enter observations"></textarea>
+                </div>
+                <div class="health-data-footer">
+                    <button class="save-button" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('diagnosis-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const testItems = Array.from(document.getElementsByClassName('test-item-input')).map(input => input.value).filter(value => value);
+
+            const formData = {
+                testName: document.getElementById('test-name').value,
+                testType: document.getElementById('test-type').value,
+                testResult: document.getElementById('test-result').value,
+                testSummary: document.getElementById('test-summary').value,
+                diagnosisDate: document.getElementById('diagnosis-date').value,
+                observations: document.getElementById('observations').value,
+                testItems: testItems
+            };
+
+            fetch('/submit-diagnosis', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
